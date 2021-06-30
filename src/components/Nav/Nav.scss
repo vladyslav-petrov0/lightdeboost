@@ -1,0 +1,25 @@
+@import '../../utils/scss/vars.scss';
+
+.nav-list {
+    display: flex;
+
+    li {
+        font-weight: 500;
+        font-size: 16px;
+
+        text-transform: uppercase;
+        line-height: 20px;
+
+        color: $colorAdd1;
+
+        margin-right: 47px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

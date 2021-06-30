@@ -1,0 +1,47 @@
+@import '../../utils/scss/vars.scss';
+@import '../../utils/scss/media.scss';
+
+.slider {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    max-width: 569px;
+    width: 100%;
+    height: 100%;
+
+    &__item {
+        position: absolute;
+        top: 5%;
+        right: 0;
+
+        z-index: 10;
+    }
+
+    &__btns {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        z-index: 15;
+
+        transform: translateX(-50%);
+
+        display: flex;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 66px;
+        height: 66px;
+
+        background-color: $colorMain;
+        cursor: pointer;
+
+        &:last-child {
+            transform: rotate(180deg);
+        }
+    }
+}

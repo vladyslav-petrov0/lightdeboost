@@ -1,0 +1,33 @@
+.header {
+    background-color: #F4B02B;
+    padding: 15px 0;
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        img {
+            width: 218px;
+            height: 33px;
+        }
+    }
+
+    &__loggin {
+        img {
+            width: 16px;
+            height: 18px;
+        }
+    
+        margin-right: 20px;
+    }
+
+    &__cart {
+        img {
+            width: 20px;
+            height: 17px;
+        }
+    }
+}

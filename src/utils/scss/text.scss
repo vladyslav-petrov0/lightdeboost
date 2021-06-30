@@ -1,0 +1,14 @@
+.text {
+    font-weight: normal;
+    font-size: 18px;
+
+    line-height: 22px;
+    
+    &--medium {
+        font-weight: 500;
+    }
+
+    &--black {
+        color: $colorAdd1;
+    }
+}

@@ -1,0 +1,12 @@
+.title {
+    font-weight: bold;
+
+    &--big {
+        font-size: 80px;
+        line-height: 102.4%;
+    }
+    
+    &--black {
+        color: $colorAdd1;
+    }
+}

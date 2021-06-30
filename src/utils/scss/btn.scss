@@ -1,0 +1,16 @@
+@import '../../utils/scss/vars.scss';
+
+.btn {
+    display: flex;
+    text-decoration: none;
+
+    &--transparent {
+        font-size: 16px;
+        line-height: 20px;
+        text-transform: uppercase;
+
+        color: $colorAdd1;
+
+        border: 2px solid #F4B02B;
+    }
+}
