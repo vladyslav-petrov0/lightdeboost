@@ -1,3 +1,19 @@
+@import '../../utils/scss/media.scss';
+
 .intro__details {
     z-index: 10;
+
+    @include media(1000px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+
+        margin-top: 100px;
+    }
+
+    @include media(540px) {
+        margin-top: 50px;
+    }
 }

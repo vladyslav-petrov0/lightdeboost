@@ -1,15 +1,18 @@
 import React from 'react';
-import './IntroSlider.scss';
+import { connect } from 'react-redux';
+
+import { changeCurrentIntroId } from '../../actions/index.js';
+import IntroSliderItem from '../IntroSliderItem/IntroSliderItem.js';
 
 import arrowIcon from './img/arrow.svg';
+import './IntroSlider.scss';
 
-const IntroSlider = ({ slide, onChangeId }) => {
+const IntroSlider = ({ onChangeId }) => {
     return (
         <div className="slider">
 
             <div className="slider__body">
-                <img className="slider__item"
-                src={slide} alt="" />
+                <IntroSliderItem />
             </div>
 
             <div className="slider__btns">
@@ -26,6 +29,14 @@ const IntroSlider = ({ slide, onChangeId }) => {
             
         </div>
     );
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChangeId: (id) => {
+            dispatch(changeCurrentIntroId(id));
+        }
+    }
 }
 
-export default IntroSlider;
+export default connect(null, mapDispatchToProps)(IntroSlider);

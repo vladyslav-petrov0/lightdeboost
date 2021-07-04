@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './IntroDetails.scss';
 
-const IntroDetails = ({ item }) => {
+const IntroDetails = ({ item = {} }) => {
     const { title, text, linkTo } = item;
 
     return (
@@ -23,4 +24,8 @@ const IntroDetails = ({ item }) => {
     );
 };
 
-export default IntroDetails;
+const mapStateToProps = ({ intro: { itemList, currentId } }) => {
+    return { item: itemList[currentId] };
+};
+
+export default connect(mapStateToProps)(IntroDetails);
