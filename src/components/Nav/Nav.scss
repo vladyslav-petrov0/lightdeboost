@@ -4,7 +4,7 @@
 .nav {
     @include media(830px) {
         position: fixed;
-        z-index: 200;
+        z-index: 300;
 
         top: 0;
         right: 0;

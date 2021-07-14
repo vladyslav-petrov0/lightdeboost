@@ -1,11 +1,12 @@
 @import '../../utils/scss/media.scss';
+@import '../../utils/scss/vars.scss';
 
 .intro {
     display: flex;
     align-items: center;
 
     height: 600px;
-    overflow-y: hidden;
+    overflow: hidden;
 
     &__title {
         max-width: 555px;

@@ -7,19 +7,7 @@
 
     z-index: 10;
 
-    &.hidden {
-        display: none;
-    }
-
-    &.animated {
-        animation-name: FadeOutLeft;
-        animation-duration: 0.5s;
-        animation-fill-mode: forwards;
-    
-        @include media(1000px) {
-            animation-name: FadeOutLeft1000;
-        }
-    }
+    opacity: 0;
 
     @include media(1100px) {
         top: 20%;
@@ -29,38 +17,5 @@
     
     @include media(1000px) {
         position: static;
-        transform: translateY(10%);
- 
-        max-width: 350px;
-    }
-
-    @include media(720px) {
-        max-width: 300px;
-    }
-
-    @include media(540px) {
-        max-width: 250px;
-    }
-}
-
-@keyframes FadeOutLeft {
-    0% {
-        opacity: 0;
-        transform: translate(50%, 0);        
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-}
-
-@keyframes FadeOutLeft1000 {
-    0% {
-        opacity: 0;
-        transform: translate(50%, 10%);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0, 10%);
     }
 }

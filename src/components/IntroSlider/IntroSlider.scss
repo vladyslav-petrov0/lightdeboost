@@ -51,7 +51,23 @@
         }
     }
 
+    &__spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     @include media(1000px) {
-        position: static;
+        position: relative;
+        height: 457px;
+    }
+
+    @include media(720px) {
+        height: 393px;
+    }
+
+    @include media(540px) {
+        height: 328px;
     }
 }

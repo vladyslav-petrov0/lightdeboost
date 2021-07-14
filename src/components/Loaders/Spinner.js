@@ -1,10 +1,13 @@
 import React from 'react';
 import './Spinner.scss';
 
-const Spinner = () => {
+const Spinner = ({ className = '' }) => {
     return (
-        <div className="loadingio-spinner-spinner-fd2oqxj31jk">
-            <div className="ldio-dotj2cjxn4s">
+        <div className={`loadingio-spinner-spinner-c652y62i7wr ${className}`}>
+            <div className="ldio-pbihk53xvj">
+                <div></div>
+                <div></div>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>

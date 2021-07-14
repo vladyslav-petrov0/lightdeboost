@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useLoopedEvent } from "../customHooks";
 
 import { changeCurrentIntroId } from '../../actions/index.js';
 import IntroSliderItem from '../IntroSliderItem/IntroSliderItem.js';
@@ -7,7 +8,9 @@ import IntroSliderItem from '../IntroSliderItem/IntroSliderItem.js';
 import arrowIcon from './img/arrow.svg';
 import './IntroSlider.scss';
 
-const IntroSlider = ({ onChangeId }) => {
+const IntroSlider = ({ changeId }) => {
+    const onChangeId = useLoopedEvent(changeId, 8000,1);
+
     return (
         <div className="slider">
 
@@ -33,7 +36,7 @@ const IntroSlider = ({ onChangeId }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onChangeId: (id) => {
+        changeId: (id) => {
             dispatch(changeCurrentIntroId(id));
         }
     }

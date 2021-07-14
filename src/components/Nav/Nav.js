@@ -1,24 +1,46 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import BurgerMenu from '../BurgerMenu/BurgerMenu.js';
+import { burgerMenuUpdate } from '../../actions/index.js';
+import { elems } from '../../mocks/nav.js';
 import './Nav.scss';
 
-const Nav = ({ classNames, children }) => {
+const Nav = ({ classNames, children, closeMenu, isActive }) => {
     return (
         <nav className={classNames}>
+            { isActive && <BurgerMenu /> }
+            
             <ul className='nav-list'>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About us</Link></li>
-                <li><Link to="/shop">Shop</Link></li>
-                <li><Link to="/contacts">Contacts</Link></li>
-                <li> {children} </li>
+            {
+                elems.map(el => {
+                    return (
+                        <li key={el.id}>
+                            <Link to={el.to}
+                            onClick={closeMenu}>
+                                { el.label }
+                            </Link>
+                        </li>
+                    );
+                })
+            }{
+                Children.map(children, (child) => {
+                    if (child) {
+                        return (
+                            <li>
+                            { React.cloneElement(child, { onClick: closeMenu } )}
+                            </li>
+                        );
+                    };
+                })
+            }
             </ul>
         </nav>
     );
 };
 
-const NavContainer = ({ isActive, children }) => {
+const NavContainer = ({ isActive, children, closeMenu }) => {
     let classes = "nav";
     if (isActive) {
         classes += " showed";
@@ -27,8 +49,18 @@ const NavContainer = ({ isActive, children }) => {
         document.body.style.overflow = '';
     }
     
+    const onClick = (e) => {
+        const target = e.target?.closest('a') || e.target;
+
+        if (target.tagName == 'A' && isActive) {
+            closeMenu();
+        }
+    }
+
     return (
-        <Nav classNames={classes}> 
+        <Nav closeMenu={onClick}
+        classNames={classes}
+        isActive={isActive}> 
             { children } 
         </Nav>
     );
@@ -38,4 +70,10 @@ const mapStateToProps = ({ header: { burgerMenuIsActive } }) => {
     return { isActive: burgerMenuIsActive };
 }
 
-export default connect(mapStateToProps)(NavContainer);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        closeMenu: () => dispatch(burgerMenuUpdate(false))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavContainer);

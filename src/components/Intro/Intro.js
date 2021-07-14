@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { introItemListLoaded } from '../../actions/index.js';
+import { fetchIntroItemList } from '../../actions/index.js';
 
 import IntroDetails from '../IntroDetails/IntroDetails.js';
 import IntroSlider from '../IntroSlider/IntroSlider.js';
@@ -28,12 +28,7 @@ const Intro = ({ fetchItemList }) => {
 
 const mapDispatchToProps = (dispatch, { service }) => {
     return {
-        fetchItemList: () => {
-            service.getIntroItemList()
-                .then(data => {
-                    dispatch(introItemListLoaded(data))
-                });
-        }
+        fetchItemList: () => fetchIntroItemList(service, dispatch),
     }
 }
 

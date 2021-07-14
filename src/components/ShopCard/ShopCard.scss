@@ -1,0 +1,95 @@
+@import '../../utils/scss/vars.scss';
+
+.shop-card {
+  position: relative;
+  border-radius: $radius;
+
+  &--mini {
+    max-width: 367px;
+    height: 168px;
+
+    padding: 30px;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: bold;
+
+    color: $colorAdd2;
+
+    &--mini {
+      max-width: 146px;
+
+      font-size: 22px;
+      line-height: 102.4%;
+
+      margin-bottom: 12px;
+    }
+  }
+
+  &__btn {
+    display: block;
+
+    &--blured {
+      max-width: 119px;
+      padding: 13px 22px;
+
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+
+      text-transform: uppercase;
+      color: $colorAdd2;
+
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+
+      border-radius: $radius;
+    }
+  }
+
+  &__price {
+    &--mini {
+      display: flex;
+
+      position: absolute;
+      top: 0;
+      right: 25px;
+
+      background-color: $colorMain;
+      width: 45px;
+      height: 40px;
+
+      padding: 16px 7px;
+
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 102.4%;
+
+      color: $colorAdd2;
+
+      &:before, &:after {
+        content: '';
+
+        position: absolute;
+        top: 100%;
+
+        width: 0;
+        height: 0;
+        border-top: 22.5px solid $colorMain;
+      }
+
+      &:after {
+        left: 0;
+        border-right: 22.5px solid transparent;
+      }
+
+      &:before {
+        right: 0;
+        border-left: 22.5px solid transparent;
+      }
+    }
+  }
+}

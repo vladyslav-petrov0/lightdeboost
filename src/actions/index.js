@@ -1,21 +1,14 @@
-export const changeCurrentIntroId = (id) => {
-    return {
-        type: 'UPDATE_INTRO-ID',
-        payload: id
-    }
-};
+import { fetchIntroItemList, 
+    changeCurrentIntroId } from "./intro.js";
 
-export const introItemListLoaded = (itemList) => {
-    return {
-        type: 'FETCH_INTRO-ITEMS_SUCCESS',
-        payload: itemList
-    }
-};
+import { fetchItemsTabsHeaders,
+    fetchItemsTabsContent } from './itemsTabs.js';
 
-export const introItemListRequest = () => {
-    return {
-        type: 'FETCH_INTRO-ITEMS_REQUEST',
-    }
+export {
+    fetchIntroItemList,
+    changeCurrentIntroId,
+    fetchItemsTabsHeaders,
+    fetchItemsTabsContent
 }
 
 export const burgerMenuUpdate = (state) => {
@@ -24,3 +17,4 @@ export const burgerMenuUpdate = (state) => {
         payload: state
     }
 }
+

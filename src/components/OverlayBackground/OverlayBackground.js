@@ -3,7 +3,9 @@ import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 
 import { burgerMenuUpdate } from '../../actions/index.js';
+
 import './OverlayBackground.scss';
+import '../../utils/scss/transition-group-anims/fade-in.scss';
 
 const OverlayBackground = ({ isActive, closeOverlay}) => {
     return (
@@ -16,7 +18,6 @@ const OverlayBackground = ({ isActive, closeOverlay}) => {
             onClick={closeOverlay}></div>          
         </CSSTransition>
     );
-
 };
 
 const mapDispatchToProps = (dispatch) => {

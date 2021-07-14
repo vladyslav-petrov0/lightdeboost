@@ -10,7 +10,6 @@
 
 body {
     font-family: Montserrat;
-    background-color: $colorSec;
 }
 
 .container {
@@ -19,4 +18,16 @@ body {
 
     margin: 0 auto;
     padding: 0 20px;
+}
+
+#root {
+    padding-top: 66px;
+
+    @include media(1100px) {
+        padding-top: 66px;
+    }
+
+    @include media(540px) {
+        padding-top: 36px;
+    }
 }

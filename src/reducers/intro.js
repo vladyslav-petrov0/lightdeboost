@@ -44,6 +44,14 @@ const introReducer = (state, action) => {
                 currentId: state.intro.currentId,
             }
 
+        case 'FETCH_INTRO-ITEMS_FAILURE':
+            return {
+                loading: false,
+                error: true,
+                itemList: [],
+                currentId: state.intro.currentId,
+            }
+
         default:
             return state.intro;
     };

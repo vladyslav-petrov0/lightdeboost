@@ -1,54 +1,39 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 
 import Spinner from '../Loaders/Spinner.js';
 import './IntroSliderItem.scss';
+import '../../utils/scss/transition-group-anims/fade-out-left.scss';
 
-const IntroSliderItem = ({ itemProps, children }) => {
+const IntroSliderItem = ({ slide }) => {
+    const [ loading, setLoading ] = useState(true);
+    // сделать отмену загрузки, если человек пролистывает дальше слайд.
+    useLayoutEffect(() => {
+        setLoading(true);
+    }, [ slide ]);
+    
     return (
         <Fragment>
-            <img {...itemProps} alt="" />
-            { children }
+            <CSSTransition
+            in={!loading}
+            timeout={500}
+            classNames={'fade-out-left'} >
+
+                <img src={slide} alt='' 
+                className="slider__item"
+                onLoad={() => setLoading(false)} />
+
+            </CSSTransition>
+
+            { loading && <Spinner className="slider__spinner" /> }
         </Fragment>
-    );
-};
-
-const IntroSliderItemContainer = ({ slide }) => {
-    const [ loading, setLoading ] = useState(true);
-    const [ animating, setAnimating ] = useState(false);
-
-    useEffect(() => {
-        setLoading(true);
-        return () => setAnimating(false);
-    }, [slide]);
-
-    let classes = "slider__item";
-    
-    if (animating) {
-        classes += " animated";
-    }
-
-    if (loading) {
-        classes += " hidden";
-    }
-
-    return (
-        <IntroSliderItem
-        itemProps={{
-        className: classes,
-        onLoad: () => {
-            setAnimating(true)
-            setLoading(false)
-        },
-        src: slide }} >
-            { loading ? <Spinner /> : null }
-        </IntroSliderItem>
     );
 }
 
 const mapStateToProps = ({ intro: { itemList, currentId } }) => {
     const el = itemList[currentId];
-    return !el ? {} : { slide: el.img };  
+    return !el ? {} : { slide: el.img };
 };
 
-export default connect(mapStateToProps)(IntroSliderItemContainer);
+export default connect(mapStateToProps)(IntroSliderItem);

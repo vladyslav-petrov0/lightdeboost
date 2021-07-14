@@ -1,8 +1,20 @@
 @import '../../utils/scss/media.scss';
 
 .header {
-    background-color: #F4B02B;
+    position: fixed;
+    top: -50%;
+    left: 0;
+    z-index: 150; 
+
     padding: 15px 0;
+    width: 100%;
+    
+    background-color: #F4B02B;
+    transition: top 0.7s ease;
+
+    &.showed {
+        top: 0%;
+    }
 
     &__body {
         display: flex;

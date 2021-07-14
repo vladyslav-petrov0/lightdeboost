@@ -1,0 +1,67 @@
+@import '../../utils/scss/vars.scss';
+@import '../../utils/scss/media.scss';
+
+.items-tabs {
+  margin: 68px 0 131px 0;
+
+  &__header {
+    display: flex;
+    margin-bottom: 33px;
+
+    @include media(768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    flex: 1 1 20%;
+    padding: 35px 30px 32px 31px;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 102.4%;
+
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    color: $colorAdd1;
+    background-color: rgba(244, 176, 43, 0.12);
+
+    &.active {
+      color: $colorAdd2;
+      background-color: $colorMain;
+    }
+
+    @include media(1200px) {
+      padding: 25px 20px;
+
+      font-size: 20px;
+      line-height: 100%;
+    }
+
+    @include media(550px) {
+      padding: 20px 15px;
+      font-size: 18px;
+    }
+
+    @include media(430px) {
+      padding: 15px 10px;
+      font-size: 16px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__card {
+    flex: 1 1 31%;
+    margin-bottom: 30px;
+
+
+  }
+}
