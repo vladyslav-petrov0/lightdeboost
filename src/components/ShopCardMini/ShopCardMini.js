@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 import '../ShopCard/ShopCard.scss';
 
-const ShopCardMini = ({ title, price, background }) => {
+const ShopCardMini = ({ title, price, background, className }) => {
     return (
         <div style={{
             backgroundImage: `url(${background})`
         }}
-        className="shop-card shop-card--mini items-tabs__card">
+        className={`shop-card shop-card--mini ${className}`}>
 
             <h3 className="shop-card__title shop-card__title--mini">
                 { title }

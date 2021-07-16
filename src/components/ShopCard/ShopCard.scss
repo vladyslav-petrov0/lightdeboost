@@ -1,4 +1,5 @@
 @import '../../utils/scss/vars.scss';
+@import '../../utils/scss/media.scss';
 
 .shop-card {
   position: relative;
@@ -9,6 +10,10 @@
     height: 168px;
 
     padding: 30px;
+
+    @include media(500px) {
+      padding: 30px 15px;
+    }
   }
 
   &__title {

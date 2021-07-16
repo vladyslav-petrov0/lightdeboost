@@ -4,6 +4,16 @@
 .items-tabs {
   margin: 68px 0 131px 0;
 
+  &__body {
+    position: relative;
+
+    min-height: 365px;
+
+    @media (max-width: 768px) {
+      min-height: 168px;
+    }
+  }
+
   &__header {
     display: flex;
     margin-bottom: 33px;
@@ -41,12 +51,12 @@
       line-height: 100%;
     }
 
-    @include media(550px) {
+    @include media(768px) {
       padding: 20px 15px;
       font-size: 18px;
     }
 
-    @include media(430px) {
+    @include media(500px) {
       padding: 15px 10px;
       font-size: 16px;
     }
@@ -55,13 +65,6 @@
   &__item {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  &__card {
-    flex: 1 1 31%;
-    margin-bottom: 30px;
-
-
+    justify-content: center;
   }
 }

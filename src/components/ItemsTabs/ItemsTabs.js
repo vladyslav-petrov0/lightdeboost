@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from "react-redux";
 
 import Tabs from '../Tabs/Tabs.js';
 import TabsHeader from '../TabsHeader/TabsHeader.js';
 import TabsHeaderItem from '../TabsHeaderItem/TabsHeaderItem.js';
-import TabsItem from '../TabsItem/TabsItem.js';
-import TabsBody from '../TabsBody/TabsBody.js';
-import ShopCardMini from "../ShopCardMini/ShopCardMini.js";
+import TabsBody from "../TabsBody/TabsBody";
+import TabsItem from "../TabsItem/TabsItem";
+import ItemsTabsBodyItem from "../ItemsTabsBodyItem/ItemsTabsBodyItem";
 
 import withServiceContext from "../hoc/withServiceContext";
-import { fetchItemsTabsHeaders, fetchItemsTabsContent } from '../../actions/index.js';
-
 import './ItemsTabs.scss';
 
 const ItemsTabs = ({ headerItems, bodyItems }) => {
@@ -21,7 +18,7 @@ const ItemsTabs = ({ headerItems, bodyItems }) => {
                     { headerItems }
                 </TabsHeader>
 
-                <TabsBody>
+                <TabsBody className="items-tabs__body">
                     { bodyItems }
                 </TabsBody>
             </Tabs>
@@ -29,24 +26,64 @@ const ItemsTabs = ({ headerItems, bodyItems }) => {
     );
 }
 
-const ItemsTabsContainer = ({ headers = [], fetchHeaders, itemList = [], updateItemList }) => {
-    // const [ loading, setLoading ] = useState(true);
-    // const [ headers, setHeaders ] = useState([]);
-    // const [ itemList, setItemList ] = useState([]);
+const ItemsTabsContainer = ({ service }) => {
+    const [ loading, setLoading ] = useState(true);
+    const [ error, setError ] = useState(false);
+    const [ headers, setHeaders ] = useState([]);
+    const [ itemList, setItemList ] = useState([{ id: null }]);
+
+    const fetchHeaders = () => {
+        service.getItemTabsHeaders()
+            .then(setHeaders)
+            .catch(setError);
+    };
+
+    const updateItemList = (idx, id) => {
+        setLoading(true);
+
+        const createEmptyItemList = (length) => {
+            const arr = [];
+            for (let i = 0; i < length; i++) {
+                arr.push({ id: `content_${i + 1}` });
+            }
+
+            return arr;
+        }
+
+        const insertItemsIntoItemList = async (arr) => {
+            return new Promise(resolve => {
+                service.getItemTabsContent(id)
+                    .then(data => {
+                        arr[idx] = { ...arr[idx], ...data };
+                        resolve(arr);
+                    });
+            });
+        };
+
+        const arr = createEmptyItemList(headers.length);
+
+        insertItemsIntoItemList(arr)
+            .then(items => {
+                setItemList(items);
+                setLoading(false);
+            });
+    };
+
+    useEffect(fetchHeaders, []);
 
     useEffect(() => {
-        fetchHeaders();
-        updateItemList(0, 1, headers.length);
-    }, []);
+        if (headers.length) {
+            updateItemList(0, 1)
+        };
+    }, [ headers ]);
 
     const headerItems = headers.map((el, idx) => {
+        const onClick = () => updateItemList(idx, el.id);
+
         return (
-            <TabsHeaderItem
-            key={el.id}
+            <TabsHeaderItem key={el.id}
             className="items-tabs__title"
-            onClick={() => {
-                updateItemList(idx, el.id, headers.length)
-            }}>
+            onClick={onClick}>
                 { el.label }
             </TabsHeaderItem>
         );
@@ -54,13 +91,12 @@ const ItemsTabsContainer = ({ headers = [], fetchHeaders, itemList = [], updateI
 
     const bodyItems = itemList.map(el => {
         return (
-            <TabsItem key={el.id}
-            className="items-tabs__item">
-            {
-                el.map(itm => {
-                    return <ShopCardMini {...itm} key={el.id}/>;
-                })
-            }
+            <TabsItem className="items-tabs__item"
+            key={el.id}>
+                <ItemsTabsBodyItem
+                elem={el}
+                loading={loading}
+                error={error} />
             </TabsItem>
         );
     });
@@ -72,22 +108,4 @@ const ItemsTabsContainer = ({ headers = [], fetchHeaders, itemList = [], updateI
     );
 };
 
-const mapStateToProps = ({ itemsTabs: { tabsHeaders, itemList } }) => {
-    return {
-        headers: tabsHeaders,
-        itemList,
-    }
-};
-
-const mapDispatchToProps = (dispatch, { service }) => {
-    return {
-        fetchHeaders: () => fetchItemsTabsHeaders(service, dispatch),
-        updateItemList: (idx, itemId, length) => {
-            fetchItemsTabsContent(service, dispatch, idx, itemId, length)
-        }
-    }
-};
-
-export default withServiceContext(
-    connect(mapStateToProps, mapDispatchToProps)(ItemsTabsContainer)
-);
+export default withServiceContext(ItemsTabsContainer);
