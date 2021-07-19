@@ -12,16 +12,18 @@ import './ItemsTabs.scss';
 
 const ItemsTabs = ({ headerItems, bodyItems }) => {
     return (
-        <div className="container">
-            <Tabs className="items-tabs">
-                <TabsHeader className="items-tabs__header">
-                    { headerItems }
-                </TabsHeader>
+        <div className="items-tabs">
+            <div className="container">
+                <Tabs>
+                    <TabsHeader className="items-tabs__header">
+                        { headerItems }
+                    </TabsHeader>
 
-                <TabsBody className="items-tabs__body">
-                    { bodyItems }
-                </TabsBody>
-            </Tabs>
+                    <TabsBody className="items-tabs__body">
+                        { bodyItems }
+                    </TabsBody>
+                </Tabs>
+            </div>
         </div>
     );
 }

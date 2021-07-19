@@ -36,7 +36,7 @@
             transform: rotate(180deg);
         }
     
-        @include media(420px) {
+        @include media(540px) {
             width: 44px;
             height: 44px;
         }

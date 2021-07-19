@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React from "react";
 
 import ShopCardMini from "../ShopCardMini/ShopCardMini";
 import Spinner from "../Loaders/Spinner";
@@ -44,7 +44,7 @@ const ItemsTabsBodyItem = ({ elem, loading, error }) => {
         };
 
         return (
-            <Fragment>
+            <>
                 <Swiper {...options}>
                     { items.map(elem => {
                         return (
@@ -63,7 +63,7 @@ const ItemsTabsBodyItem = ({ elem, loading, error }) => {
                 <img src={arrowIcon} alt=''
                 className="swiper-button-next" />
 
-            </Fragment>
+            </>
         );
     }
 

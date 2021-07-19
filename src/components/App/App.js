@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Header from '../Header/Header.js';
@@ -9,14 +9,14 @@ import './App.scss';
 
 const App = () => {
     return (
-        <Fragment>
+        <>
             <Header />
             <OverlayBackground />
             <Switch>
                 <Route path='/' exact
                 component={HomePage} />
             </Switch>
-        </Fragment>
+        </>
     );
 };
 

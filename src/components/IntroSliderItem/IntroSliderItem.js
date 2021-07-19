@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
@@ -14,7 +14,7 @@ const IntroSliderItem = ({ slide }) => {
     }, [ slide ]);
     
     return (
-        <Fragment>
+        <>
             <CSSTransition
             in={!loading}
             timeout={500}
@@ -27,7 +27,7 @@ const IntroSliderItem = ({ slide }) => {
             </CSSTransition>
 
             { loading && <Spinner className="slider__spinner" /> }
-        </Fragment>
+        </>
     );
 }
 

@@ -1,3 +1,5 @@
+import bg from "../components/LimitedSale/bg.jpg";
+
 export default class LightBoostService {
 
     async getIntroItemList() {
@@ -240,5 +242,23 @@ export default class LightBoostService {
                 }
             }, 1000);
         })
+    }
+
+    async getLimitedSaleItem() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve({
+                    title: 'BURNING CRUSSADE',
+                    price: {
+                        old: 300,
+                        new: 279,
+                    },
+                    description: 'CLASSIC TBC LEVELING',
+                    background: bg,
+                    // startTime: '2021-01-14T20:34:01.000Z',
+                    startTime: 1224000,
+                });
+            }, Math.floor(Math.random() * 600));
+        });
     }
 }

@@ -11,6 +11,8 @@
 
     padding: 30px;
 
+    background-color: gray;
+
     @include media(500px) {
       padding: 30px 15px;
     }
