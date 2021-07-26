@@ -1,31 +1,57 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import FadeLoader from "../Loaders/FadeLoader/FadeLoader";
 
 import './IntroDetails.scss';
+import ButtonLink from "../ButtonLink/ButtonLink";
+import Title from "../Title/Title";
 
-const IntroDetails = ({ item = {} }) => {
-    const { title, text, linkTo } = item;
-
+const IntroDetails = (props) => {
     return (
         <div className="intro__details">
-            <h1 className="intro__title title title--big title--black">
+            <IntroDetailsContent {...props} />
+        </div>
+    );
+};
+
+const IntroDetailsContent = ({ item = {}, loading }) => {
+    const { title, text, linkTo } = item;
+
+    if (loading) {
+        return (
+            <div className="intro__details--loader">
+                <FadeLoader />
+                <FadeLoader />
+                <FadeLoader />
+            </div>
+        );
+    }
+
+    return (
+        <>
+            <Title className="intro__title" size='xl'>
                 { title }
-            </h1>
+            </Title>
 
             <p className="intro__text text text--black">
                 { text }
             </p>
 
-            <Link to={linkTo} className="intro__btn btn btn--transparent">
+            <ButtonLink href={linkTo}
+            className="intro__btn"
+            appearance="transparent">
                 Buy now
-            </Link>
-        </div>
+            </ButtonLink>
+        </>
     );
 };
 
-const mapStateToProps = ({ intro: { itemList, currentId } }) => {
-    return { item: itemList[currentId] };
+const mapStateToProps = ({ intro: { itemList, currentId, loading } }) => {
+    return {
+        item: itemList[currentId],
+        loading,
+    };
 };
 
 export default connect(mapStateToProps)(IntroDetails);

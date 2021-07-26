@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Title from "../Title/Title";
 import './LimitedSaleDetails.scss';
 
 const LimitedSaleDetails = ({ title, price = {}, description }) => {
@@ -7,9 +8,10 @@ const LimitedSaleDetails = ({ title, price = {}, description }) => {
         <div className="limited-sale__details">
             <h3 className="limited-sale__subtitle ">ELITE TOP PRIORITY</h3>
 
-            <h1 className="limited-sale__title title title--big title--white">
+            <Title className="limited-sale__title"
+            size='xl' color="white">
                 { title }
-            </h1>
+            </Title>
 
             <p className="limited-sale__description">
                 { description }

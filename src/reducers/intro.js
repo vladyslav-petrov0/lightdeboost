@@ -4,7 +4,7 @@ const updateId = (maxValue, currentId, quantity) => {
 };
 
 const initialState = {
-    loading: null,
+    loading: true,
     error: null,
     itemList: [],
     currentId: 0

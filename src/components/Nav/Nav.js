@@ -1,11 +1,13 @@
 import React, { Children } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import classNames from "classnames";
 
 import BurgerMenu from '../BurgerMenu/BurgerMenu.js';
 import { burgerMenuUpdate } from '../../actions/index.js';
 import { elems } from '../../mocks/nav.js';
 import './Nav.scss';
+import ButtonLink from "../ButtonLink/ButtonLink";
 
 const Nav = ({ classNames, children, closeMenu, isActive }) => {
     return (
@@ -41,14 +43,12 @@ const Nav = ({ classNames, children, closeMenu, isActive }) => {
 };
 
 const NavContainer = ({ isActive, children, closeMenu }) => {
-    let classes = "nav";
-    if (isActive) {
-        classes += " showed";
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
-    
+    let classes = classNames("nav", {
+        'showed': isActive,
+    });
+
+    document.body.style.overflow = isActive ? 'hidden' : '';
+
     const onClick = (e) => {
         const target = e.target?.closest('a') || e.target;
 

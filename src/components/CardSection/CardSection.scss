@@ -1,0 +1,24 @@
+@import '../../utils/scss/media.scss';
+
+.card-section {
+  &__title {
+    margin-bottom: 50px;
+
+    @include media(720px) {
+      margin-bottom: 40px;
+    }
+
+    @include media(420px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__slide {
+    width: auto;
+  }
+}

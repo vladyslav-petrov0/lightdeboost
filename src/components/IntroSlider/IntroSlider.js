@@ -11,6 +11,9 @@ import './IntroSlider.scss';
 const IntroSlider = ({ changeId }) => {
     const onChangeId = useLoopedEvent(changeId, 8000,1);
 
+    const onInc = () => onChangeId(1);
+    const onDec = () => onChangeId(-1);
+
     return (
         <div className="slider">
 
@@ -20,12 +23,12 @@ const IntroSlider = ({ changeId }) => {
 
             <div className="slider__btns">
                 <button className="slider__btn"
-                onClick={() => onChangeId(-1)}>
+                onClick={onDec}>
                     <img src={arrowIcon} alt=""/>
                 </button>
 
                 <button className="slider__btn"
-                onClick={() => onChangeId(1)}>
+                onClick={onInc}>
                     <img src={arrowIcon} alt=""/>
                 </button>
             </div>

@@ -1,22 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import '../ShopCard/ShopCard.scss';
+import ButtonLink from "../ButtonLink/ButtonLink";
 
-const ShopCardMini = ({ title, price, background, className }) => {
+const ShopCardMini = ({ item, className }) => {
+    const classes = classNames('shop-card', [`${className}`], 'shop-card--mini');
+
+    const { title, price, background } = item;
+    const style = {backgroundImage: `url(${background})`};
+
     return (
-        <div style={{
-            backgroundImage: `url(${background})`
-        }}
-        className={`shop-card shop-card--mini ${className}`}>
+        <div style={style} className={classes}>
 
             <h3 className="shop-card__title shop-card__title--mini">
                 { title }
             </h3>
 
-            <Link className="shop-card__btn  shop-card__btn--blured">
+            <ButtonLink href={'/32'}
+            className="shop-card__btn shop-card__btn--mini"
+            appearance="blured">
                 Buy now
-            </Link>
+            </ButtonLink>
 
             <span className="shop-card__price  shop-card__price--mini">
                 ${ price }

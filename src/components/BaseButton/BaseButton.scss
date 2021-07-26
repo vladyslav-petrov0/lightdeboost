@@ -1,0 +1,23 @@
+@import '../../utils/scss/vars.scss';
+
+.btn {
+  display: flex;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--transparent {
+    color: $colorAdd1;
+    border: 2px solid #F4B02B;
+  }
+
+  &--orange {
+    background-color: $colorMain;
+    color: $colorAdd2;
+  }
+
+  &--blured {
+    background: rgba(255, 255, 255, 0.11);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+}

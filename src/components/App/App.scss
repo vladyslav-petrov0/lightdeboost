@@ -1,8 +1,6 @@
 @import '../../utils/scss/vars.scss';
 @import '../../utils/scss/media.scss';
-@import '../../utils/scss/title.scss';
 @import '../../utils/scss/text.scss';
-@import '../../utils/scss/btn.scss';
 
 * {
     box-sizing: border-box;
@@ -18,6 +16,14 @@ body {
 
     margin: 0 auto;
     padding: 0 20px;
+
+    @include media(550px) {
+        padding: 0 15px;
+    }
+
+    @include media(400px) {
+        padding: 0 10px;
+    }
 }
 
 #root {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from "classnames";
 
 import Nav from '../Nav/Nav.js';
 import BurgerMenu from '../BurgerMenu/BurgerMenu.js';
@@ -40,10 +41,9 @@ const Header = () => {
         return () => window.removeEventListener('scroll', f);
     }, []);
 
-    let className = 'header';
-    if (isAttached) {
-        className += ' showed';
-    }
+    let classes = classNames('header', {
+        'showed': isAttached,
+    });
 
     const isMobile = (window.innerWidth <= 830);
     const iconLinks = (<div>
@@ -57,7 +57,7 @@ const Header = () => {
         </div>);
     
     return (
-        <header className={className} ref={header}>
+        <header className={classes} ref={header}>
             <div className="container">
                 <div className="header__body">
                     <Link to="/" className="header__logo">

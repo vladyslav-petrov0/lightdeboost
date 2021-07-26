@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import classNames from "classnames";
 
 import { burgerMenuUpdate } from '../../actions/index.js';
 import './BurgerMenu.scss';
@@ -14,16 +16,24 @@ const BurgerMenu = (props) => {
     );
 };
 
-const BurgerMenuContainer = ({ isActive, onToggleMenu }) => {
-    let classes = 'burger-menu';
-    classes += (isActive) ? ' active' : '';
+const BurgerMenuContainer = ({ isActive, onToggle }) => {
+    let classes = classNames('burger-menu', {
+        'active': isActive
+    });
+
+    const onClick = () => onToggle(!isActive);
 
     return (
         <BurgerMenu
         className={classes} 
-        onClick={() => onToggleMenu(!isActive)} />
+        onClick={onClick} />
     );
 }
+
+BurgerMenuContainer.propTypes = {
+    isActive: PropTypes.bool,
+    onToggleMenu: PropTypes.func,
+};
 
 const mapStateToProps = ({ header: { burgerMenuIsActive } }) => {
     return {
@@ -33,7 +43,7 @@ const mapStateToProps = ({ header: { burgerMenuIsActive } }) => {
 
 const mapDispatchToProps = (dispatch) =>    {
     return {
-        onToggleMenu: (state) => dispatch(burgerMenuUpdate(state))
+        onToggle: (state) => dispatch(burgerMenuUpdate(state))
     }
 }
 

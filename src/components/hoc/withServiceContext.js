@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServiceConsumer } from '../ServiceContext/ServiceContext.js';
+import { ServiceConsumer } from '../context/ServiceContext.js';
 
 const withServiceContext = (RenderElem) => (props) => {
     return (

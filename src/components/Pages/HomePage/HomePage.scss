@@ -1,0 +1,48 @@
+@import '../../../utils/scss/vars.scss';
+@import '../../../utils/scss/media.scss';
+
+.home-page {
+  &__intro {
+    margin-bottom: 68px;
+  }
+
+  &__tabs {
+    margin-bottom: 131px;
+  }
+
+  &__limited-sale {
+    margin-bottom: 112px;
+
+    @include media(1100px) {
+      margin-bottom: 100px;
+    }
+
+    @include media(720px) {
+      margin-bottom: 80px;
+    }
+
+    @include media(420px) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__products {
+    margin-bottom: 197px;
+
+    @include media(1100px) {
+      margin-bottom: 187px;
+    }
+
+    @include media(720px) {
+      margin-bottom: 164px;
+    }
+
+    @include media(420px) {
+      margin-bottom: 154px;
+    }
+  }
+
+  &__subscribe {
+    margin-bottom: 112px;
+  }
+}

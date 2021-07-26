@@ -2,9 +2,7 @@
 @import '../../utils/scss/media.scss';
 
 .items-tabs {
-  margin: 68px 0 131px 0;
-
-  &__body {
+  &__panel {
     position: relative;
 
     min-height: 365px;
@@ -23,7 +21,7 @@
     }
   }
 
-  &__title {
+  &__header-item {
     flex: 1 1 20%;
     padding: 35px 30px 32px 31px;
 
@@ -62,7 +60,7 @@
     }
   }
 
-  &__item {
+  &__content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

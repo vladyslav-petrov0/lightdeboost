@@ -2,7 +2,7 @@ import React, { useState, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
-import Spinner from '../Loaders/Spinner.js';
+import Spinner from '../Loaders/Spinner/Spinner.js';
 import './IntroSliderItem.scss';
 import '../../utils/scss/transition-group-anims/fade-out-left.scss';
 

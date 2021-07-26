@@ -1,0 +1,55 @@
+@import '../../utils/scss/vars.scss';
+@import '../../utils/scss/media.scss';
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &--lg {
+    font-size: 60px;
+    line-height: 102.4%;
+
+    @include media(1100px) {
+      font-size: 50px;
+      line-height: 102.4%;
+    }
+
+    @include media(720px) {
+      font-size: 40px;
+    }
+
+    @include media(420px) {
+      font-size: 30px;
+    }
+  }
+
+  &--xl {
+    font-size: 80px;
+    line-height: 102.4%;
+
+    @include media(1100px) {
+      font-size: 60px;
+      line-height: 102.4%;
+    }
+
+    @include media(720px) {
+      font-size: 50px;
+    }
+
+    @include media(540px) {
+      font-size: 40px;
+    }
+
+    @include media(420px) {
+      font-size: 30px;
+    }
+  }
+
+  &--black {
+    color: $colorAdd1;
+  }
+
+  &--white {
+    color: $colorAdd2;
+  }
+}

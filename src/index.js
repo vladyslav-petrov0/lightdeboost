@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { ServiceProvider } from './components/ServiceContext/ServiceContext.js';
+import { ServiceProvider } from './components/context/ServiceContext.js';
 import LightBoostService from './services/LightBoost.js';
 
 import { Provider } from 'react-redux';

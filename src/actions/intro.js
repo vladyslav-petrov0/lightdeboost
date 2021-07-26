@@ -1,3 +1,5 @@
+import {makeFlexRequest} from "../utils";
+
 export const changeCurrentIntroId = (id) => {
     return {
         type: 'UPDATE_INTRO-ID',
@@ -27,9 +29,13 @@ const introItemListRequest = () => {
 
 export const fetchIntroItemList = (service, dispatch) => {
     introItemListRequest();
-    service.getIntroItemList()
-        .then(data => {
-            dispatch(introItemListLoaded(data))
-        })
-        .catch(error => introItemListFailed(error));
+    return makeFlexRequest(
+        service.getIntroItemList,
+        (data) => dispatch(introItemListLoaded(data)),
+        introItemListFailed,
+    );
+    // service.getIntroItemList()
+    //     .then(res => res.json())
+    //     .then(data => dispatch(introItemListLoaded(data)))
+    //     .catch(introItemListFailed);
 };

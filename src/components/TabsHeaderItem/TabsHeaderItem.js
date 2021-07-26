@@ -1,17 +1,18 @@
 import React from 'react';
+import classNames from "classnames";
 
 const TabsHeaderItem = ({ children, setActiveTab, className, isActive, onClick }) => {
-    let classNames = `tabs__header-item ${className}`;
-    if (isActive) {
-        classNames += ' active';
-    };
+    let classes = classNames( 'tabs__header-item', [`${className}`],
+        { 'active': isActive });
+
+    const handleButton = () => {
+        onClick();
+        setActiveTab();
+    }
 
     return (
-        <button onClick={() => {
-            onClick();
-            setActiveTab();
-        }}
-        className={classNames}>
+        <button onClick={handleButton}
+        className={classes}>
             { children }
         </button>
     );
