@@ -1,77 +1,23 @@
-@import '../../utils/scss/vars.scss';
-@import '../../utils/scss/media.scss';
+@import "../../utils/scss/vars.scss";
+@import "../../utils/scss/media.scss";
 
-.nav {
-    @include media(830px) {
-        position: fixed;
-        z-index: 300;
+.Nav {
+  @include media(830px) {
+    position: fixed;
+    z-index: 300;
 
-        top: 0;
-        right: 0;
+    top: 0;
+    right: 0;
 
-        width: 250px;
-        transform: translateX(120%);
-    
-        transition: 0.5s ease transform;
-    
-        box-shadow: -1px 3px 31px 4px #000000;
-    }
+    width: 250px;
+    transform: translateX(120%);
 
-    @include media(540px) {
-        width: 180px;
-    }
+    transition: 0.5s ease transform;
 
-    &.showed {
-        transform: translateX(0);
-    }
-}
+    box-shadow: -1px 3px 31px 4px #000000;
+  }
 
-.nav-list {
-    display: flex;
+  @include media(540px) { width: 180px; }
 
-    li {
-        font-weight: 500;
-        font-size: 16px;
-
-        text-transform: uppercase;
-        line-height: 20px;
-
-        color: $colorAdd1;
-
-        margin-right: 47px;
-
-        &:last-child {
-            margin-right: 0;
-
-            @include media(830px) {
-                margin-top: 10px;
-            }
-        }
-
-        a {
-            text-decoration: none;
-        }
-    
-        @include media(830px) {
-            font-size: 20px;
-            line-height: 24px;
-            
-            margin: 0 0 15px 0;
-        }
-
-        @include media(540px) {
-            font-size: 18px;
-            line-height: 20px;
-        }
-        
-    }
-
-    @include media(830px) {
-        flex-direction: column;
-        height: 100vh;
-
-        padding: 80px 20px 0 20px;
-
-        background-color: $colorSec;
-    }
+  &.showed { transform: translateX(0); }
 }

@@ -5,7 +5,7 @@ import '../ShopCard/ShopCard.scss';
 import ButtonLink from "../ButtonLink/ButtonLink";
 
 const ShopCardMini = ({ item, className }) => {
-    const classes = classNames('shop-card', [`${className}`], 'shop-card--mini');
+    const classes = classNames('ShopCard', [`${className}`], 'ShopCard--mini');
 
     const { title, price, background } = item;
     const style = {backgroundImage: `url(${background})`};
@@ -13,17 +13,17 @@ const ShopCardMini = ({ item, className }) => {
     return (
         <div style={style} className={classes}>
 
-            <h3 className="shop-card__title shop-card__title--mini">
+            <h3 className="ShopCardTitle ShopCardTitle--mini">
                 { title }
             </h3>
 
             <ButtonLink href={'/32'}
-            className="shop-card__btn shop-card__btn--mini"
+            className="ShopCardButton ShopCardButton--mini"
             appearance="blured">
                 Buy now
             </ButtonLink>
 
-            <span className="shop-card__price  shop-card__price--mini">
+            <span className="ShopCardPrice  ShopCardPrice--mini">
                 ${ price }
             </span>
 

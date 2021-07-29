@@ -4,22 +4,22 @@ import './LimitedSaleTimer.scss';
 
 const LimitedSaleTimer = ({ days, hours, minutes, seconds }) => {
     return (
-        <div className="timer limited-sale__timer">
-            <div className="timer__body">
-                <h3 className="timer__title">UNTIL SALE END</h3>
-                <span className="timer__item">
+        <div className="Timer LimitedSaleTimer">
+            <div className="TimerBody">
+                <h3 className="TimerTitle">UNTIL SALE END</h3>
+                <span className="TimerItem">
                     { days } <span className="orange">Days</span>
                 </span>
 
-                <span className="timer__item">
+                <span className="TimerItem">
                     { hours } <span className="orange">Hours</span>
                 </span>
 
-                <span className="timer__item">
+                <span className="TimerItem">
                     { minutes } <span className="orange">Minutes</span>
                 </span>
 
-                <span className="timer__item">
+                <span className="TimerItem">
                     { seconds } <span className="orange">Seconds</span>
                 </span>
             </div>

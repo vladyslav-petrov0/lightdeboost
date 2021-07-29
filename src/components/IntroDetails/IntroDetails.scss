@@ -1,109 +1,94 @@
-@import '../../utils/scss/media.scss';
+@import "../../utils/scss/vars.scss";
+@import "../../utils/scss/media.scss";
+@import "../../utils/scss/mixins.scss";
 
-.intro {
-    &__details {
-        z-index: 10;
+.Intro {
+  &Details {
+    z-index: 10;
 
-        &--loader {
-            display: flex;
-            flex-direction: column;
+    &Loader {
+      display: flex;
+      flex-direction: column;
 
-            @include media(1000px) {
-                align-items: center;
-            }
+      @include media(1000px) {
+        align-items: center;
+      }
 
-            .fade-loader {
-                &:first-child {
-                    width: 555px;
-                    height: 162px;
+      .FadeLoader {
+        &:first-child {
+          width: 555px;
+          height: 162px;
 
-                    margin-bottom: 23px;
+          margin-bottom: 23px;
 
-                    @include media(1100px) {
-                        width: 446px;
-                        height: 122px;
-                    }
+          @include media(1100px) {
+            width: 446px;
+            height: 122px;
+          }
 
-                    @include media(720px) {
-                        width: 350px;
-                        height: 102px;
-                    }
+          @include media(720px) {
+            width: 350px;
+            height: 102px;
+          }
 
-                    @include media(540px) {
-                        height: 80px;
-                    }
+          @include media(540px) { height: 80px;}
 
-                    @include media(420px) {
-                        width: 250px;
-                        height: 60px;
-                    }
-                }
-
-                &:nth-child(2) {
-                    width: 100%;
-                    max-width: 446px;
-                    height: 66px;
-
-                    margin-bottom: 34px;
-                }
-
-                &:last-child {
-                    width: 146px;
-                    height: 52px;
-                }
-            }
+          @include media(420px) {
+            width: 250px;
+            height: 60px;
+          }
         }
 
-        @include media(1000px) {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        &:nth-child(2) {
+          width: 100%;
+          max-width: 446px;
+          height: 66px;
 
-            text-align: center;
-
-            margin-top: 100px;
+          margin-bottom: 34px;
         }
 
-        @include media(540px) {
-            margin-top: 50px;
+        &:last-child {
+          width: 146px;
+          height: 52px;
         }
+      }
     }
 
-    &__title {
-        margin-bottom: 23px;
-        max-width: 555px;
+    @include media(1000px) {
+      text-align: center;
+      margin-top: 100px;
 
-        @include media(1100px) {
-            max-width: 440px;
-        }
-
-        @include media(720px) {
-            max-width: 350px;
-        }
-
-        @include media(420px) {
-            max-width: 250px;
-        }
-
-        &--loading {
-            display: flex;
-            width: 100%;
-            height: 50px;
-            background-color: black;
-        }
+      @include flexColumnCenter;
     }
 
-    &__text {
-        max-width: 447px;
-        margin-bottom: 34px;
-    }
+    @include media(540px) { margin-top: 50px; }
+  }
 
-    &__btn {
-        padding: 14px 30px;
-        max-width: 150px;
+  &Title {
+    margin-bottom: 23px;
+    max-width: 555px;
 
-        font-size: 16px;
-        line-height: 20px;
-        text-transform: uppercase;
+    @include media(768px) { max-width: 350px; }
+    @include media(420px) { max-width: 250px; }
+
+    &--loading {
+      display: flex;
+      width: 100%;
+      height: 50px;
+      background-color: black;
     }
+  }
+
+  &Text {
+    max-width: 447px;
+    margin-bottom: 34px;
+  }
+
+  &Button {
+    font: normal 16px/20px $font;
+    text-transform: uppercase;
+
+    padding: 14px 30px;
+    max-width: 150px;
+  }
 }

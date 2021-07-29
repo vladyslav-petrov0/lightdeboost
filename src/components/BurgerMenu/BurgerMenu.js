@@ -17,7 +17,7 @@ const BurgerMenu = (props) => {
 };
 
 const BurgerMenuContainer = ({ isActive, onToggle }) => {
-    let classes = classNames('burger-menu', {
+    let classes = classNames('BurgerMenu', {
         'active': isActive
     });
 

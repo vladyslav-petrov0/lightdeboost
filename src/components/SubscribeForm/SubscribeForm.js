@@ -1,102 +1,89 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-
-import Input from "../Input/Input";
-import FormButton from "../FormButton/FormButton";
-import FormClue from "../FormClue/FormClue";
-
-import './SubscribeForm.scss';
-import warning from "react-redux/lib/utils/warning";
+import React, { useState } from "react";
 import classNames from "classnames";
 
-const requestSuccessClue = {
-    text: 'Check your email, please',
-    appearance: 'success',
-};
-const requestErrorClue = {
-    text: 'Service is not working temporary, please try again a bit later',
-    appearance: 'failure',
-};
-const warningClue = {
-    text: 'Please enter a valid email address',
-    appearance: 'warning',
-};
-const textIsOkClue = {
-    text: 'It is ok!',
-    appearance: 'ok'
-};
+import Form from "../Form/Form";
+import InputContainer from "../InputContainer/InputContainer";
+import Input from "../Input/Input";
+import Button from "../Button/Button";
+import InputClue from "../InputClue/InputClue";
 
-const SubscribeForm = () => {
-    const [ value, setValue ] = useState('');
-    const [ clue, setClue ] = useState(null);
+import {
+  requestSuccessClue,
+  requestErrorClue,
+  textIsOkClue,
+  warningClue,
+} from "../../mocks/formClue";
 
-    const sendData = (data) => {
-        const params = { method: 'POST', body: data };
+import { validEmail } from "../../utils/funcs/validFieldByRegExp";
 
-        fetch('http://ptsv2.com/t/8qlsl-1627297850/post', params)
-            .then(res => {
-                if (res.ok) {
-                    setClue(requestSuccessClue);
-                    setValue('');
-                };
-            })
-            .catch(err => setClue(requestErrorClue));
-    };
+import "./SubscribeForm.scss";
+// при 3 попытке отправки высветлить подсказку, что слишком частые попытки.
 
-    const validEmail = (email) => {
-        const regExp = /^[A-Z0-9._%+-]+@[A-Z0-9-]+([.][A-Z]{2,4})+$/i;
-        return regExp.test(email);
-    };
+const SubscribeForm = ({ className }) => {
+  const [value, setValue] = useState("");
+  const [clue, setClue] = useState(null);
 
-    const onSubmit = (e) => {
-        if (validEmail(value)) {
-            sendData(value);
-        };
+  const classes = classNames("SubscribeForm", [`${className}`]);
 
-        e.preventDefault();
+  const sendData = (data) => {
+    const params = { method: "POST", body: data };
+
+    fetch("http://ptsv2.com/t/8qlsl-1627297850/post", params)
+      .then((res) => {
+        if (res.ok) {
+          setClue(requestSuccessClue);
+          setValue("");
+        }
+      })
+      .catch((err) => setClue(requestErrorClue));
+  };
+
+  const onSubmit = (e) => {
+    if (validEmail(value)) {
+      sendData(value);
     }
 
-    const onInput = ({ target: { value } }) => {
-        let clue = validEmail(value) ? textIsOkClue : warningClue;
-        if (value.length === 0) {
-            clue = null;
-        }
+    e.preventDefault();
+  };
 
-        setClue(clue);
-        setValue(value);
-    };
+  const onInput = ({ target: { value } }) => {
+    let clue = validEmail(value) ? textIsOkClue : warningClue;
+    if (value.length === 0) {
+      clue = null;
+    }
 
-    const inputParams = {
-        className: "subscribe-form__input",
-        onInput,
-        maxLength: 40,
-        minLength: 5,
-        required: true,
-        autoComplete: "on",
-        type: "email",
-        placeholder: "Your email",
-    };
-    const inputContainerClasses = classNames('subscribe-form__input-container',
-        [clue?.appearance ? clue.appearance : '']);
+    setClue(clue);
+    setValue(value);
+  };
 
-    return (
-        <form className="subscribe-form" onSubmit={onSubmit}>
-            <div className={inputContainerClasses}>
-                <Input {...inputParams}>
-                    { value }
-                </Input>
+  const inputParams = {
+    className: "SubscribeFormInput",
+    onInput,
+    maxLength: 40,
+    minLength: 5,
+    required: true,
+    autoComplete: "on",
+    type: "email",
+    placeholder: "Your email",
+  };
 
-                { clue &&
-                <FormClue className="subscribe-form__clue">
-                    { clue.text }
-                </FormClue> }
-            </div>
+  return (
+    <Form className={classes} onSubmit={onSubmit}>
+      <InputContainer className={clue?.appearance}>
+        <Input {...inputParams}>{value}</Input>
 
-            <FormButton className="subscribe-form__btn">
-                Subscribe
-            </FormButton>
-        </form>
-    );
-}
+        {clue && (
+          <InputClue className="SubscribeFormClue">{clue.text}</InputClue>
+        )}
+      </InputContainer>
+
+      <Button className="SubscribeFormButton">Subscribe</Button>
+    </Form>
+  );
+};
+
+SubscribeForm.defaultProps = {
+  className: "",
+};
 
 export default SubscribeForm;

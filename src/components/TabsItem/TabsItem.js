@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from "classnames";
 
 const TabsItem = ({ children, className }) => {
-    const classes = classNames('tabs__item', [`${className}`]);
+    const classes = classNames('TabsItem', [`${className}`]);
 
     return (
         <div className={classes}>
@@ -10,5 +10,9 @@ const TabsItem = ({ children, className }) => {
         </div>
     );
 };
+
+TabsItem.defaultProps = {
+    className: ''
+}
 
 export default TabsItem;

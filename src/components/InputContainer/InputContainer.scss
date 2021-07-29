@@ -1,0 +1,29 @@
+.InputContainer {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  $clue: InputClue;
+  $input: Input;
+
+  &.warning {
+    & .#{$clue} { color: yellow; }
+    & .#{$input} { border: 1px yellow solid; }
+  }
+
+  &.success {
+    & .#{$clue} { color: green; }
+    & .#{$input} { border: 1px green solid; }
+  }
+
+  &.failure {
+    & .#{$clue} { color: red; }
+    & .#{$input} { border: 1px red solid; }
+  }
+
+  &.ok {
+    & .#{$clue} { color: greenyellow; }
+    & .#{$input} { border: 1px greenyellow solid; }
+  }
+}

@@ -3,10 +3,10 @@ import classNames from "classnames";
 
 import { FetchTabsContext } from '../context/FetchTabsContext';
 
-const FetchTabs = ({ children, className}) => {
+const FetchTabs = ({ children, className }) => {
     const { fetchSrc } = useContext(FetchTabsContext);
 
-    const classes = classNames('fetch-tabs__panel', [`${className}`]);
+    const classes = classNames('FetchTabsPanel', [`${className}`]);
 
     return (
         <div className={classes}>
@@ -16,5 +16,9 @@ const FetchTabs = ({ children, className}) => {
         </div>
     );
 };
+
+FetchTabs.defaultProps = {
+    className: ''
+}
 
 export default FetchTabs;

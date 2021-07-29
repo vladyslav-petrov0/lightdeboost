@@ -1,19 +1,17 @@
 @import '../../utils/scss/vars.scss';
 @import '../../utils/scss/media.scss';
 
-.burger-menu {
+.BurgerMenu {
     display: none;
 
     position: relative;
-    
+
     width: 40px;
     height: 30px;
 
     cursor: pointer;
 
-    @include media(830px) {
-        display: flex;
-    }
+    @include media(830px) { display: flex; }
 
     @include media(540px) {
         height: 20px;
@@ -30,23 +28,15 @@
         background-color: $colorAdd2;
         transition: 0.5s ease all;
 
-        &:nth-child(1) {
-            top: 0;
-        }
-        
+        &:nth-child(1) { top: 0; }
+
         &:nth-child(2) {
             top: 50%;
             transform: translateY(-50%);
         }
 
-        &:nth-child(3) {
-            bottom: 0;
-        }
-        
-        @include media(540px) {
-            height: 3px;
-        }
-        
+        &:nth-child(3) { bottom: 0; }
+        @include media(540px) { height: 3px; }
     }
 
     &.active {

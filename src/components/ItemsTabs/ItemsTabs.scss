@@ -1,66 +1,18 @@
 @import '../../utils/scss/vars.scss';
 @import '../../utils/scss/media.scss';
 
-.items-tabs {
-  &__panel {
+.ItemsTabs {
+  &Panel {
     position: relative;
 
     min-height: 365px;
 
-    @media (max-width: 768px) {
-      min-height: 168px;
-    }
+    @media (max-width: 768px) { min-height: 168px; }
   }
 
-  &__header {
-    display: flex;
-    margin-bottom: 33px;
+  &Header { margin-bottom: 33px; }
 
-    @include media(768px) {
-      flex-direction: column;
-    }
-  }
-
-  &__header-item {
-    flex: 1 1 20%;
-    padding: 35px 30px 32px 31px;
-
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 102.4%;
-
-    cursor: pointer;
-    transition: color 0.3s ease, background-color 0.3s ease;
-
-    color: $colorAdd1;
-    background-color: rgba(244, 176, 43, 0.12);
-
-    &.active {
-      color: $colorAdd2;
-      background-color: $colorMain;
-    }
-
-    @include media(1200px) {
-      padding: 25px 20px;
-
-      font-size: 20px;
-      line-height: 100%;
-    }
-
-    @include media(768px) {
-      padding: 20px 15px;
-      font-size: 18px;
-    }
-
-    @include media(500px) {
-      padding: 15px 10px;
-      font-size: 16px;
-    }
-  }
-
-  &__content {
+  &Content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

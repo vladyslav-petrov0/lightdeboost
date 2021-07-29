@@ -10,22 +10,6 @@ body {
     font-family: Montserrat;
 }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-    padding: 0 20px;
-
-    @include media(550px) {
-        padding: 0 15px;
-    }
-
-    @include media(400px) {
-        padding: 0 10px;
-    }
-}
-
 #root {
     padding-top: 66px;
 

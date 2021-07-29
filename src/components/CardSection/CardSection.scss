@@ -1,24 +1,17 @@
 @import '../../utils/scss/media.scss';
 
-.card-section {
-  &__title {
+.CardSection {
+  &Title {
     margin-bottom: 50px;
 
-    @include media(720px) {
-      margin-bottom: 40px;
-    }
-
-    @include media(420px) {
-      margin-bottom: 30px;
-    }
+    @include media(720px) { margin-bottom: 40px; }
+    @include media(420px) { margin-bottom: 30px; }
   }
 
-  &__body {
+  &Body {
     display: flex;
     justify-content: space-between;
   }
 
-  &__slide {
-    width: auto;
-  }
+  &Slide { width: auto; }
 }

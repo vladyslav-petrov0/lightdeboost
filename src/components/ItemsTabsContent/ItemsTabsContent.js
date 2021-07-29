@@ -37,7 +37,7 @@ const ItemsTabsContent = ({ fetchSrc, service }) => {
     useEffect(fetchItems, [ fetchSrc ]);
 
     if (loading) {
-        return <Spinner className="items-tabs__spinner" />;
+        return <Spinner className="ItemsTabsSpinner" />;
     };
 
     if (error) {
@@ -47,7 +47,7 @@ const ItemsTabsContent = ({ fetchSrc, service }) => {
     const cards = data.items?.map(card => {
         return (
             <ShopCardMini item={card} key={card.id}
-            className="items-tabs__card" />
+            className="ItemsTabsCard" />
         );
     });
 
@@ -69,7 +69,7 @@ const ItemsTabsContent = ({ fetchSrc, service }) => {
                     { cards.map(card => {
                         return (
                             <SwiperSlide
-                                className="items-tabs__slide"
+                                className="ItemsTabsSlide"
                                 key={card.id}>
                                 { card }
                             </SwiperSlide>
@@ -88,7 +88,7 @@ const ItemsTabsContent = ({ fetchSrc, service }) => {
     }
 
     return (
-        <div className="items-tabs__content">
+        <div className="ItemsTabsContent">
             { cards }
         </div>
     );

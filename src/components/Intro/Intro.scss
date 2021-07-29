@@ -1,14 +1,14 @@
 @import '../../utils/scss/media.scss';
 @import '../../utils/scss/vars.scss';
 
-.intro {
+.Intro {
     display: flex;
     align-items: center;
 
     height: 600px;
     overflow: hidden;
 
-    &__body {
+    &Body {
         display: flex;
         align-items: center;
 
@@ -19,12 +19,10 @@
         }
     }
 
-    &__container {
+    &Container {
         height: 100%;
         position: relative;
     }
 
-    @include media(1000px) {
-        height: auto;
-    }
+    @include media(1000px) { height: auto; }
 }

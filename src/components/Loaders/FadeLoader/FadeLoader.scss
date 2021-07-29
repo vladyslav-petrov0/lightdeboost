@@ -1,7 +1,7 @@
 @import '../../../utils/scss/vars.scss';
 @import '../../../utils/scss/media.scss';
 
-.fade-loader {
+.FadeLoader {
   animation-duration: 1.25s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
@@ -17,10 +17,6 @@
 }
 
 @keyframes placeHolderShimmer{
-  0%{
-    background-position: -550px 0
-  }
-  100%{
-    background-position: 550px 0
-  }
+  0%{ background-position: -550px 0 }
+  100%{ background-position: 550px 0 }
 }

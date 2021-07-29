@@ -1,10 +1,10 @@
 @import '../../utils/scss/vars.scss';
 @import '../../utils/scss/media.scss';
 
-.limited-sale {
+.LimitedSale {
   color: $colorAdd2;
 
-  &__details {
+  &Details {
     display: flex;
     flex-direction: column;
 
@@ -16,36 +16,24 @@
     }
   }
 
-  &__title {
+  &Title {
     max-width: 466px;
-
     margin-bottom: 18px;
 
-    @include media(540px) {
-      padding: 0 40px;
-    }
+    @include media(540px) { padding: 0 40px; }
   }
 
-  &__subtitle {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 102.4%;
-
+  &Subtitle {
+    font: bold 16px/102.4% $font;
     margin-bottom: 14px;
   }
 
-  &__description {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 102.4%;
-
-    @include media(880px) {
-      margin-bottom: 30px;
-    }
+  &Description {
+    font: 500 20px/102.4% $font;
+    @include media(880px) { margin-bottom: 30px; }
   }
 
-  &__price {
+  &Price {
     font-weight: bold;
     line-height: 102.4%;
 
@@ -57,40 +45,20 @@
 
       color: #CBCBCB;
 
-      margin-top: auto;
-      margin-bottom: 18px;
+      margin: auto 0 18px 0;
 
-      @include media(880px) {
-        margin-bottom: 10px;
-      }
-
-      @include media(720px) {
-        font-size: 35px;
-      }
-
-      @include media(540px) {
-        font-size: 35px;
-      }
-
-      @include media(420px) {
-        font-size: 30px;
-      }
+      @include media(880px) { margin-bottom: 10px; }
+      @include media(720px) { font-size: 35px; }
+      @include media(540px) { font-size: 35px; }
+      @include media(420px) { font-size: 30px; }
     }
 
     &--new {
       font-size: 77px;
 
-      @include media(720px) {
-        font-size: 60px;
-      }
-
-      @include media(540px) {
-        font-size: 50px;
-      }
-
-      @include media(420px) {
-        font-size: 40px;
-      }
+      @include media(720px) { font-size: 60px; }
+      @include media(540px) { font-size: 50px; }
+      @include media(420px) { font-size: 40px; }
     }
   }
 }

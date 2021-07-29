@@ -2,7 +2,7 @@ import React, { Children } from 'react';
 import classNames from "classnames";
 
 const TabsBody = ({ children, activeTab, className }) => {
-    const classes = classNames('tabs__body', [`${className}`]);
+    const classes = classNames('TabsBody', [`${className}`]);
 
     return (
         <div className={classes}>

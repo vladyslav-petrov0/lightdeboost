@@ -22,7 +22,7 @@ const CardSectionContent = ({ loading, items = [] }) => {
                 items.map(el => {
                     return (
                         <SwiperSlide key={el.id}
-                         className="card-section__slide">
+                        className="CardSectionSlide">
                             <ShopCard item={el} />
                         </SwiperSlide>
                     );

@@ -1,6 +1,6 @@
 @import '../../utils/scss/media.scss';
 
-.header {
+.Header {
     position: fixed;
     top: -50%;
     left: 0;
@@ -16,24 +16,22 @@
         top: 0%;
     }
 
-    &__body {
+    &Body {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    &__logo {
+    &Logo {
         img {
             width: 218px;
             height: 33px;
     
-            @include media(540px) {
-                width: 150px;
-            }
+            @include media(540px) { width: 150px; }
         }
     }
 
-    &__loggin {
+    &Loggin {
         img {
             width: 16px;
             height: 18px;
@@ -42,14 +40,12 @@
         margin-right: 20px;
     }
 
-    &__cart {
+    &Cart {
         img {
             width: 20px;
             height: 17px;
         }
     }
 
-    @include media(540px) {
-        padding: 5px 0;
-    }
+    @include media(540px) { padding: 5px 0; }
 }

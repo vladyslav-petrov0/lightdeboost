@@ -1,7 +1,8 @@
 @import '../../utils/scss/vars.scss';
 @import '../../utils/scss/media.scss';
+@import '../../utils/scss/mixins.scss';
 
-.slider {
+.Slider {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -10,7 +11,7 @@
     width: 100%;
     height: 100%;
 
-    &__btns {
+    &Buttons {
         position: absolute;
         bottom: 0;
         left: 50%;
@@ -21,7 +22,7 @@
         display: flex;
     }
 
-    &__btn {
+    &Button {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -32,9 +33,7 @@
         background-color: $colorMain;
         cursor: pointer;
 
-        &:last-child {
-            transform: rotate(180deg);
-        }
+        &:last-child { transform: rotate(180deg) };
     
         @include media(540px) {
             width: 44px;
@@ -42,7 +41,7 @@
         }
     }
 
-    &__body {
+    &Body {
         height: 100%;
 
         @include media(1050px) {
@@ -51,23 +50,13 @@
         }
     }
 
-    &__spinner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+    &Spinner { @include posAtCenter; }
 
     @include media(1000px) {
         position: relative;
         height: 457px;
     }
 
-    @include media(720px) {
-        height: 393px;
-    }
-
-    @include media(540px) {
-        height: 328px;
-    }
+    @include media(720px) { height: 393px; }
+    @include media(540px) { height: 328px; }
 }

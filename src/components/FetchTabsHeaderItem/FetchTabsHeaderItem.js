@@ -7,7 +7,7 @@ const FetchTabsHeaderItem = ({ onToggleStatus, isActive, fetchSrc, ...otherProps
     const { setFetchSrc } = useContext(FetchTabsContext);
     const { children, className } = otherProps;
 
-    const classes = classNames('fetch-tabs__header-item', [`${className}`], {
+    const classes = classNames('FetchTabsHeaderItem', [`${className}`], {
         'active': isActive,
     });
 

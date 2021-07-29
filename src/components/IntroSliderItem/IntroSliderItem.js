@@ -21,12 +21,12 @@ const IntroSliderItem = ({ slide }) => {
             classNames={'fade-out-left'} >
 
                 <img src={slide} alt='' 
-                className="slider__item"
+                className="SliderItem"
                 onLoad={() => setLoading(false)} />
 
             </CSSTransition>
 
-            { loading && <Spinner className="slider__spinner" /> }
+            { loading && <Spinner className="SliderSpinner" /> }
         </>
     );
 }

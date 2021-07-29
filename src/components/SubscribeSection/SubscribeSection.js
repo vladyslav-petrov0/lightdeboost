@@ -1,22 +1,26 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import Title from "../Title/Title";
+import Container from "../Container/Container";
 import SubscribeForm from "../SubscribeForm/SubscribeForm";
 
 import './SubscribeSection.scss';
 
-const SubscribeSection = () => {
+const SubscribeSection = ({ className }) => {
+    const classes = classNames('SubscribeSection', [`${className}`]);
+
     return (
-        <div className="subscribe-section">
-            <div className="container">
-                <div className="subscribe-section__body">
-                    <div className="subscribe-section__content">
-                        <Title className="subscribe-section__title"
+        <div className={classes}>
+            <Container>
+                <div className="SubscribeSectionBody">
+                    <div className="SubscribeSectionContent">
+                        <Title className="SubscribeSectionTitle"
                         size='xl' color="white">
                             SUBSCRIBE
                         </Title>
 
-                        <p className="subscribe-section__text">
+                        <p className="SubscribeSectionText">
                             Subscribe us and you won't miss the new arrivals,
                             as well as discounts and sales.
                         </p>
@@ -24,12 +28,16 @@ const SubscribeSection = () => {
                         <SubscribeForm />
                     </div>
 
-                    <img className="subscribe-section__img"
+                    <img className="SubscribeSectionImg"
                      src="https://i.ibb.co/2PBb0j1/image-18.png"/>
                 </div>
-            </div>
+            </Container>
         </div>
     );
 }
+
+SubscribeSection.defaultProps = {
+    className: ''
+};
 
 export default SubscribeSection;

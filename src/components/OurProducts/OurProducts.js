@@ -1,17 +1,22 @@
 import React from "react";
+import classNames from 'classnames';
 
 import withServiceContext from "../hoc/withServiceContext";
-import ShopCardList from "../CardSection/CardSection";
+import CardSection from "../CardSection/CardSectionContainer";
 
-import './OurProducts.scss';
+const OurProducts = ({ service, className }) => {
+    const classes = classNames('OurProducts', [`${className}`]);
 
-const OurProducts = ({ service }) => {
     return (
-        <ShopCardList
+        <CardSection
         title="Our products"
         fetchItems={service.getProductList}
-        className="our-products" />
+        className={classes} />
     );
+};
+
+OurProducts.defaultProps = {
+    className: ''
 };
 
 export default withServiceContext(OurProducts);

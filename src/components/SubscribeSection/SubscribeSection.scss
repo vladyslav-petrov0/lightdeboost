@@ -1,88 +1,59 @@
 @import '../../utils/scss/vars.scss';
 @import '../../utils/scss/media.scss';
+@import '../../utils/scss/mixins.scss';
 
-.subscribe-section {
+.SubscribeSection {
 
-  &__body {
+  &Body {
     position: relative;
     background: url('https://i.ibb.co/ZNRGXwR/image-6.jpg') center no-repeat;
     background-size: cover;
 
     border-radius: $radius;
 
-    &:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      width: 100%;
-      height: 100%;
-
-      content: '';
-      background: linear-gradient(180deg, rgba(31, 39, 27, 0.33) 0%, rgba(31, 39, 27, 0.45) 100%);
-      border-radius: $radius;
-    }
+    $bgFilter: linear-gradient(180deg, rgba(31, 39, 27, 0.33) 0%, rgba(31, 39, 27, 0.45) 100%);
+    @include bgFilter($bgFilter, before) { border-radius: $radius; }
   }
 
-  &__content {
+  &Content {
     position: relative;
     z-index: 15;
 
     padding: 49px 64px 56px;
 
     @include media(960px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-
       padding: 49px 20px 56px;
+
+      @include flexColumnCenter;
     }
 
-    @include media(550px) {
-      padding: 40px 20px 56px;
-    }
+    @include media(550px) { padding: 40px 20px 56px; }
   }
 
-  &__img {
+  &Img {
     position: absolute;
     right: 0;
     bottom: 0;
 
-    @include media(1200px) {
-      width: 550px;
-    }
-
-    @include media(1000px) {
-      width: 500px;
-    }
-
-    @include media(960px) {
-      display: none;
-    }
+    @include media(1200px) { width: 550px; }
+    @include media(1000px) { width: 500px; }
+    @include media(960px) { display: none; }
   }
 
-  &__title {
+  &Title {
     max-width: 485px;
     margin-bottom: 15px;
   }
 
-  &__text {
+  &Text {
     max-width: 436px;
-
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 102.4%;
+    font: 500 18px/102.4% $font;
     color: $colorAdd2;
 
     margin-bottom: 88px;
 
-    @include media(1100px) {
-      margin-bottom: 60px;
-    }
-
-    @include media(550px) {
-      margin-bottom: 40px;
-    }
+    @include media(1100px) { margin-bottom: 60px; }
+    @include media(550px) { margin-bottom: 40px; }
   }
 }

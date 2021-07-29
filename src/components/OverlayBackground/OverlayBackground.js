@@ -14,7 +14,7 @@ const OverlayBackground = ({ isActive, closeOverlay}) => {
         classNames="fade-in"
         timeout={500}
         unmountOnExit>
-            <div className="overlay-background"
+            <div className="OverlayBackground"
             onClick={closeOverlay}></div>          
         </CSSTransition>
     );

@@ -9,7 +9,7 @@ import Title from "../Title/Title";
 
 const IntroDetails = (props) => {
     return (
-        <div className="intro__details">
+        <div className="IntroDetails">
             <IntroDetailsContent {...props} />
         </div>
     );
@@ -20,7 +20,7 @@ const IntroDetailsContent = ({ item = {}, loading }) => {
 
     if (loading) {
         return (
-            <div className="intro__details--loader">
+            <div className="IntroDetailsLoader">
                 <FadeLoader />
                 <FadeLoader />
                 <FadeLoader />
@@ -30,16 +30,16 @@ const IntroDetailsContent = ({ item = {}, loading }) => {
 
     return (
         <>
-            <Title className="intro__title" size='xl'>
+            <Title className="IntroTitle" size='xl'>
                 { title }
             </Title>
 
-            <p className="intro__text text text--black">
+            <p className="IntroText Text Text--black">
                 { text }
             </p>
 
             <ButtonLink href={linkTo}
-            className="intro__btn"
+            className="IntroButton"
             appearance="transparent">
                 Buy now
             </ButtonLink>

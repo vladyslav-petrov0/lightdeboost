@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import classNames from "classnames";
 
 import Nav from '../Nav/Nav.js';
+import Container from "../Container/Container";
 import BurgerMenu from '../BurgerMenu/BurgerMenu.js';
 import Portal from '../Portal/Portal.js';
 import './Header.scss';
@@ -41,26 +42,26 @@ const Header = () => {
         return () => window.removeEventListener('scroll', f);
     }, []);
 
-    let classes = classNames('header', {
+    let classes = classNames('Header', {
         'showed': isAttached,
     });
 
     const isMobile = (window.innerWidth <= 830);
     const iconLinks = (<div>
-            <Link to="/loggin" className="header__loggin">
+            <Link to="/loggin" className="HeaderLoggin">
                 <img src={userImg} alt="" />
             </Link>
 
-            <Link to="/cart" className="header__cart">
+            <Link to="/cart" className="HeaderCart">
                 <img src={cartImg} alt="" />
             </Link>
         </div>);
     
     return (
         <header className={classes} ref={header}>
-            <div className="container">
-                <div className="header__body">
-                    <Link to="/" className="header__logo">
+            <Container>
+                <div className="HeaderBody">
+                    <Link to="/" className="HeaderLogo">
                         <img src={headerLogo} alt='' />
                     </Link>
 
@@ -75,7 +76,7 @@ const Header = () => {
                     
                     <BurgerMenu />
                 </div>
-            </div>
+            </Container>
         </header>
     );
 };

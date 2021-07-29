@@ -1,6 +1,6 @@
 @import '../../utils/scss/media.scss';
 
-.slider__item {
+.SliderItem {
     position: absolute;
     top: 5%;
     right: 0;
@@ -15,7 +15,5 @@
         max-width: 450px;
     }
     
-    @include media(1000px) {
-        position: static;
-    }
+    @include media(1000px) { position: static; }
 }

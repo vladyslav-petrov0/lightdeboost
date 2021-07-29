@@ -6,7 +6,7 @@ import { FetchTabsContext } from "../context/FetchTabsContext";
 const FetchTabs = ({ children, className}) => {
     const [ fetchSrc, setFetchSrc ] = useState([]);
 
-    const classes = classNames('fetch-tabs', [`${className}`]);
+    const classes = classNames('FetchTabs', [`${className}`]);
 
     return (
         <FetchTabsContext.Provider value={ {fetchSrc, setFetchSrc} }>

@@ -1,57 +1,71 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
+import classNames from "classnames";
 
-import FetchTabs from "../FetchTabs/FetchTabs";
-import FetchTabsHeader from "../FetchTabsHeader/FetchTabsHeader";
-import FetchTabsPanel from "../FetchTabsPanel/FetchTabsPanel";
-import FetchTabsHeaderItem from "../FetchTabsHeaderItem/FetchTabsHeaderItem";
+import {
+  FetchTabs as Tabs,
+  FetchTabsHeader as TabsHeader,
+  FetchTabsPanel as TabsPanel,
+  FetchTabsHeaderItem as TabsHeaderItem,
+} from "../FetchTabs";
+
+import Container from "../Container/Container";
 import ItemsTabsContent from "../ItemsTabsContent/ItemsTabsContent";
 
 import withServiceContext from "../hoc/withServiceContext";
 import { makeFlexRequest } from "../../utils";
-import './ItemsTabs.scss';
 
-const ItemsTabs = ({ children }) => {
-    return (
-        <div className="items-tabs">
-            <div className="container">
-                <FetchTabs>
-                    <FetchTabsHeader className="items-tabs__header">
-                        { children }
-                    </FetchTabsHeader>
+import "./ItemsTabs.scss";
+import "../Tabs/Tabs.scss";
 
-                    <FetchTabsPanel className="items-tabs__panel">
-                        <ItemsTabsContent />
-                    </FetchTabsPanel>
-                </FetchTabs>
-            </div>
-        </div>
-    );
+const ItemsTabs = ({ children, className }) => {
+  return (
+    <div className={className}>
+      <Container>
+        <Tabs className="Tabs">
+          <TabsHeader className="ItemsTabsHeader TabsHeader">
+            {children}
+          </TabsHeader>
+
+          <TabsPanel className="ItemsTabsPanel">
+            <ItemsTabsContent />
+          </TabsPanel>
+        </Tabs>
+      </Container>
+    </div>
+  );
 };
 
-const ItemsTabsContainer = ({ service }) => {
-    const [ loading, setLoading ] = useState(true);
-    const [ error, setError ] = useState(false);
-    const [ headers, setHeaders ] = useState([]);
+const ItemsTabsContainer = ({ service, className }) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [headers, setHeaders] = useState([]);
 
-    useEffect(() => makeFlexRequest(
-        service.getItemsTabsHeaders,
-        setHeaders, setError
-    ), []);
+  const classes = classNames("ItemsTabs", [`${className}`]);
 
-    return (
-        <ItemsTabs>
-        {
-            headers.map(el => {
-                return (
-                    <FetchTabsHeaderItem className="items-tabs__header-item"
-                    key={el.id} fetchSrc={el.contentId}>
-                        { el.label }
-                    </FetchTabsHeaderItem>
-                );
-            })
-        }
-        </ItemsTabs>
-    );
+  useEffect(
+    () => makeFlexRequest(service.getItemsTabsHeaders, setHeaders, setError),
+    []
+  );
+
+  return (
+    <ItemsTabs className={classes}>
+      {headers.map((el) => {
+        return (
+          <TabsHeaderItem
+            className="ItemsTabsHeaderItem TabsHeaderItem"
+            key={el.id}
+            fetchSrc={el.contentId}
+          >
+            {el.label}
+          </TabsHeaderItem>
+        );
+      })}
+    </ItemsTabs>
+  );
+};
+
+ItemsTabsContainer.defaultProps = {
+  className: "",
 };
 
 export default withServiceContext(ItemsTabsContainer);

@@ -2,7 +2,7 @@ import React, { Children, cloneElement } from 'react';
 import classNames from "classnames";
 
 const TabsHeader = ({ children, setActiveTab, activeTab, className }) => {
-    const classes = classNames('tabs__header', [`${className}`]);
+    const classes = classNames('TabsHeader', [`${className}`]);
 
     return (
         <div className={classes} >
@@ -17,5 +17,9 @@ const TabsHeader = ({ children, setActiveTab, activeTab, className }) => {
         </div>
     );
 };
+
+TabsHeader.defaultProps = {
+    className: ''
+}
 
 export default TabsHeader;

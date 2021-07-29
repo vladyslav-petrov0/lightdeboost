@@ -16,8 +16,8 @@ const elements = {
 const Title = ({ size, children, className, color, ...otherProps }) => {
     const Heading = elements[size];
 
-    const classes = classNames('title', [`title--${color}`],
-        [`title--${size}`], [`${className}`]);
+    const classes = classNames('Title', [`Title--${color}`],
+        [`Title--${size}`], [`${className}`]);
 
     return (
         <Heading {...otherProps} className={classes}>

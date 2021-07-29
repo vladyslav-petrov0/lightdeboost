@@ -1,0 +1,51 @@
+@import '../../utils/scss/vars';
+@import '../../utils/scss/media';
+
+.NavList {
+  display: flex;
+
+  li {
+    font: 500 16px/20px $font;
+    text-transform: uppercase;
+  }
+
+  &Header {
+    li {
+      color: $colorAdd1;
+      margin-right: 47px;
+
+      &:last-child {
+        margin-right: 0;
+
+        @include media(830px) {
+          margin-top: 10px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      @include media(830px) {
+        font-size: 20px;
+        line-height: 24px;
+
+        margin: 0 0 15px 0;
+      }
+
+      @include media(540px) {
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+
+    @include media(830px) {
+      flex-direction: column;
+
+      height: 100vh;
+      padding: 80px 20px 0 20px;
+
+      background-color: $colorSec;
+    }
+  }
+}

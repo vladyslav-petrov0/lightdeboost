@@ -4,7 +4,7 @@ import classNames from "classnames";
 const Tabs = ({ children, className }) => {
     const [ activeTab, setActiveTab ] = useState(0);
 
-    const classes = classNames('tabs', [`${className}`]);
+    const classes = classNames('Tabs', [`${className}`]);
     
     return (
         <div className={classes}>

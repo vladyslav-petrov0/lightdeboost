@@ -1,48 +1,44 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 import { useLoopedEvent } from "../customHooks";
 
-import { changeCurrentIntroId } from '../../actions/index.js';
-import IntroSliderItem from '../IntroSliderItem/IntroSliderItem.js';
+import { changeCurrentIntroId } from "../../actions/index.js";
+import IntroSliderItem from "../IntroSliderItem/IntroSliderItem.js";
 
-import arrowIcon from './img/arrow.svg';
-import './IntroSlider.scss';
+import arrowIcon from "./img/arrow.svg";
+import "./IntroSlider.scss";
 
 const IntroSlider = ({ changeId }) => {
-    const onChangeId = useLoopedEvent(changeId, 8000,1);
+  const onChangeId = useLoopedEvent(changeId, 8000, 1);
 
-    const onInc = () => onChangeId(1);
-    const onDec = () => onChangeId(-1);
+  const onInc = () => onChangeId(1);
+  const onDec = () => onChangeId(-1);
 
-    return (
-        <div className="slider">
+  return (
+    <div className="Slider">
+      <div className="SliderBody">
+        <IntroSliderItem />
+      </div>
 
-            <div className="slider__body">
-                <IntroSliderItem />
-            </div>
+      <div className="SliderButtons">
+        <button className="SliderButton" onClick={onDec}>
+          <img src={arrowIcon} alt="" />
+        </button>
 
-            <div className="slider__btns">
-                <button className="slider__btn"
-                onClick={onDec}>
-                    <img src={arrowIcon} alt=""/>
-                </button>
-
-                <button className="slider__btn"
-                onClick={onInc}>
-                    <img src={arrowIcon} alt=""/>
-                </button>
-            </div>
-            
-        </div>
-    );
+        <button className="SliderButton" onClick={onInc}>
+          <img src={arrowIcon} alt="" />
+        </button>
+      </div>
+    </div>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        changeId: (id) => {
-            dispatch(changeCurrentIntroId(id));
-        }
-    }
-}
+  return {
+    changeId: (id) => {
+      dispatch(changeCurrentIntroId(id));
+    },
+  };
+};
 
 export default connect(null, mapDispatchToProps)(IntroSlider);

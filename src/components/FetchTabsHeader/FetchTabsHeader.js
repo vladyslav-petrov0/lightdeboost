@@ -4,7 +4,7 @@ import classNames from "classnames";
 const FetchTabsHeader = ({ children, className}) => {
     const [ activeTab, setActiveTab ] = useState(0);
 
-    const classes = classNames('fetch-tabs__header', [`${className}`]);
+    const classes = classNames('FetchTabsHeader', [`${className}`]);
 
     return (
         <div className={classes}>
@@ -17,5 +17,9 @@ const FetchTabsHeader = ({ children, className}) => {
         </div>
     );
 };
+
+FetchTabsHeader.defaultProps = {
+    className: '',
+}
 
 export default FetchTabsHeader;

@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseButton from "../BaseButton/BaseButton";
 
-const FormButton = ({ children, ...otherProps }) => {
+const Button = ({ children, ...otherProps }) => {
     return (
         <BaseButton {...otherProps}>
             <button>{ children }</button>
@@ -9,4 +9,4 @@ const FormButton = ({ children, ...otherProps }) => {
     )
 }
 
-export default FormButton;
+export default Button;

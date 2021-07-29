@@ -1,0 +1,35 @@
+@import '../../utils/scss/vars';
+@import '../../utils/scss/media';
+
+.Breadcrumbs {
+  display: flex;
+  align-items: center;
+
+  &Item {
+    font: 500 18px/22px $font;
+    color: #1F271B;
+
+    position: relative;
+    margin-right: 32px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:not(&--root):before {
+      position: absolute;
+      left: -21px;
+      top: 0;
+
+      content: url('./arrow.svg');
+      width: 10px;
+      height: 10px;
+
+      pointer-events: none;
+    }
+
+    &--root {
+      color: rgba(31, 39, 27, 0.29);
+    }
+  }
+}

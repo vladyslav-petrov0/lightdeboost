@@ -1,18 +1,14 @@
-.text {
-    font-weight: normal;
-    font-size: 18px;
+@import './mixins.scss';
 
-    line-height: 22px;
-    
-    &--medium {
-        font-weight: 500;
-    }
+.Text {
+  line-height: 22px;
+  @include responsibleFont(320px, 1280px, 16px, 18px);
 
-    &--black {
-        color: $colorAdd1;
-    }
+  &--medium {
+    font-weight: 500;
+  }
 
-    @include media(540px) {
-        font-size: 16px;
-    }
+  &--black {
+    color: $colorAdd1;
+  }
 }

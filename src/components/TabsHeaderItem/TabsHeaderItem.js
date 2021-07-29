@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from "classnames";
 
 const TabsHeaderItem = ({ children, setActiveTab, className, isActive, onClick }) => {
-    let classes = classNames( 'tabs__header-item', [`${className}`],
+    let classes = classNames( 'TabsHeaderItem', [`${className}`],
         { 'active': isActive });
 
     const handleButton = () => {
@@ -17,5 +17,9 @@ const TabsHeaderItem = ({ children, setActiveTab, className, isActive, onClick }
         </button>
     );
 };
+
+TabsHeaderItem.defaultProps = {
+    className: ''
+}
 
 export default TabsHeaderItem;
