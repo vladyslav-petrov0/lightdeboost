@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import OverlayBackground from "../OverlayBackground/OverlayBackground.js";
 
 import HomePage from "../Pages/HomePage/HomePage.js";
-import Shop from "../Pages/Shop/Shop";
+import ShopPage from "../Pages/ShopPage/ShopPage";
 
 import "./App.scss";
 
@@ -22,7 +22,7 @@ const App = () => {
           <HomePage />
         </Route>
         <Route path="/shop" exact>
-          <Shop />
+          <ShopPage />
         </Route>
       </Switch>
       <Footer />

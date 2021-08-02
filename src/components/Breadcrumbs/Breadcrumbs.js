@@ -23,18 +23,23 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <Container>
-      <div className="Breadcrumbs">
-        <Link to={root.to} className="BreadcrumbsItem BreadcrumbsItem--root">
-          {root.name}
-        </Link>
-        {breadcrumbs.map(({ name, to }) => (
-          <Link key={name} to={to} className="BreadcrumbsItem">
-            {name}
+    <div className="Breadcrumbs">
+      <Container>
+        <div className="BreadcrumbsBody">
+          <Link to={root.to} className="BreadcrumbsItem BreadcrumbsItem--root">
+            {root.name}
           </Link>
-        ))}
-      </div>
-    </Container>
+          {breadcrumbs.map(
+            ({ name, to }) =>
+              name && (
+                <Link key={name} to={to} className="BreadcrumbsItem">
+                  {name}
+                </Link>
+              )
+          )}
+        </div>
+      </Container>
+    </div>
   );
 };
 

@@ -1,0 +1,57 @@
+@import '../../utils/scss/vars.scss';
+@import '../../utils/scss/media.scss';
+@import '../../utils/scss/mixins.scss';
+
+.Tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.Header {
+  display: flex;
+
+  @include media(768px) {
+    flex-direction: column;
+  }
+}
+
+.Item {
+  @include flexCenter;
+
+  flex: 1 1 20%;
+  padding: 35px 30px 32px 31px;
+
+  font: 600 22px/102.4% $font;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  color: $colorAdd1;
+  background-color: rgba(244, 176, 43, 0.12);
+
+  &:global(.active) {
+    color: $colorAdd2;
+    background-color: $colorMain;
+  }
+
+  @include media(1200px) {
+    padding: 25px 20px;
+
+    font-size: 20px;
+    line-height: 100%;
+  }
+
+  @include media(768px) {
+    padding: 20px 15px;
+    font-size: 18px;
+  }
+
+  @include media(500px) {
+    padding: 15px 10px;
+    font-size: 16px;
+  }
+}
+

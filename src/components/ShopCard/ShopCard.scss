@@ -9,12 +9,16 @@
   height: 327px;
   border-radius: $radius;
 
-  $bgFilter: linear-gradient(180deg, rgba(31, 39, 27, 0) 0%, rgba(31, 39, 27, 0.87) 100%);
-  @include bgFilter($bgFilter);
+  background-size: cover;
 
-  @include media(720px) {
-    width: 250px;
-    height: 300px;
+  $bgFilter: linear-gradient(180deg, rgba(31, 39, 27, 0) 0%, rgba(31, 39, 27, 0.87) 100%);
+  @include bgFilter($bgFilter) {
+    border-radius: $radius;
+  };
+
+  @include media(1200px) {
+    width: calc(220px + (279 - 220) * ((100vw - 320px) / (1240 - 320)));
+    height: calc(280px + (327 - 280) * ((100vw - 320px) / (1240 - 320)));
   }
 
   &--mini {
@@ -35,7 +39,7 @@
   }
 
   &Body {
-    position: relative;
+    position: absolute;
     z-index: 10;
 
     display: flex;
@@ -85,6 +89,8 @@
 
     font: bold 25px/25px $font;
     text-transform: uppercase;
+
+    @include responsibleFont(320px, 720px, 20px, 25px);
 
     color: $colorAdd2;
 

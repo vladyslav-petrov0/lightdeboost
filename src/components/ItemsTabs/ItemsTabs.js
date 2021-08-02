@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classNames from "classnames";
 
 import {
@@ -11,18 +11,18 @@ import {
 import Container from "../Container/Container";
 import ItemsTabsContent from "../ItemsTabsContent/ItemsTabsContent";
 
-import withServiceContext from "../hoc/withServiceContext";
 import { makeFlexRequest } from "../../utils";
 
 import "./ItemsTabs.scss";
-import "../Tabs/Tabs.scss";
+import tabsStyles from "../Tabs/Tabs.module.scss";
+import { ServiceContext } from "../context/ServiceContext";
 
 const ItemsTabs = ({ children, className }) => {
   return (
     <div className={className}>
       <Container>
-        <Tabs className="Tabs">
-          <TabsHeader className="ItemsTabsHeader TabsHeader">
+        <Tabs className={tabsStyles.Tabs}>
+          <TabsHeader className={`ItemsTabsHeader ${tabsStyles.Header}`}>
             {children}
           </TabsHeader>
 
@@ -35,10 +35,12 @@ const ItemsTabs = ({ children, className }) => {
   );
 };
 
-const ItemsTabsContainer = ({ service, className }) => {
+const ItemsTabsContainer = ({ className }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [headers, setHeaders] = useState([]);
+
+  const { service } = useContext(ServiceContext);
 
   const classes = classNames("ItemsTabs", [`${className}`]);
 
@@ -52,7 +54,7 @@ const ItemsTabsContainer = ({ service, className }) => {
       {headers.map((el) => {
         return (
           <TabsHeaderItem
-            className="ItemsTabsHeaderItem TabsHeaderItem"
+            className={`ItemsTabsHeaderItem ${tabsStyles.Item}`}
             key={el.id}
             fetchSrc={el.contentId}
           >
@@ -68,4 +70,4 @@ ItemsTabsContainer.defaultProps = {
   className: "",
 };
 
-export default withServiceContext(ItemsTabsContainer);
+export default ItemsTabsContainer;

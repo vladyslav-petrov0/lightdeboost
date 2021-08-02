@@ -1,0 +1,71 @@
+@import '../../utils/scss/vars';
+@import '../../utils/scss/media';
+@import '../../utils/scss/mixins';
+
+.ShopProducts {
+  margin: 0 auto;
+
+  @include media(768px) {
+    padding-bottom: 27px;
+  }
+}
+
+.Tabs {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+
+.Nav {
+  display: flex;
+  align-self: flex-end;
+}
+
+.Btn {
+  padding: 15px 20px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.ItemList {
+  width: 100%;
+
+  display: grid;
+  grid-gap: 23px 27px;
+  grid-template: repeat(3, auto) / repeat(3, minmax(160px, 272px));
+
+  @include media(768px) {
+    grid-template-columns: repeat(2, minmax(160px, 272px));
+  }
+
+  @include media(500px) {
+    grid-template-columns: minmax(160px, 272px);
+  }
+}
+
+.Card {
+  width: 100%;
+  height: auto;
+
+  padding: 0 0 120% 0;
+
+  h3 {
+    @include responsibleFont(1025px, 1200px, 20px, 25px);
+
+    @include media(1024px) {
+      @include responsibleFont(769px, 1024px, 20px, 25px);
+    }
+
+    @include media(768px) {
+      @include responsibleFont(501px, 615px, 20px, 25px);
+    }
+
+    @include media(500px) {
+      font-size: 25px;
+    }
+  }
+}

@@ -25,4 +25,12 @@ export default class LightBoostService {
   getTopSaleList = async () => {
     return fetch(`${this.secondURL}/topsalelist`);
   };
+
+  getShopCategories = async () => {
+    return fetch(`${this.secondURL}/shopcategories`);
+  };
+
+  getShopProducts = async () => {
+    return fetch(`${this.secondURL}/shopcardlist`);
+  };
 }

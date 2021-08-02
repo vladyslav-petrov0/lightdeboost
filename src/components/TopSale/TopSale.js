@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import CardSection from "../CardSection/CardSectionContainer.js";
-import withServiceContext from "../hoc/withServiceContext";
+import { ServiceContext } from "../context/ServiceContext";
 
-const TopSale = ({ service, className }) => {
+const TopSale = ({ className }) => {
+  const { service } = useContext(ServiceContext);
   const classes = classNames("TopSale", [`${className}`]);
 
   return (
@@ -21,4 +22,4 @@ TopSale.defaultProps = {
   className: "",
 };
 
-export default withServiceContext(TopSale);
+export default TopSale;

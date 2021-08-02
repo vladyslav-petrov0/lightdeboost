@@ -1,13 +1,7 @@
-import Tabs from './Tabs.js';
-import TabsBody from '../TabsBody/TabsBody.js';
-import TabsHeader from '../TabsHeader/TabsHeader.js';
-import TabsHeaderItem from '../TabsHeaderItem/TabsHeaderItem';
-import TabsItem from '../TabsItem/TabsItem';
+import Tabs from "./Tabs.js";
+import TabsBody from "./components/TabsBody/TabsBody";
+import TabsHeader from "./components/TabsHeader/TabsHeader.js";
+import TabsHeaderItem from "./components/TabsHeaderItem/TabsHeaderItem";
+import TabsItem from "./components/TabsItem/TabsItem";
 
-export {
-    Tabs,
-    TabsBody,
-    TabsHeader,
-    TabsHeaderItem,
-    TabsItem
-};
+export { Tabs, TabsBody, TabsHeader, TabsHeaderItem, TabsItem };

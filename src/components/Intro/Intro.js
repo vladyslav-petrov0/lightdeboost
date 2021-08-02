@@ -1,44 +1,39 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import classNames from 'classnames';
+import React, { useContext, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import classNames from "classnames";
 
-import { fetchIntroItemList } from '../../actions/index.js';
+import { fetchIntroItemList } from "../../actions/index.js";
 
-import IntroDetails from '../IntroDetails/IntroDetails.js';
-import IntroSlider from '../IntroSlider/IntroSlider.js';
+import IntroDetails from "../IntroDetails/IntroDetails.js";
+import IntroSlider from "../IntroSlider/IntroSlider.js";
 import Container from "../Container/Container";
-import withServiceContext from '../hoc/withServiceContext.js';
 
-import './Intro.scss';
+import "./Intro.scss";
+import { ServiceContext } from "../context/ServiceContext";
 
-const Intro = ({ fetchItemList, className }) => {
-    useEffect(fetchItemList, []);
-    const classes = classNames('Intro', [`${className}`]);
+const Intro = ({ className }) => {
+  const { service } = useContext(ServiceContext);
+  const dispatch = useDispatch();
 
-    return (
-        <div className={classes}>
-            <Container className="IntroContainer">
+  const fetchItemList = () => fetchIntroItemList(service, dispatch);
 
-                <div className="IntroBody">
-                    <IntroDetails />
-                    <IntroSlider />                    
-                </div>
+  useEffect(fetchItemList, []);
+  const classes = classNames("Intro", [`${className}`]);
 
-            </Container>
+  return (
+    <div className={classes}>
+      <Container className="IntroContainer">
+        <div className="IntroBody">
+          <IntroDetails />
+          <IntroSlider />
         </div>
-    );
+      </Container>
+    </div>
+  );
 };
 
 Intro.defaultProps = {
-    className: ''
+  className: "",
 };
 
-const mapDispatchToProps = (dispatch, { service }) => {
-    return {
-        fetchItemList: () => fetchIntroItemList(service, dispatch),
-    }
-}
-
-export default withServiceContext(
-    connect(null, mapDispatchToProps)(Intro)
-);
+export default Intro;

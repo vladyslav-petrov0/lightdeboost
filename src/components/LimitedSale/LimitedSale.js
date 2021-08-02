@@ -1,41 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
+import React, { useState, useEffect, useContext } from "react";
+import classNames from "classnames";
 
 import LimitedSaleDetails from "../LimitedSaleDetails/LimitedSaleDetails";
 import LimitedSaleTimer from "../LimitedSaleTimer/LimitedSaleTimer";
 import Container from "../Container/Container";
 
-import withServiceContext from "../hoc/withServiceContext";
 import { makeFlexRequest } from "../../utils";
 
-import './LimitedSale.scss';
+import "./LimitedSale.scss";
+import { ServiceContext } from "../context/ServiceContext";
 
-const LimitedSale = ({ service, className }) => {
-    const [ saleItem, setSaleItem ] = useState({});
-    const classes = classNames('LimitedSale', [`${className}`]);
+const LimitedSale = ({ className }) => {
+  const [saleItem, setSaleItem] = useState({});
+  const { service } = useContext(ServiceContext);
+  const classes = classNames("LimitedSale", [`${className}`]);
 
-    useEffect(() => makeFlexRequest(
-        service.getLimitedSaleItem,
-        (data) => setSaleItem(data[0])
-    ), []);
+  useEffect(
+    () =>
+      makeFlexRequest(service.getLimitedSaleItem, (data) =>
+        setSaleItem(data[0])
+      ),
+    []
+  );
 
-    const { background, startTime } = saleItem;
-    const style = { backgroundImage: `url(${background})` };
+  const { background, startTime } = saleItem;
+  const style = { backgroundImage: `url(${background})` };
 
-    return (
-        <div className={classes} style={style}>
-            <Container className="LimitedSaleContainer">
-                <div className="LimitedSaleBody">
-                    <LimitedSaleDetails { ...saleItem } />
-                    <LimitedSaleTimer startTime={startTime} />
-                </div>
-            </Container>
+  return (
+    <div className={classes} style={style}>
+      <Container className="LimitedSaleContainer">
+        <div className="LimitedSaleBody">
+          <LimitedSaleDetails {...saleItem} />
+          <LimitedSaleTimer startTime={startTime} />
         </div>
-    );
+      </Container>
+    </div>
+  );
 };
 
 LimitedSale.defaultProps = {
-    className: ''
+  className: "",
 };
 
-export default withServiceContext(LimitedSale);
+export default LimitedSale;

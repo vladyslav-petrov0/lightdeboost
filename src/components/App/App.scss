@@ -11,13 +11,9 @@ body {
 }
 
 #root {
-    padding-top: 66px;
-
-    @include media(1100px) {
-        padding-top: 66px;
-    }
+    padding-top: 88px;
 
     @include media(540px) {
-        padding-top: 36px;
+        padding-top: 56px;
     }
 }

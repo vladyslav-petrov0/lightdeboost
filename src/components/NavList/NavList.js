@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import { elems } from "../../mocks/nav";
-import NavItem from "../NavItem";
+import NavItem from "../NavItem/NavItem";
 
 import "./NavList.scss";
 

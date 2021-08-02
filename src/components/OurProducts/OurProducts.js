@@ -1,22 +1,24 @@
-import React from "react";
-import classNames from 'classnames';
+import React, { useContext } from "react";
+import classNames from "classnames";
 
-import withServiceContext from "../hoc/withServiceContext";
 import CardSection from "../CardSection/CardSectionContainer";
+import { ServiceContext } from "../context/ServiceContext";
 
-const OurProducts = ({ service, className }) => {
-    const classes = classNames('OurProducts', [`${className}`]);
+const OurProducts = ({ className }) => {
+  const { service } = useContext(ServiceContext);
+  const classes = classNames("OurProducts", [`${className}`]);
 
-    return (
-        <CardSection
-        title="Our products"
-        fetchItems={service.getProductList}
-        className={classes} />
-    );
+  return (
+    <CardSection
+      title="Our products"
+      fetchItems={service.getProductList}
+      className={classes}
+    />
+  );
 };
 
 OurProducts.defaultProps = {
-    className: ''
+  className: "",
 };
 
-export default withServiceContext(OurProducts);
+export default OurProducts;

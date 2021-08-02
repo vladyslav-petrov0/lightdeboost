@@ -32,4 +32,8 @@ const ShopCard = ({ item, className }) => {
   );
 };
 
+ShopCard.defaultProps = {
+  className: "",
+};
+
 export default ShopCard;

@@ -1,11 +1,3 @@
-import { createContext } from 'react';
+import { createContext } from "react";
 
-const {
-    Provider: ServiceProvider,
-    Consumer: ServiceConsumer
-} = createContext();
-
-export {
-    ServiceProvider,
-    ServiceConsumer
-}
+export const ServiceContext = createContext();

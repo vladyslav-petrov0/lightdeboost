@@ -1,41 +1,37 @@
-import {makeFlexRequest} from "../utils";
+import { makeFlexRequest } from "../utils";
 
 export const changeCurrentIntroId = (id) => {
-    return {
-        type: 'UPDATE_INTRO-ID',
-        payload: id
-    }
+  return {
+    type: "UPDATE_INTRO-ID",
+    payload: id,
+  };
 };
 
 const introItemListLoaded = (itemList) => {
-    return {
-        type: 'FETCH_INTRO-ITEMS_SUCCESS',
-        payload: itemList
-    }
+  return {
+    type: "FETCH_INTRO-ITEMS_SUCCESS",
+    payload: itemList,
+  };
 };
 
 const introItemListFailed = (error) => {
-    return {
-        type: 'FETCH_INTRO-ITEMS_FAILURE',
-        payload: error
-    }
+  return {
+    type: "FETCH_INTRO-ITEMS_FAILURE",
+    payload: error,
+  };
 };
 
 const introItemListRequest = () => {
-    return {
-        type: 'FETCH_INTRO-ITEMS_REQUEST',
-    }
-}
+  return {
+    type: "FETCH_INTRO-ITEMS_REQUEST",
+  };
+};
 
 export const fetchIntroItemList = (service, dispatch) => {
-    introItemListRequest();
-    return makeFlexRequest(
-        service.getIntroItemList,
-        (data) => dispatch(introItemListLoaded(data)),
-        introItemListFailed,
-    );
-    // service.getIntroItemList()
-    //     .then(res => res.json())
-    //     .then(data => dispatch(introItemListLoaded(data)))
-    //     .catch(introItemListFailed);
+  introItemListRequest();
+  return makeFlexRequest(
+    service.getIntroItemList,
+    (data) => dispatch(introItemListLoaded(data)),
+    introItemListFailed
+  );
 };

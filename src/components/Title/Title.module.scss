@@ -1,0 +1,26 @@
+@import '../../utils/scss/vars.scss';
+@import '../../utils/scss/media.scss';
+@import '../../utils/scss/mixins.scss';
+
+.Title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.lg {
+  line-height: 102.4%;
+  @include responsibleFont(320px, 1280px, 30px, 60px);
+}
+
+.xl {
+  line-height: 102.4%;
+  @include responsibleFont(320px, 1280px, 30px, 80px);
+}
+
+.black {
+  color: $colorAdd1;
+}
+
+.white {
+  color: $colorAdd2;
+}

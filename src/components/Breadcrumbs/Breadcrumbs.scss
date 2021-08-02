@@ -2,8 +2,12 @@
 @import '../../utils/scss/media';
 
 .Breadcrumbs {
-  display: flex;
-  align-items: center;
+  margin-bottom: 54px;
+
+  &Body {
+    display: flex;
+    align-items: center;
+  }
 
   &Item {
     font: 500 18px/22px $font;

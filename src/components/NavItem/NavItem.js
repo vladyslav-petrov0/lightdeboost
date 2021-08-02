@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 import { connect } from "react-redux";
 
-import { burgerMenuUpdate } from "../actions";
+import { burgerMenuUpdate } from "../../actions";
 
 const NavItem = ({ children, className, closeMenu }) => {
   const classes = classNames("NavItem", [`${className}`]);
