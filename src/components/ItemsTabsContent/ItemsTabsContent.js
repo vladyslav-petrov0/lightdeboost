@@ -13,17 +13,21 @@ import "./ItemsTabsContent.scss";
 import arrowIcon from "./arrow.svg";
 import { makeFlexRequest } from "../../utils";
 import { ServiceContext } from "../context/ServiceContext";
+import { FetchTabsContext } from "../context/FetchTabsContext";
 
 SwiperCore.use([Navigation]);
 
-const ItemsTabsContent = ({ fetchSrc }) => {
+const ItemsTabsContent = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [data, setData] = useState([]);
 
   const { service } = useContext(ServiceContext);
 
+  const { fetchSrc } = useContext(FetchTabsContext);
+
   const fetchItems = () => {
+    setError(false);
     setLoading(true);
 
     return makeFlexRequest(

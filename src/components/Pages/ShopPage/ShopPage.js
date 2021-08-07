@@ -1,6 +1,6 @@
 import React from "react";
 
-import Shop from "../../Shop/Shop";
+import Shop from "../../Shop/ShopContainer";
 import Title from "../../Title/Title";
 import Container from "../../Container/Container";
 
@@ -12,7 +12,6 @@ const ShopPage = () => {
       <Container className="ShopPageTitle">
         <Title>Shop</Title>
       </Container>
-
       <Shop />
     </main>
   );

@@ -1,36 +1,39 @@
-export default class LightBoostService {
-  coreURL = "https://60fa787b7ae59c001716617a.mockapi.io/lightboost";
-  secondURL = "https://60fabb3a7ae59c00171662c6.mockapi.io/lightdeboost/";
+import axios from "axios";
+import queryString from "query-string";
 
+export default class LightBoostService {
   getIntroItemList = async () => {
-    return fetch(`${this.coreURL}/introitemlist`);
+    return axios.get("/introitems");
   };
 
   getItemsTabsHeaders = async () => {
-    return fetch(`${this.coreURL}/itemtabsheaders`);
+    return axios.get("/itemstabsheaders");
   };
 
   getItemsTabsContent = async (id) => {
-    return fetch(`${this.coreURL}/itemtabscontent/${id}`);
+    return axios.get(`/itemstabscontent/${id}`);
   };
 
   getLimitedSaleItem = async () => {
-    return fetch(`${this.coreURL}/limitedsaleitem`);
+    return axios.get("/limitedsaleitem");
   };
 
   getProductList = async () => {
-    return fetch(`${this.secondURL}/productlist`);
+    return axios.get("/productlist");
   };
 
   getTopSaleList = async () => {
-    return fetch(`${this.secondURL}/topsalelist`);
+    return axios.get("/topsalelist");
   };
 
   getShopCategories = async () => {
-    return fetch(`${this.secondURL}/shopcategories`);
+    return axios.get("/shopcategories");
   };
 
-  getShopProducts = async () => {
-    return fetch(`${this.secondURL}/shopcardlist`);
+  getShopProducts = async (filter) => {
+    const params = Object.entries(filter).filter((el) => el[0] !== "page");
+    const paramsUrl = `/?${queryString.stringify(Object.fromEntries(params))}`;
+
+    return axios.get(`/shopcardlist${paramsUrl}`);
   };
 }

@@ -2,16 +2,23 @@ import React from "react";
 import ShopInput from "../ShopInput/ShopInput";
 import ShopCategory from "../ShopCategory/ShopCategory";
 import { useSelector } from "react-redux";
+import ShopCategoryLoader from "../ShopCategoryLoader/ShopCategoryLoader";
 
 const ShopSidebar = () => {
-  const categories = useSelector((state) => state.shop.categories.immutable);
+  const { items: categories, loading } = useSelector(
+    ({ shop }) => shop.categories
+  );
 
   return (
     <div className="ShopSidebar">
-      {categories.map(({ id, ...props }) => {
-        return <ShopCategory key={id} {...props} />;
-      })}
-      <ShopInput />
+      {loading ? (
+        <ShopCategoryLoader />
+      ) : (
+        categories.map(({ id, ...props }) => {
+          return <ShopCategory key={id} {...props} />;
+        })
+      )}
+      {/*<ShopInput />*/}
     </div>
   );
 };

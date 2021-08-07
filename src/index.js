@@ -11,6 +11,9 @@ import store from "./store.js";
 import ErrorBoundry from "./components/ErrorBoundry/ErrorBoundry.js";
 import App from "./components/App/App.js";
 
+import { worker } from "./mocks/browser.js";
+worker.start();
+
 const service = new LightBoostService();
 
 ReactDOM.render(

@@ -1,49 +1,73 @@
 import React from "react";
+import { Redirect, useHistory } from "react-router-dom";
 
-import { Tabs, TabsBody, TabsHeader, TabsHeaderItem, TabsItem } from "../Tabs";
 import ShopCard from "../ShopCard/ShopCard";
 import { divideArr } from "../../utils/funcs/divideArr";
 import { useSelector } from "react-redux";
 
 import styles from "./ShopProducts.module.scss";
+import queryString from "query-string";
+import FadeLoader from "../Loaders/FadeLoader/FadeLoader";
+
+const checkPageParamForErrors = (maxLength, currentPage) => {
+  return maxLength && (currentPage > maxLength || currentPage < 1);
+};
+
+const getRedirectUrl = (filter) => {
+  const searchParams = { ...filter };
+  searchParams["page"] = 1;
+  return `/shop/?${queryString.stringify(searchParams)}`;
+};
 
 const ShopProducts = () => {
-  const products = useSelector((state) => state.shop.products.current);
-  const dividedProducts = divideArr(products, 6);
+  const history = useHistory();
+
+  const {
+    items: products,
+    loading,
+    filter,
+  } = useSelector(({ shop }) => shop.products);
+
+  const pages = divideArr(
+    products.map((item) => {
+      return <ShopCard key={item.id} item={item} className={styles.Card} />;
+    }),
+    6
+  );
+
+  const pageCountError = checkPageParamForErrors(pages.length, filter.page);
+
+  if (pageCountError) {
+    const redirectUrl = getRedirectUrl(filter);
+    return <Redirect to={redirectUrl} />;
+  }
+
+  if (loading) {
+    return (
+      <div className={styles.ShopProducts}>
+        <div className={styles.ItemList}>
+          <FadeLoader className={styles.Card} />
+          <FadeLoader className={styles.Card} />
+          <FadeLoader className={styles.Card} />
+          <FadeLoader className={styles.Card} />
+          <FadeLoader className={styles.Card} />
+          <FadeLoader className={styles.Card} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.ShopProducts}>
-      <Tabs className={styles.Tabs}>
-        <TabsBody>
-          {dividedProducts.map(({ id, fragment }, idx) => {
-            return (
-              <TabsItem key={id} className={styles.ItemList}>
-                {fragment.map((item) => {
-                  return (
-                    <ShopCard
-                      key={item.id}
-                      item={item}
-                      className={styles.Card}
-                    />
-                  );
-                })}
-              </TabsItem>
-            );
-          })}
-        </TabsBody>
+      <div className={styles.ItemList}>{pages[filter.page - 1]}</div>
+      {pages.map((el, idx) => {
+        const onHandle = () => {
+          const url = queryString.stringify({ ...filter, page: idx + 1 });
+          history.push(`/shop/?${url}`);
+        };
 
-        {dividedProducts.length > 1 && (
-          <TabsHeader className={styles.Nav}>
-            {dividedProducts.map(({ id }, idx) => {
-              return (
-                <TabsHeaderItem className={styles.Btn} key={id}>
-                  {idx + 1}
-                </TabsHeaderItem>
-              );
-            })}
-          </TabsHeader>
-        )}
-      </Tabs>
+        return <button onClick={onHandle}>{idx + 1}</button>;
+      })}
     </div>
   );
 };
