@@ -1,13 +1,21 @@
-import React from "react";
-import ShopInput from "../ShopInput/ShopInput";
+import React, { useContext, useEffect, useState } from "react";
+import { ServiceContext } from "../context/ServiceContext";
+
 import ShopCategory from "../ShopCategory/ShopCategory";
-import { useSelector } from "react-redux";
 import ShopCategoryLoader from "../ShopCategoryLoader/ShopCategoryLoader";
+import { useFetch } from "../customHooks/useFetch";
 
 const ShopSidebar = () => {
-  const { items: categories, loading } = useSelector(
-    ({ shop }) => shop.categories
-  );
+  const { service } = useContext(ServiceContext);
+
+  const {
+    fetchItems: fetchCategories,
+    error,
+    loading,
+    items: categories = [],
+  } = useFetch(service.getShopCategories);
+
+  useEffect(() => fetchCategories(), []);
 
   return (
     <div className="ShopSidebar">

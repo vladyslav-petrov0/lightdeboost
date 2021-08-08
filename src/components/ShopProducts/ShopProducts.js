@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 
 import ShopCard from "../ShopCard/ShopCard";
 import { divideArr } from "../../utils/funcs/divideArr";
-import { useSelector } from "react-redux";
 
 import styles from "./ShopProducts.module.scss";
 import queryString from "query-string";
-import FadeLoader from "../Loaders/FadeLoader/FadeLoader";
+import { ServiceContext } from "../context/ServiceContext";
+import { ShopContext } from "../context/ShopContext";
+import ShopProductsLoader from "../ShopProductsLoader/ShopProductsLoader";
+import { useFetch } from "../customHooks/useFetch";
 
 const checkPageParamForErrors = (maxLength, currentPage) => {
   return maxLength && (currentPage > maxLength || currentPage < 1);
@@ -20,13 +22,18 @@ const getRedirectUrl = (filter) => {
 };
 
 const ShopProducts = () => {
+  const { service } = useContext(ServiceContext);
+  const { filter } = useContext(ShopContext);
   const history = useHistory();
 
   const {
-    items: products,
+    fetchItems: fetchProducts,
+    error,
     loading,
-    filter,
-  } = useSelector(({ shop }) => shop.products);
+    items: products = [],
+  } = useFetch(() => service.getShopProducts(filter));
+
+  useEffect(() => fetchProducts(), [filter]);
 
   const pages = divideArr(
     products.map((item) => {
@@ -42,24 +49,12 @@ const ShopProducts = () => {
     return <Redirect to={redirectUrl} />;
   }
 
-  if (loading) {
-    return (
-      <div className={styles.ShopProducts}>
-        <div className={styles.ItemList}>
-          <FadeLoader className={styles.Card} />
-          <FadeLoader className={styles.Card} />
-          <FadeLoader className={styles.Card} />
-          <FadeLoader className={styles.Card} />
-          <FadeLoader className={styles.Card} />
-          <FadeLoader className={styles.Card} />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={styles.ShopProducts}>
-      <div className={styles.ItemList}>{pages[filter.page - 1]}</div>
+      <div className={styles.ItemList}>
+        {loading ? <ShopProductsLoader /> : pages[filter.page - 1]}
+      </div>
+
       {pages.map((el, idx) => {
         const onHandle = () => {
           const url = queryString.stringify({ ...filter, page: idx + 1 });
