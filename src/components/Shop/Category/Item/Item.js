@@ -4,16 +4,15 @@ import PropTypes from "prop-types";
 import queryString from "query-string";
 
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 
-import "./ShopCategoryItem.scss";
-import { ShopContext } from "../context/ShopContext";
+import styles from "./Item.module.scss";
+import { ShopContext } from "../../../context/ShopContext";
 
 const ShopCategoryItem = ({ label, filterParams, className }) => {
   const history = useHistory();
 
   const { filter } = useContext(ShopContext);
-  const classes = classNames("ShopCategoryItem", [`${className}`]);
+  const classes = classNames(styles.Item, [`${className}`]);
 
   const onHandle = () => {
     const { category, value } = filterParams;

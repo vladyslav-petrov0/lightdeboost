@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ServiceContext } from "../context/ServiceContext";
+import React, { useContext, useEffect } from "react";
+import { ServiceContext } from "../../context/ServiceContext";
 
-import ShopCategory from "../ShopCategory/ShopCategory";
-import ShopCategoryLoader from "../ShopCategoryLoader/ShopCategoryLoader";
-import { useFetch } from "../customHooks/useFetch";
+import ShopCategory from "../Category/Category";
+import ShopCategoryLoader from "../Category/Loader/Loader";
+import { useFetch } from "../../customHooks/useFetch";
+import styles from "./Sidebar.module.scss";
 
 const ShopSidebar = () => {
   const { service } = useContext(ServiceContext);
@@ -18,7 +19,7 @@ const ShopSidebar = () => {
   useEffect(() => fetchCategories(), []);
 
   return (
-    <div className="ShopSidebar">
+    <div className={styles.Sidebar}>
       {loading ? (
         <ShopCategoryLoader />
       ) : (

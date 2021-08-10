@@ -1,23 +1,22 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { useSelector } from "react-redux";
 
-import ShopCategoryItem from "../ShopCategoryItem/ShopCategoryItem";
-import Switcher from "../Switcher/Switcher";
+import ShopCategoryItem from "./Item/Item";
+import Switcher from "../../Switcher/Switcher";
 
-import "./ShopCategory.scss";
-import { ShopContext } from "../context/ShopContext";
+import styles from "./Category.module.scss";
+import { ShopContext } from "../../context/ShopContext";
 
 const ShopCategory = ({ subcategories, className, title }) => {
   const { filter } = useContext(ShopContext);
-  const classes = classNames("ShopCategory", [`${className}`]);
+  const classes = classNames(styles.ShopCategory, [`${className}`]);
 
   return (
     <div className={classes}>
-      <h3 className="ShopCategoryTitle">{title}</h3>
+      <h3 className={styles.Title}>{title}</h3>
 
-      <ul className="ShopCategoryList">
+      <ul className={styles.List}>
         {subcategories.map(({ id, ...props }) => {
           const { category, value } = props.filterParams;
 

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { useLoopedEvent } from "../customHooks";
 
-import { changeCurrentIntroId } from "../../actions/index.js";
+import { changeCurrentIntroId } from "../../actions";
 import IntroSliderItem from "../IntroSliderItem/IntroSliderItem.js";
 
 import arrowIcon from "./img/arrow.svg";

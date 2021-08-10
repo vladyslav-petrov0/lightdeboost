@@ -1,50 +1,49 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import { burgerMenuUpdate } from '../../actions/index.js';
-import './BurgerMenu.scss';
+import { burgerMenuUpdate } from "../../actions";
+import "./BurgerMenu.scss";
 
 const BurgerMenu = (props) => {
-    return (
-        <button {...props} >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    );
+  return (
+    <button {...props}>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  );
 };
 
 const BurgerMenuContainer = ({ isActive, onToggle }) => {
-    let classes = classNames('BurgerMenu', {
-        'active': isActive
-    });
+  let classes = classNames("BurgerMenu", {
+    active: isActive,
+  });
 
-    const onClick = () => onToggle(!isActive);
+  const onClick = () => onToggle(!isActive);
 
-    return (
-        <BurgerMenu
-        className={classes} 
-        onClick={onClick} />
-    );
-}
+  return <BurgerMenu className={classes} onClick={onClick} />;
+};
 
 BurgerMenuContainer.propTypes = {
-    isActive: PropTypes.bool,
-    onToggleMenu: PropTypes.func,
+  isActive: PropTypes.bool,
+  onToggleMenu: PropTypes.func,
 };
 
 const mapStateToProps = ({ header: { burgerMenuIsActive } }) => {
-    return {
-        isActive: burgerMenuIsActive
-    };
-}
+  return {
+    isActive: burgerMenuIsActive,
+  };
+};
 
-const mapDispatchToProps = (dispatch) =>    {
-    return {
-        onToggle: (state) => dispatch(burgerMenuUpdate(state))
-    }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onToggle: (state) => dispatch(burgerMenuUpdate(state)),
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(BurgerMenuContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BurgerMenuContainer);

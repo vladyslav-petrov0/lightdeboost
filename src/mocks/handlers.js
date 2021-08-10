@@ -54,10 +54,10 @@ export const handlers = [
       });
     }
 
-    return res(ctx.delay(1000), ctx.status(200), ctx.json(data));
+    return res(ctx.delay(500), ctx.status(200), ctx.json(data));
   }),
 
   rest.get("/shopcategories", (req, res, ctx) => {
-    return res(ctx.delay(1000), ctx.status(200), ctx.json(shopCategories));
+    return res(ctx.delay(500), ctx.status(200), ctx.json(shopCategories));
   }),
 ];

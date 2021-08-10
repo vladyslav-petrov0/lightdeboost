@@ -1,15 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 
-import ShopCard from "../ShopCard/ShopCard";
-import { divideArr } from "../../utils/funcs/divideArr";
+import ShopCard from "../../ShopCard/ShopCard";
+import { divideArr } from "../../../utils/funcs/divideArr";
 
-import styles from "./ShopProducts.module.scss";
+import styles from "./Products.module.scss";
 import queryString from "query-string";
-import { ServiceContext } from "../context/ServiceContext";
-import { ShopContext } from "../context/ShopContext";
-import ShopProductsLoader from "../ShopProductsLoader/ShopProductsLoader";
-import { useFetch } from "../customHooks/useFetch";
+import { ServiceContext } from "../../context/ServiceContext";
+import { ShopContext } from "../../context/ShopContext";
+import ShopProductsLoader from "./Loader/Loader";
+import { useFetch } from "../../customHooks/useFetch";
+import ShopProductsPagination from "./Pagination/Pagination";
 
 const checkPageParamForErrors = (maxLength, currentPage) => {
   return maxLength && (currentPage > maxLength || currentPage < 1);
@@ -24,7 +25,6 @@ const getRedirectUrl = (filter) => {
 const ShopProducts = () => {
   const { service } = useContext(ServiceContext);
   const { filter } = useContext(ShopContext);
-  const history = useHistory();
 
   const {
     fetchItems: fetchProducts,
@@ -55,14 +55,7 @@ const ShopProducts = () => {
         {loading ? <ShopProductsLoader /> : pages[filter.page - 1]}
       </div>
 
-      {pages.map((el, idx) => {
-        const onHandle = () => {
-          const url = queryString.stringify({ ...filter, page: idx + 1 });
-          history.push(`/shop/?${url}`);
-        };
-
-        return <button onClick={onHandle}>{idx + 1}</button>;
-      })}
+      {!loading && <ShopProductsPagination count={pages.length} />}
     </div>
   );
 };

@@ -1,0 +1,17 @@
+@import '../../../utils/scss/vars';
+@import '../../../utils/scss/media';
+@import '../../../utils/scss/mixins';
+
+.Sidebar {
+  max-width: 271px;
+  min-width: 210px;
+
+  flex: 1 1 auto;
+  margin-right: 25px;
+
+  @include media(1024px) {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+  }
+}

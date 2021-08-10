@@ -1,7 +1,7 @@
 import React from "react";
-import FadeLoader from "../Loaders/FadeLoader/FadeLoader";
+import FadeLoader from "../../../Loaders/FadeLoader/FadeLoader";
 
-import styles from "./ShopProductsLoader.module.scss";
+import styles from "./Loader.module.scss";
 
 const ShopCategoryLoader = () => {
   return (

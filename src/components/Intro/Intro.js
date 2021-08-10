@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import classNames from "classnames";
 
-import { fetchIntroItemList } from "../../actions/index.js";
+import { fetchIntroItemList } from "../../actions";
 
 import IntroDetails from "../IntroDetails/IntroDetails.js";
 import IntroSlider from "../IntroSlider/IntroSlider.js";

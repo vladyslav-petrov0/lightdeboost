@@ -3,18 +3,17 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 
 import Container from "../Container/Container";
-import ShopProducts from "../ShopProducts/ShopProducts";
-import ShopSidebar from "../ShopSidebar/ShopSidebar";
-import ShopCategoryItem from "../ShopCategoryItem/ShopCategoryItem";
+import ShopProducts from "./Products/Products";
+import ShopSidebar from "./Sidebar/Sidebar";
 
-import "./Shop.scss";
+import styles from "./Shop.module.scss";
 
 const Shop = ({ className }) => {
-  const classes = classNames("Shop", [`${className}`]);
+  const classes = classNames(styles.Shop, [`${className}`]);
 
   return (
     <div className={classes}>
-      <Container className="ShopBody">
+      <Container className={styles.Body}>
         <ShopSidebar />
         <ShopProducts />
       </Container>
@@ -22,7 +21,7 @@ const Shop = ({ className }) => {
   );
 };
 
-ShopCategoryItem.propTypes = {
+Shop.propTypes = {
   classNames: PropTypes.string,
 };
 

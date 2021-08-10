@@ -6,7 +6,11 @@ const Switcher = ({ children, isActive, onToggle }) => {
   const className = classNames({ active: isActive });
 
   return (
-    <span onClick={onToggle}>{cloneElement(children, { className })}</span>
+    <span onClick={onToggle}>
+      {cloneElement(children, {
+        className: children.props.className + " " + className,
+      })}
+    </span>
   );
 };
 

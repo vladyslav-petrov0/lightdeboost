@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import BurgerMenu from "../BurgerMenu/BurgerMenu.js";
 import NavList from "../NavList/NavList";
-import { burgerMenuUpdate } from "../../actions/index.js";
+import { burgerMenuUpdate } from "../../actions";
 
 import "./Nav.scss";
 
