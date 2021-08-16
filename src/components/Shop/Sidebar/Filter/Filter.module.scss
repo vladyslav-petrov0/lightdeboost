@@ -1,0 +1,65 @@
+@import '../../../../utils/scss/vars';
+@import '../../../../utils/scss/media';
+@import '../../../../utils/scss/mixins';
+
+.Modal {
+  @include media(768px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+
+    width: 100vw;
+    padding: 50px 25px;
+    background: $colorAdd2;
+
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}
+
+.Btn {
+  font-size: 20px;
+  font-weight: 500;
+
+  @include flexCenter;
+
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  width: 100%;
+
+  @include media(500px) {
+    font-size: 16px;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+
+    margin-right: 10px;
+
+    @include media(500px) {
+      width: 20px;
+      height: 20px;
+      margin-right: 7.5px;
+    }
+  }
+}
+
+.showed {
+  transform: translateY(0);
+}
+
+.CloseBtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+  @include media(480px) {
+    top: 10px;
+    right: 15px;
+  }
+}

@@ -8,6 +8,7 @@ import { productList } from "./productList";
 import { topSaleList } from "./topSaleList";
 import { shopCardList } from "./shopCardList";
 import { shopCategories } from "./shopCategories";
+import { divideArr } from "../utils/funcs/divideArr";
 
 export const handlers = [
   rest.get("/introitems", (req, res, ctx) => {
@@ -45,16 +46,24 @@ export const handlers = [
   }),
 
   rest.get("/shopcardlist/", (req, res, ctx) => {
-    const params = Object.entries(queryString.parse(req.url.search));
+    const { page, ...params } = queryString.parse(req.url.search);
     let data = shopCardList;
 
-    if (params.length) {
+    if (Object.keys(params).length) {
       data = shopCardList.filter((card) => {
-        return params.every(([key, value]) => card[key] == value);
+        return Object.entries(params).every(
+          ([key, value]) => card[key] == value
+        );
       });
     }
 
-    return res(ctx.delay(500), ctx.status(200), ctx.json(data));
+    data = divideArr(data, 6);
+
+    return res(
+      ctx.delay(500),
+      ctx.status(200),
+      ctx.json({ length: data.length, products: data[page - 1] })
+    );
   }),
 
   rest.get("/shopcategories", (req, res, ctx) => {

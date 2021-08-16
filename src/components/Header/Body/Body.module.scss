@@ -1,0 +1,16 @@
+@import '../../../utils/scss/media';
+
+.Body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Logo {
+  img {
+    width: 218px;
+    height: 33px;
+
+    @include media(540px) { width: 150px; }
+  }
+}

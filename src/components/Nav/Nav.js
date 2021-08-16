@@ -1,59 +1,15 @@
-import React, { Children } from "react";
-import { connect } from "react-redux";
-import classNames from "classnames";
+import React from "react";
 
-import BurgerMenu from "../BurgerMenu/BurgerMenu.js";
-import NavList from "../NavList/NavList";
-import { burgerMenuUpdate } from "../../actions";
+import NavList from "./List/List";
 
-import "./Nav.scss";
+import styles from "./Nav.module.scss";
 
-const Nav = ({ classNames, children, closeMenu, isActive }) => {
+const Nav = ({ children, ...otherProps }) => {
   return (
-    <nav className={classNames}>
-      {isActive && <BurgerMenu />}
-
-      <NavList className="NavListHeader">
-        {Children.map(children, (child) => {
-          if (child) {
-            return <li>{React.cloneElement(child, { onClick: closeMenu })}</li>;
-          }
-        })}
-      </NavList>
+    <nav {...otherProps}>
+      <NavList className={styles.HeaderList}>{children}</NavList>
     </nav>
   );
 };
 
-const NavContainer = ({ isActive, children, closeMenu }) => {
-  let classes = classNames("Nav", {
-    showed: isActive,
-  });
-
-  document.body.style.overflow = isActive ? "hidden" : "";
-
-  const onClick = (e) => {
-    const target = e.target?.closest("a") || e.target;
-
-    if (target.tagName === "A" && isActive) {
-      closeMenu();
-    }
-  };
-
-  return (
-    <Nav closeMenu={onClick} classNames={classes} isActive={isActive}>
-      {children}
-    </Nav>
-  );
-};
-
-const mapStateToProps = ({ header: { burgerMenuIsActive } }) => {
-  return { isActive: burgerMenuIsActive };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    closeMenu: () => dispatch(burgerMenuUpdate(false)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavContainer);
+export default Nav;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import SubscribeForm from "../SubscribeForm/SubscribeForm";
-import NavList from "../NavList/NavList";
+import List from "../Nav/List/List";
 import Container from "../Container/Container";
 
 import "./Footer.scss";
@@ -21,7 +21,7 @@ const Footer = ({ className }) => {
         <div className="FooterBody">
           <div className="FooterLeft">
             <h3 className="FooterLogo">LIGHTBOOST</h3>
-            <NavList className="FooterNavList" />
+            <List className="FooterNavList" />
           </div>
 
           <div className="FooterRight">

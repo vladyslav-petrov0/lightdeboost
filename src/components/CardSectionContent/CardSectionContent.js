@@ -2,46 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import ShopCard from "../ShopCard/ShopCard";
-import Spinner from "../Loaders/Spinner/Spinner";
+import FreeCardSlider from "../UI/FreeCardSlider/FreeCardSlider";
 
-import {Swiper, SwiperSlide} from "swiper/react";
+import { useMediaQuery } from "react-responsive";
 
 const CardSectionContent = ({ loading, items = [] }) => {
-    const withSlider = (window.innerWidth <= 1200);
+  const withSlider = useMediaQuery({ query: "(max-width: 1200px)" });
 
-    if (withSlider && !loading) {
-        const options = {
-            slidesPerView: 'auto',
-            spaceBetween: 15,
-            freeMode: true,
-        };
+  if (withSlider) {
+    return <FreeCardSlider items={items} loading={loading} />;
+  }
 
-        return (
-            <Swiper {...options}>
-            {
-                items.map(el => {
-                    return (
-                        <SwiperSlide key={el.id}
-                        className="CardSectionSlide">
-                            <ShopCard item={el} />
-                        </SwiperSlide>
-                    );
-                })
-            }
-            </Swiper>
-        );
-    }
-
-    if (loading) {
-        return <Spinner />;
-    }
-
-    return items.map(el => <ShopCard key={el.id} item={el} />);
+  return items.map((el) => <ShopCard key={el.id} item={el} />);
 };
 
 CardSectionContent.propTypes = {
-    loading: PropTypes.bool,
-    items: PropTypes.array
+  loading: PropTypes.bool.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 export default CardSectionContent;

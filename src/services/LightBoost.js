@@ -31,9 +31,11 @@ export default class LightBoostService {
   };
 
   getShopProducts = async (filter) => {
-    const params = Object.entries(filter).filter((el) => el[0] !== "page");
-    const paramsUrl = `/?${queryString.stringify(Object.fromEntries(params))}`;
+    if (!filter["page"]) {
+      filter["page"] = 1;
+    }
 
+    const paramsUrl = `/?${queryString.stringify(filter)}`;
     return axios.get(`/shopcardlist${paramsUrl}`);
   };
 }

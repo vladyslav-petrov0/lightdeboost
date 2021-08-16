@@ -17,13 +17,18 @@ const ShopCategoryItem = ({ label, filterParams, className }) => {
   const onHandle = () => {
     const { category, value } = filterParams;
 
-    let urlObj = { ...filter, [category]: value };
+    const isActive =
+      filter[category] == value || (!filter[category] && value == "all");
 
-    if (value == "all") {
-      delete urlObj[category];
+    if (!isActive) {
+      let urlObj = { ...filter, page: 1, [category]: value };
+
+      if (value == "all") {
+        delete urlObj[category];
+      }
+
+      history.push(`/shop/?${queryString.stringify(urlObj)}`);
     }
-
-    history.push(`/shop/?${queryString.stringify(urlObj)}`);
   };
 
   return (

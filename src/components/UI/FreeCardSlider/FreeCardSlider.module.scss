@@ -1,0 +1,49 @@
+.Container {
+  position: relative;
+  width: 100%;
+}
+
+.Slider {
+  padding-left: 40px;
+
+  :global(.swiper-wrapper) {
+    background-color: #fff;
+  }
+}
+
+.Slide {
+  width: auto;
+}
+
+.Clue {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+
+  position: absolute;
+  top: 50%;
+  left: 5px;
+
+  writing-mode: vertical-lr;
+  transform: rotate(180deg) translateY(50%);
+
+  &:after, &:before {
+    content: url('./arrow.svg');
+    position: absolute;
+
+    left: 0;
+
+    height: 20px;
+    width: 20px;
+
+    transform: rotate(180deg);
+  }
+
+  &:after {
+    top: -25px;
+  }
+
+  &:before {
+    bottom: -25px;
+  }
+}

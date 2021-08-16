@@ -1,14 +1,13 @@
-@import '../../utils/scss/vars';
 @import '../../utils/scss/media';
-
-.Shop {
-
-}
 
 .Body {
   display: flex;
 
   @include media(1024px) {
     flex-direction: column;
+  }
+
+  @include media(768px) {
+    align-items: center;
   }
 }

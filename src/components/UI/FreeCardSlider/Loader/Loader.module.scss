@@ -1,0 +1,18 @@
+.Item {
+  background-size: 1200px 104px;
+  margin-right: 15px;
+
+  &:after {
+    display: none;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.Loader {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}

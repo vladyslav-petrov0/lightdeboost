@@ -11,6 +11,8 @@
   &Body {
     display: flex;
     justify-content: space-between;
+
+    overflow: hidden;
   }
 
   &Slide { width: auto; }

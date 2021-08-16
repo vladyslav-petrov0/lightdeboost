@@ -1,5 +1,12 @@
+@import '../../../utils/scss/vars';
+@import '../../../utils/scss/media';
+
 .ShopPage {
   &Title {
     margin-bottom: 74px;
+
+    @include media(610px) {
+      margin-bottom: 44px;
+    }
   }
 }

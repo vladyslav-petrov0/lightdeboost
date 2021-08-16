@@ -7,7 +7,7 @@ import { burgerMenuUpdate } from "../../actions";
 import "./OverlayBackground.scss";
 import "../../utils/scss/transition-group-anims/fade-in.scss";
 
-const OverlayBackground = ({ isActive, closeOverlay }) => {
+const OverlayBackground = ({ isActive, onCloseOverlay }) => {
   return (
     <CSSTransition
       in={isActive}
@@ -15,21 +15,22 @@ const OverlayBackground = ({ isActive, closeOverlay }) => {
       timeout={500}
       unmountOnExit
     >
-      <div className="OverlayBackground" onClick={closeOverlay}></div>
+      <div className="OverlayBackground" onClick={onCloseOverlay}></div>
     </CSSTransition>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    closeOverlay: () => dispatch(burgerMenuUpdate(false)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onCloseOverlay: () => dispatch(burgerMenuUpdate(false)),
+//   };
+// };
+//
+// const mapStateToProps = ({ header: { burgerMenuIsActive } }) => {
+//   return {
+//     isActive: burgerMenuIsActive,
+//   };
+// };
 
-const mapStateToProps = ({ header: { burgerMenuIsActive } }) => {
-  return {
-    isActive: burgerMenuIsActive,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(OverlayBackground);
+// export default connect(mapStateToProps, mapDispatchToProps)(OverlayBackground);
+export default OverlayBackground;

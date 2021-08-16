@@ -3,7 +3,7 @@ import FadeLoader from "../../../Loaders/FadeLoader/FadeLoader";
 
 import styles from "./Loader.module.scss";
 
-const ShopCategoryLoader = () => {
+const ShopSidebarLoader = () => {
   return (
     <div className={styles.Loader}>
       <FadeLoader className={styles.Item} />
@@ -14,4 +14,4 @@ const ShopCategoryLoader = () => {
   );
 };
 
-export default ShopCategoryLoader;
+export default ShopSidebarLoader;

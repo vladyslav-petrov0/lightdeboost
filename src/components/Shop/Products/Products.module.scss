@@ -1,12 +1,18 @@
-@import '../../../utils/scss/vars';
 @import '../../../utils/scss/media';
 @import '../../../utils/scss/mixins';
 
 .ShopProducts {
   margin: 0 auto;
 
-  @include media(768px) {
-    padding-bottom: 27px;
+  @include media(1024px) {
+    flex-direction: column;
+    display: flex;
+  }
+
+  @include media(500px) {
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
   }
 }
 
@@ -23,8 +29,7 @@
 
 .Btn {
   padding: 15px 20px;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin: 0 5px 5px 0;
 
   &:last-child {
     margin-right: 0;
@@ -32,11 +37,11 @@
 }
 
 .ItemList {
-  width: 100%;
-
   display: grid;
   grid-gap: 23px 27px;
-  grid-template: repeat(3, auto) / repeat(3, minmax(160px, 272px));
+  grid-template: repeat(2, auto) / repeat(3, minmax(160px, 272px));
+
+  margin-bottom: 20px;
 
   @include media(768px) {
     grid-template-columns: repeat(2, minmax(160px, 272px));
@@ -68,4 +73,8 @@
       font-size: 25px;
     }
   }
+}
+
+.Slider {
+  margin-bottom: 20px;
 }

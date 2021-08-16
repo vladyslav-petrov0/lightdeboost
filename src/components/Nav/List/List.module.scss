@@ -1,0 +1,10 @@
+@import '../../../utils/scss/vars';
+
+.List {
+  display: flex;
+
+  li {
+    font: 500 16px/20px $font;
+    text-transform: uppercase;
+  }
+}

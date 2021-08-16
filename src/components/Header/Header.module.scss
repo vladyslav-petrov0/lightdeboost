@@ -1,0 +1,24 @@
+@import '../../utils/scss/vars.scss';
+@import '../../utils/scss/media.scss';
+
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+
+  transform: translateY(-100%);
+
+  padding: 15px 0;
+  width: 100%;
+
+  background-color: $colorMain;
+  transition: transform 0.4s ease;
+
+  @include media(540px) { padding: 5px 0; }
+}
+
+.showed {
+  transform: translateY(0%);
+}
+
