@@ -8,7 +8,7 @@ import SubscribeSection from "../../SubscribeSection/SubscribeSection";
 import TopSale from "../../TopSale/TopSale";
 import Advantages from "../../Advantages/Advantages";
 
-import "./HomePage.scss";
+import "./Home.scss";
 
 const HomePage = () => {
   return (

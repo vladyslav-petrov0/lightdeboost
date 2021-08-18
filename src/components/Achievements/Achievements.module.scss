@@ -1,0 +1,35 @@
+@import "../../utils/scss/vars";
+@import "../../utils/scss/media";
+@import "../../utils/scss/mixins";
+
+.Achievements {
+  position: relative;
+  padding: 100px 0;
+
+  background: url("./bg.jpg") center no-repeat;
+  background-size: cover;
+
+  @include bgFilter(rgba(0, 0, 0, 0.42));
+}
+
+.Body {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  padding: 64px 52px;
+
+  @include bluredBg;
+  border-radius: $radius;
+
+  @include media(1023px) {
+    margin: -25px 0;
+  }
+
+  @include media(768px) {
+    padding: 32px 25px;
+  }
+}

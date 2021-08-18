@@ -1,0 +1,40 @@
+@import "../../../../utils/scss/mixins";
+@import "../../../../utils/scss/media";
+
+.About {
+  @include responsibleProp("margin-top", 54, 20, 320, 1200);
+}
+
+.Text {
+  max-width: 864px;
+  text-align: left;
+}
+
+.TextWrapper,
+.Advantages {
+  @include responsibleProp("margin-bottom", 83, 50, 320, 1200);
+}
+
+.Achievements {
+  @include responsibleProp("margin-bottom", 142, 52, 320, 1200);
+}
+
+.Icons {
+  &Wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &Title {
+    @include responsibleProp("margin-bottom", 64, 25, 320, 1200);
+  }
+
+  &Section {
+    @include responsibleProp("margin-bottom", 71, 35, 320, 1200);
+  }
+}
+
+.Icon {
+  @include responsibleProp("width", 135, 75, 320, 1200);
+  @include responsibleProp("height", 135, 75, 320, 1200);
+}

@@ -1,0 +1,28 @@
+@import "../../utils/scss/mixins";
+@import "../../utils/scss/media";
+
+.Wrapper {
+  @include responsibleProp("margin-bottom", 102, 50, 320, 1200);
+}
+
+.Title {
+  @include responsibleProp("margin-bottom", 51, 30, 320, 1200);
+}
+
+.Text {
+  &:first-child {
+    @include responsibleProp("margin-right", 101, 50, 768, 1200);
+
+    @include media(767px) {
+      margin: 0 0 30px 0;
+    }
+  }
+
+  &Wrapper {
+    display: flex;
+
+    @include media(767px) {
+      flex-direction: column;
+    }
+  }
+}

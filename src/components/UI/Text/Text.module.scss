@@ -1,0 +1,13 @@
+@import "../../../utils/scss/vars";
+@import "../../../utils/scss/mixins";
+
+.Text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+
+  color: $colorAdd1;
+  text-align: left;
+
+  @include responsibleFont(320px, 1200px, 12px, 16px);
+}

@@ -1,18 +1,19 @@
-@import '../../utils/scss/vars.scss';
-@import '../../utils/scss/media.scss';
+@import "../../utils/scss/vars.scss";
+@import "../../utils/scss/media.scss";
+@import "../../utils/scss/mixins.scss";
 
 .Timer {
   width: auto;
   padding: 38px 63px 57px 58px;
 
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(6px);
+  @include bluredBg;
   border-radius: $radius;
 
   text-transform: uppercase;
 
-  @include media(880px) { align-self: center; }
+  @include media(880px) {
+    align-self: center;
+  }
 
   @include media(450px) {
     padding: 25px 45px 45px 45px;
@@ -28,8 +29,12 @@
 
     width: 380px;
 
-    @include media(1024px) { width: 280px; }
-    @include media(450px) { width: 220px; }
+    @include media(1024px) {
+      width: 280px;
+    }
+    @include media(450px) {
+      width: 220px;
+    }
   }
 
   &Title {
@@ -40,7 +45,9 @@
 
     margin-bottom: 46px;
 
-    @include media(880px) { text-align: center; }
+    @include media(880px) {
+      text-align: center;
+    }
   }
 
   &Item {
@@ -51,8 +58,12 @@
 
     margin-bottom: 53px;
 
-    &:last-child { margin-bottom: 0; }
-    @include media(1024px) { font-size: 40px; }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include media(1024px) {
+      font-size: 40px;
+    }
 
     @include media(450px) {
       font-size: 30px;

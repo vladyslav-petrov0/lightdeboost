@@ -2,11 +2,11 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Header from "../Header/Header.js";
-import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import Footer from "../Footer/Footer";
 
-import HomePage from "../Pages/HomePage/HomePage.js";
-import ShopPage from "../Pages/ShopPage/ShopPage";
+import HomePage from "../Pages/Home/Home.js";
+import ShopPage from "../Pages/Side/Shop/Shop";
+import AboutPage from "../Pages/Side/About/About";
 
 import "./App.scss";
 
@@ -14,13 +14,15 @@ const App = () => {
   return (
     <>
       <Header />
-      <Breadcrumbs />
       <Switch>
         <Route path="/" exact>
           <HomePage />
         </Route>
         <Route path="/shop" exact>
           <ShopPage />
+        </Route>
+        <Route path="/about" exact>
+          <AboutPage />
         </Route>
       </Switch>
       <Footer />
