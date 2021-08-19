@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import HomePage from "../Pages/Home/Home.js";
 import ShopPage from "../Pages/Side/Shop/Shop";
 import AboutPage from "../Pages/Side/About/About";
+import ErrorPage from "../Pages/Error/Error.js";
 
 import "./App.scss";
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/about" exact>
           <AboutPage />
         </Route>
+        <ErrorPage />
       </Switch>
       <Footer />
     </>

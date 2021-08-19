@@ -1,4 +1,4 @@
-@import '../../utils/scss/vars.scss';
+@import "../../utils/scss/vars.scss";
 
 .Button {
   display: flex;
@@ -8,7 +8,10 @@
 
   &--transparent {
     color: $colorAdd1;
-    border: 2px solid #F4B02B;
+    border: 2px solid #f4b02b;
+
+    padding: 14px 30px;
+    width: auto;
   }
 
   &--orange {

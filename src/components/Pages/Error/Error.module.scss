@@ -1,0 +1,82 @@
+@import "../../../utils/scss/vars";
+@import "../../../utils/scss/mixins";
+@import "../../../utils/scss/media";
+
+.ErrorPage {
+  margin-top: 42px;
+  overflow: hidden;
+
+  @include media(500px) {
+    margin-bottom: 42px;
+  }
+}
+
+.Container {
+  position: relative;
+
+  @include responsibleProp("padding-bottom", 168, 0, 500, 1024);
+
+  @include media(1024px) {
+    @include flexColumnCenter;
+    text-align: center;
+  }
+
+  &:after {
+    position: absolute;
+    bottom: -20px;
+    right: -495px;
+
+    content: url("./bg.png");
+
+    display: none;
+
+    @media (min-width: 1200px) {
+      display: block;
+    }
+  }
+}
+
+.Title {
+  max-width: 268px;
+  margin-bottom: 11px;
+}
+
+.Error404 {
+  max-width: 412px;
+
+  font-weight: bold;
+  @include responsibleFont(320px, 1200px, 100px, 200px);
+  line-height: 102.4%;
+
+  color: $colorMain;
+  margin-bottom: 25px;
+}
+
+.Redirect {
+  max-width: 144px;
+}
+
+.Description {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 310px;
+  margin-bottom: 42px;
+
+  span {
+    font-weight: 500;
+    @include responsibleFont(320px, 1200px, 18px, 22px);
+    line-height: 102.4%;
+    color: #000000;
+
+    margin-bottom: 13px;
+
+    &:first-child {
+      text-transform: uppercase;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

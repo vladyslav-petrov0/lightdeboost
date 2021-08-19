@@ -1,0 +1,5 @@
+@import "../../utils/scss/mixins";
+
+.Title {
+  @include responsibleProp("margin-bottom", 64, 25, 320, 1200);
+}

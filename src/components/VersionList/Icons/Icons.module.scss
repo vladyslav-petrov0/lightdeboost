@@ -1,0 +1,15 @@
+@import "../../../utils/scss/mixins";
+
+.Icon {
+  @include responsibleProp("width", 135, 75, 320, 1200);
+  @include responsibleProp("height", 135, 75, 320, 1200);
+}
+
+.Wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Slide {
+  width: auto;
+}

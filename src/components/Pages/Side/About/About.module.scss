@@ -19,22 +19,6 @@
   @include responsibleProp("margin-bottom", 142, 52, 320, 1200);
 }
 
-.Icons {
-  &Wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &Title {
-    @include responsibleProp("margin-bottom", 64, 25, 320, 1200);
-  }
-
-  &Section {
-    @include responsibleProp("margin-bottom", 71, 35, 320, 1200);
-  }
-}
-
-.Icon {
-  @include responsibleProp("width", 135, 75, 320, 1200);
-  @include responsibleProp("height", 135, 75, 320, 1200);
+.Versions {
+  @include responsibleProp("margin-bottom", 71, 35, 320, 1200);
 }

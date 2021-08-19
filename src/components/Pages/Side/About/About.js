@@ -3,16 +3,10 @@ import React from "react";
 import Container from "../../../Container/Container";
 import SidePage from "../Side";
 import Text from "../../../UI/Text/Text";
-import Title from "../../../Title/Title";
 import Advantages from "../../../Advantages/Advantages";
 import MoreInfo from "../../../MoreInfo/MoreInfo";
 import Achievements from "../../../Achievements/Achievements";
-
-import icon1 from "./img/1.png";
-import icon2 from "./img/2.png";
-import icon3 from "./img/3.png";
-import icon4 from "./img/4.png";
-import icon5 from "./img/5.png";
+import VersionList from "../../../VersionList/VersionList";
 
 import styles from "./About.module.scss";
 
@@ -34,22 +28,7 @@ const AboutPage = () => {
       <Advantages className={styles.Advantages} />
       <MoreInfo />
       <Achievements className={styles.Achievements} />
-
-      <div className={styles.IconsSection}>
-        <Container>
-          <Title size={"lg"} className={styles.IconsTitle}>
-            WE ARE WORKING SINCE 2011
-          </Title>
-
-          <div className={styles.IconsWrapper}>
-            <img src={icon1} className={styles.Icon} alt="" />
-            <img src={icon2} className={styles.Icon} alt="" />
-            <img src={icon3} className={styles.Icon} alt="" />
-            <img src={icon4} className={styles.Icon} alt="" />
-            <img src={icon5} className={styles.Icon} alt="" />
-          </div>
-        </Container>
-      </div>
+      <VersionList className={styles.Versions} />
     </SidePage>
   );
 };

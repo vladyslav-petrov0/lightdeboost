@@ -31,7 +31,9 @@
             height: 102px;
           }
 
-          @include media(540px) { height: 80px;}
+          @include media(540px) {
+            height: 80px;
+          }
 
           @include media(420px) {
             width: 250px;
@@ -61,15 +63,21 @@
       @include flexColumnCenter;
     }
 
-    @include media(540px) { margin-top: 50px; }
+    @include media(540px) {
+      margin-top: 50px;
+    }
   }
 
   &Title {
     margin-bottom: 23px;
     max-width: 555px;
 
-    @include media(768px) { max-width: 350px; }
-    @include media(420px) { max-width: 250px; }
+    @include media(768px) {
+      max-width: 350px;
+    }
+    @include media(420px) {
+      max-width: 250px;
+    }
 
     &--loading {
       display: flex;
@@ -88,7 +96,6 @@
     font: normal 16px/20px $font;
     text-transform: uppercase;
 
-    padding: 14px 30px;
-    max-width: 150px;
+    max-width: 147px;
   }
 }
