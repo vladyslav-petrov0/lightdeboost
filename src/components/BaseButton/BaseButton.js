@@ -2,14 +2,10 @@ import { cloneElement } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import "./BaseButton.scss";
+import styles from "./BaseButton.module.scss";
 
 const BaseButton = ({ className, children, appearance, ...otherProps }) => {
-  const classes = classNames(
-    "Button",
-    [`Button--${appearance}`],
-    [`${className}`]
-  );
+  const classes = classNames(styles.Button, styles[appearance], className);
 
   return cloneElement(children, {
     ...otherProps,

@@ -4,7 +4,7 @@ import classNames from "classnames";
 import Form from "../Form/Form";
 import InputContainer from "../InputContainer/InputContainer";
 import Input from "../Input/Input";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 import InputClue from "../InputClue/InputClue";
 
 import {

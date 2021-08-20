@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Filter.module.scss";
 
-import Button from "../../../Button/Button";
+import Button from "../../../UI/Button/Button";
 import Modal from "../../../UI/Modal/Modal";
 import CloseButton from "../../../UI/CloseButton/CloseButton";
 

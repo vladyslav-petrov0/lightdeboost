@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./AdvantagesItem.scss";
+import styles from "./Item.module.scss";
 
 const AdvantagesItem = ({ children, img }) => {
   return (
-    <div className="AdvantagesItem">
-      <div className="AdvantagesItemImg">
+    <div className={styles.Item}>
+      <div className={styles.Img}>
         <img src={img} alt="" />
       </div>
 
@@ -17,6 +17,7 @@ const AdvantagesItem = ({ children, img }) => {
 
 AdvantagesItem.propTypes = {
   children: PropTypes.node.isRequired,
+  img: PropTypes.string,
 };
 
 export default AdvantagesItem;

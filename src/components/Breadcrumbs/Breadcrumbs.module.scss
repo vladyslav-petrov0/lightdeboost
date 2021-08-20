@@ -1,0 +1,50 @@
+@import "../../utils/scss/vars";
+@import "../../utils/scss/media";
+@import "../../utils/scss/mixins";
+
+.Breadcrumbs {
+  margin-bottom: 54px;
+
+  @include media(610px) {
+    margin-bottom: 34px;
+  }
+}
+
+.Body {
+  display: flex;
+  align-items: center;
+}
+
+.Item {
+  font: 500 18px/22px $font;
+
+  @include responsibleFont(320px, 610px, 16px, 18px);
+  color: $colorAdd1;
+
+  position: relative;
+  margin-right: 32px;
+
+  &:before {
+    position: absolute;
+    left: -21px;
+    top: 0;
+
+    content: url("./arrow.svg");
+    width: 10px;
+    height: 10px;
+
+    pointer-events: none;
+  }
+
+  &:first-child {
+    color: rgba(31, 39, 27, 0.29);
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

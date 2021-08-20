@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import classNames from "classnames";
 
 import { FetchTabsContext } from "../context/FetchTabsContext";
-import Button from "../Button/Button";
+import Button from "../UI/Button/Button";
 
 const FetchTabsHeaderItem = ({
   onToggleStatus,

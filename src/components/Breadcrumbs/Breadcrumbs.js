@@ -1,38 +1,26 @@
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useBreadcrumbs } from "../customHooks";
 
 import Container from "../Container/Container";
 
-import { divideUrl } from "../../utils/funcs/divideUrl";
-import { routeMatches } from "../../mocks/routeMatches";
-
-import "./Breadcrumbs.scss";
-
-const urlsToBreadcrumbs = (urls) => {
-  return urls?.map((el) => ({ to: el, name: routeMatches[el] }));
-};
+import styles from "./Breadcrumbs.module.scss";
 
 const Breadcrumbs = () => {
-  const location = useLocation();
-
-  const breadcrumbs = urlsToBreadcrumbs(divideUrl(location.pathname));
-  const root = { name: routeMatches["/"], to: "/" };
+  const breadcrumbs = useBreadcrumbs();
 
   if (!breadcrumbs) {
     return null;
   }
 
   return (
-    <div className="Breadcrumbs">
+    <div className={styles.Breadcrumbs}>
       <Container>
-        <div className="BreadcrumbsBody">
-          <Link to={root.to} className="BreadcrumbsItem BreadcrumbsItem--root">
-            {root.name}
-          </Link>
+        <div className={styles.Body}>
           {breadcrumbs.map(
             ({ name, to }) =>
               name && (
-                <Link key={name} to={to} className="BreadcrumbsItem">
+                <Link key={name} to={to} className={styles.Item}>
                   {name}
                 </Link>
               )
