@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import CardSection from "../CardSection/CardSectionContainer.js";
+import CardSection from "../CardSection/CardSection";
 import { ServiceContext } from "../context/ServiceContext";
 
 const TopSale = ({ className }) => {

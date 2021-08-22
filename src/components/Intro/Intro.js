@@ -6,7 +6,7 @@ import { fetchIntroItemList } from "../../actions";
 
 import IntroDetails from "../IntroDetails/IntroDetails.js";
 import IntroSlider from "../IntroSlider/IntroSlider.js";
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 
 import "./Intro.scss";
 import { ServiceContext } from "../context/ServiceContext";

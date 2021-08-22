@@ -1,0 +1,5 @@
+.Header {
+  composes: Header from "../../Tabs/Tabs.module.scss";
+
+  margin-bottom: 33px;
+}

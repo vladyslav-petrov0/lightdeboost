@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import LimitedSaleDetails from "../LimitedSaleDetails/LimitedSaleDetails";
 import LimitedSaleTimer from "../LimitedSaleTimer/LimitedSaleTimer";
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 
 import { makeFlexRequest } from "../../utils";
 

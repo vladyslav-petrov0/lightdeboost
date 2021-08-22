@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import SubscribeForm from "../SubscribeForm/SubscribeForm";
 import List from "../Nav/List/List";
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 
 import "./Footer.scss";
 

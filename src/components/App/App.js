@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import ScrollToTop from "../ScrollToTop/ScrollToTop.js";
 
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer";
@@ -14,6 +15,7 @@ import "./App.scss";
 const App = () => {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Switch>
         <Route path="/" exact>

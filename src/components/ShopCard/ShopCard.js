@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import ButtonLink from "../ButtonLink/ButtonLink";
+import LinkButton from "../UI/LinkButton/LinkButton";
 import "./ShopCard.scss";
 
 const ShopCard = ({ item, className }) => {
@@ -20,9 +20,9 @@ const ShopCard = ({ item, className }) => {
           })}
         </ul>
 
-        <ButtonLink href={"/"} className="ShopCardButton">
+        <LinkButton href={"/"} className="ShopCardButton">
           Buy now
-        </ButtonLink>
+        </LinkButton>
 
         <span className="ShopCardPrice">
           Cost: <span>${price}</span>

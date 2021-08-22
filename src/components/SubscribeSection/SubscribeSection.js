@@ -1,43 +1,44 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import classNames from "classnames";
 
 import Title from "../Title/Title";
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 import SubscribeForm from "../SubscribeForm/SubscribeForm";
 
-import './SubscribeSection.scss';
+import "./SubscribeSection.scss";
 
 const SubscribeSection = ({ className }) => {
-    const classes = classNames('SubscribeSection', [`${className}`]);
+  const classes = classNames("SubscribeSection", [`${className}`]);
 
-    return (
-        <div className={classes}>
-            <Container>
-                <div className="SubscribeSectionBody">
-                    <div className="SubscribeSectionContent">
-                        <Title className="SubscribeSectionTitle"
-                        size='xl' color="white">
-                            SUBSCRIBE
-                        </Title>
+  return (
+    <div className={classes}>
+      <Container>
+        <div className="SubscribeSectionBody">
+          <div className="SubscribeSectionContent">
+            <Title className="SubscribeSectionTitle" size="xl" color="white">
+              SUBSCRIBE
+            </Title>
 
-                        <p className="SubscribeSectionText">
-                            Subscribe us and you won't miss the new arrivals,
-                            as well as discounts and sales.
-                        </p>
+            <p className="SubscribeSectionText">
+              Subscribe us and you won't miss the new arrivals, as well as
+              discounts and sales.
+            </p>
 
-                        <SubscribeForm />
-                    </div>
+            <SubscribeForm />
+          </div>
 
-                    <img className="SubscribeSectionImg"
-                     src="https://i.ibb.co/2PBb0j1/image-18.png"/>
-                </div>
-            </Container>
+          <img
+            className="SubscribeSectionImg"
+            src="https://i.ibb.co/2PBb0j1/image-18.png"
+          />
         </div>
-    );
-}
+      </Container>
+    </div>
+  );
+};
 
 SubscribeSection.defaultProps = {
-    className: ''
+  className: "",
 };
 
 export default SubscribeSection;

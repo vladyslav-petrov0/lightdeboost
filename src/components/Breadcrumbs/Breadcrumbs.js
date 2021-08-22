@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useBreadcrumbs } from "../customHooks";
 
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 
 import styles from "./Breadcrumbs.module.scss";
 

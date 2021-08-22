@@ -1,6 +1,6 @@
 import React from "react";
 
-import Container from "../../../Container/Container";
+import Container from "../../../UI/Container/Container";
 import SidePage from "../Side";
 import Text from "../../../UI/Text/Text";
 import Advantages from "../../../Advantages/Advantages";

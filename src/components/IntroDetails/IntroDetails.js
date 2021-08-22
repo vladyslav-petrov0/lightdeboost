@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 
 import FadeLoader from "../Loaders/FadeLoader/FadeLoader";
+import LinkButton from "../UI/LinkButton/LinkButton";
 
 import "./IntroDetails.scss";
-import ButtonLink from "../ButtonLink/ButtonLink";
 import Title from "../Title/Title";
 
 const IntroDetails = (props) => {
@@ -36,13 +36,13 @@ const IntroDetailsContent = ({ item = {}, loading }) => {
 
       <p className="IntroText Text Text--black">{text}</p>
 
-      <ButtonLink
+      <LinkButton
         href={linkTo}
         className="IntroButton"
         appearance="transparent"
       >
         Buy now
-      </ButtonLink>
+      </LinkButton>
     </>
   );
 };

@@ -1,7 +1,8 @@
 import React from "react";
 
 import Intro from "../../Intro/Intro.js";
-import ItemsTabs from "../../ItemsTabs/ItemsTabs.js";
+// import ItemsTabs from "../../ItemsTabs/ItemsTabs.js";
+import CardTabs from "../../CardTabs/CardTabs.js";
 import LimitedSale from "../../LimitedSale/LimitedSale.js";
 import OurProducts from "../../OurProducts/OurProducts";
 import SubscribeSection from "../../SubscribeSection/SubscribeSection";
@@ -14,7 +15,7 @@ const HomePage = () => {
   return (
     <main>
       <Intro className="HomePageIntro" />
-      <ItemsTabs className="HomePageTabs" />
+      <CardTabs className="HomePageTabs" />
       <LimitedSale className="HomePageLimitedSale" />
       <OurProducts className="HomePageProducts" />
       <SubscribeSection className="HomePageSubscribe" />

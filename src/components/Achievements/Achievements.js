@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 
 import AchievementItem from "./Item/Item";
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 
 import styles from "./Achievements.module.scss";
 import { achievements } from "../../mocks/Static/achievements";

@@ -1,0 +1,16 @@
+@import "../../../utils/scss/vars.scss";
+@import "../../../utils/scss/media.scss";
+
+.Body {
+  position: relative;
+  min-height: 365px;
+
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  grid-gap: 30px;
+
+  @include media(1024px) {
+    display: block;
+    min-height: 168px;
+  }
+}

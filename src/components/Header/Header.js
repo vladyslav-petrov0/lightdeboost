@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import cn from "classnames";
 
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 import HeaderBody from "./Body/Body";
 
 import styles from "./Header.module.scss";

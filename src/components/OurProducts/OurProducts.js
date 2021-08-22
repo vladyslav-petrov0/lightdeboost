@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import classNames from "classnames";
 
-import CardSection from "../CardSection/CardSectionContainer";
+import CardSection from "../CardSection/CardSection";
 import { ServiceContext } from "../context/ServiceContext";
-import Container from "../Container/Container";
 
 const OurProducts = ({ className }) => {
   const { service } = useContext(ServiceContext);

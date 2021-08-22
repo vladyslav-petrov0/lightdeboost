@@ -1,0 +1,30 @@
+@import "../../../../../utils/scss/media.scss";
+
+.Slide {
+  width: auto;
+}
+
+.NavBtn {
+  position: absolute;
+  bottom: -45%;
+  top: auto;
+
+  margin: 0;
+  width: 65px;
+
+  cursor: pointer;
+
+  @include media(768px) {
+    bottom: -35%;
+    width: 50px;
+  }
+
+  &Next {
+    right: 0;
+  }
+
+  &Prev {
+    left: 0;
+    transform: rotate(180deg);
+  }
+}

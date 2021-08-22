@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 import Title from "../Title/Title";
 import AdvantagesItem from "./Item/Item";
 

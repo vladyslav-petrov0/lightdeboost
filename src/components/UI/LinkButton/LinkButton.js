@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
-import BaseButton from "../BaseButton/BaseButton";
+import BaseButton from "../../BaseButton/BaseButton";
 
-const ButtonLink = ({ children, href, ...otherProps }) => {
+const LinkButton = ({ children, href, ...otherProps }) => {
   return (
     <BaseButton {...otherProps}>
       <Link to={href}>{children}</Link>
@@ -12,8 +12,8 @@ const ButtonLink = ({ children, href, ...otherProps }) => {
   );
 };
 
-ButtonLink.propTypes = {
+LinkButton.propTypes = {
   href: PropTypes.string.isRequired,
 };
 
-export default ButtonLink;
+export default LinkButton;

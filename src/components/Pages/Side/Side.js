@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Breadcrumbs from "../../Breadcrumbs/Breadcrumbs";
-import Container from "../../Container/Container";
+import Container from "../../UI/Container/Container";
 import Title from "../../Title/Title";
 
 const SidePage = ({ children, name, className }) => {

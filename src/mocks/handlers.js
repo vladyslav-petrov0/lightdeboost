@@ -16,7 +16,7 @@ export const handlers = [
   }),
 
   rest.get("/itemstabsheaders", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(itemsTabsHeaders));
+    return res(ctx.status(200), ctx.json(itemsTabsHeaders), ctx.delay(300));
   }),
 
   rest.get("/itemstabscontent/:id", (req, res, ctx) => {

@@ -1,0 +1,14 @@
+@import "../../../../utils/scss/media.scss";
+
+.Item {
+  flex: 1 1 20%;
+
+  @include media(768px) {
+    width: 100%;
+    min-height: 58px;
+  }
+
+  @include media(500px) {
+    min-height: 46px;
+  }
+}

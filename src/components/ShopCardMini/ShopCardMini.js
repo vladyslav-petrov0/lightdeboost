@@ -1,34 +1,30 @@
 import React from "react";
 import classNames from "classnames";
 
-import '../ShopCard/ShopCard.scss';
-import ButtonLink from "../ButtonLink/ButtonLink";
+import LinkButton from "../UI/LinkButton/LinkButton";
+import "../ShopCard/ShopCard.scss";
 
 const ShopCardMini = ({ item, className }) => {
-    const classes = classNames('ShopCard', [`${className}`], 'ShopCard--mini');
+  const classes = classNames("ShopCard", [`${className}`], "ShopCard--mini");
 
-    const { title, price, background } = item;
-    const style = {backgroundImage: `url(${background})`};
+  const { title, price, background } = item;
+  const style = { backgroundImage: `url(${background})` };
 
-    return (
-        <div style={style} className={classes}>
+  return (
+    <div style={style} className={classes}>
+      <h3 className="ShopCardTitle ShopCardTitle--mini">{title}</h3>
 
-            <h3 className="ShopCardTitle ShopCardTitle--mini">
-                { title }
-            </h3>
+      <LinkButton
+        href={"/32"}
+        className="ShopCardButton ShopCardButton--mini"
+        appearance="blured"
+      >
+        Buy now
+      </LinkButton>
 
-            <ButtonLink href={'/32'}
-            className="ShopCardButton ShopCardButton--mini"
-            appearance="blured">
-                Buy now
-            </ButtonLink>
-
-            <span className="ShopCardPrice  ShopCardPrice--mini">
-                ${ price }
-            </span>
-
-        </div>
-    )
+      <span className="ShopCardPrice  ShopCardPrice--mini">${price}</span>
+    </div>
+  );
 };
 
 export default ShopCardMini;

@@ -1,0 +1,7 @@
+.Item {
+  composes: Item from "../../../Tabs/Tabs.module.scss";
+}
+
+.active {
+  composes: active from "../../../Tabs/Tabs.module.scss";
+}

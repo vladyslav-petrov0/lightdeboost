@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonLink from "../../ButtonLink/ButtonLink";
+import LinkButton from "../../UI/LinkButton/LinkButton";
 
-import Container from "../../Container/Container";
+import Container from "../../UI/Container/Container";
 import Title from "../../Title/Title";
 
 import styles from "./Error.module.scss";
@@ -21,9 +21,9 @@ const ErrorPage = () => {
           </span>
         </div>
 
-        <ButtonLink className={styles.Redirect} appearance="transparent" to="/">
+        <LinkButton className={styles.Redirect} appearance="transparent" to="/">
           Go home
-        </ButtonLink>
+        </LinkButton>
       </Container>
     </main>
   );

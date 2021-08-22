@@ -1,6 +1,6 @@
-@import '../../utils/scss/vars.scss';
-@import '../../utils/scss/media.scss';
-@import '../../utils/scss/mixins.scss';
+@import "../../utils/scss/vars.scss";
+@import "../../utils/scss/media.scss";
+@import "../../utils/scss/mixins.scss";
 
 .Tabs {
   display: flex;
@@ -32,11 +32,6 @@
   color: $colorAdd1;
   background-color: rgba(244, 176, 43, 0.12);
 
-  &:global(.active) {
-    color: $colorAdd2;
-    background-color: $colorMain;
-  }
-
   @include media(1200px) {
     padding: 25px 20px;
 
@@ -44,9 +39,12 @@
     line-height: 100%;
   }
 
+  @include media(1024px) {
+    font-size: 18px;
+  }
+
   @include media(768px) {
     padding: 20px 15px;
-    font-size: 18px;
   }
 
   @include media(500px) {
@@ -55,3 +53,7 @@
   }
 }
 
+.active {
+  color: $colorAdd2;
+  background-color: $colorMain;
+}

@@ -1,25 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from "classnames";
 
 import Title from "../Title/Title";
+import Container from "../UI/Container/Container";
+import CardSectionBody from "./Body/Body";
 
-import "./CardSection.scss";
-import Container from "../Container/Container";
+import styles from "./CardSection.module.scss";
 
-const CardSection = ({ className, title, children }) => {
+const CardSection = ({ fetchItems, className, title }) => {
+  const classes = cn(styles.CardSection, className);
+
   return (
-    <section className={className}>
+    <section className={classes}>
       <Container>
-        <Title className="CardSectionTitle" size="lg">
+        <Title className={styles.Title} size="lg">
           {title}
         </Title>
 
-        <ul className="CardSectionBody">{children}</ul>
+        <CardSectionBody fetchItems={fetchItems} />
       </Container>
     </section>
   );
 };
 
-CardSection.propTypes = { children: PropTypes.element.isRequired };
+CardSection.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  fetchItems: PropTypes.func.isRequired,
+};
+
+CardSection.defaultProps = {
+  className: "",
+};
 
 export default CardSection;

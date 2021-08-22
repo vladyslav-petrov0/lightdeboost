@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import ShopCategoryItem from "./Item/Item";
-import Switcher from "../../Switcher/Switcher";
+import Switcher from "../../UI/Switcher/Switcher";
 
 import styles from "./Category.module.scss";
 import { ShopContext } from "../../context/ShopContext";

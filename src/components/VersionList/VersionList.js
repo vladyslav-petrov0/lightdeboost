@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 
-import Container from "../Container/Container";
+import Container from "../UI/Container/Container";
 import Title from "../Title/Title";
 import VersionListIcons from "./Icons/Icons";
 
