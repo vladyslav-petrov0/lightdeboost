@@ -1,0 +1,68 @@
+@import "../../utils/scss/vars";
+
+.Product {
+  margin-bottom: 60px;
+}
+
+.Details {
+  flex: 1 0 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 584px;
+}
+
+.Container {
+  display: flex;
+}
+
+.Img {
+  max-width: 523px;
+  width: 100%;
+
+  margin-right: 59px;
+}
+
+.Actions {
+  display: flex;
+}
+
+.Price {
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 102.4%;
+
+  color: $colorAdd1;
+}
+
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: auto;
+}
+
+.Title {
+  margin-bottom: 26px;
+}
+
+.Btn {
+  text-transform: uppercase;
+
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+
+  width: auto;
+  padding: 16px 22px;
+
+  margin-right: 20px;
+
+  border-radius: $radius;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

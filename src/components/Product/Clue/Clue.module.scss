@@ -1,0 +1,16 @@
+@import "../../../utils/scss/vars";
+
+.Clue {
+  max-width: 465px;
+
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 142.9%;
+
+  color: $colorAdd1;
+
+  padding-left: 15px;
+  border-left: 4px solid $colorMain;
+
+  margin-bottom: 33px;
+}

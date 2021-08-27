@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 
-import Form from "../Form/Form";
 import InputContainer from "../InputContainer/InputContainer";
 import Input from "../Input/Input";
 import Button from "../UI/Button/Button";
@@ -68,7 +67,7 @@ const SubscribeForm = ({ className }) => {
   };
 
   return (
-    <Form className={classes} onSubmit={onSubmit}>
+    <form className={classes} onSubmit={onSubmit}>
       <InputContainer className={clue?.appearance}>
         <Input {...inputParams}>{value}</Input>
 
@@ -78,7 +77,7 @@ const SubscribeForm = ({ className }) => {
       </InputContainer>
 
       <Button className="SubscribeFormButton">Subscribe</Button>
-    </Form>
+    </form>
   );
 };
 

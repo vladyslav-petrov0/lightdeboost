@@ -3,39 +3,41 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import SubscribeForm from "../SubscribeForm/SubscribeForm";
-import List from "../Nav/List/List";
+import NavList from "../Nav/List/List";
 import Container from "../UI/Container/Container";
 
-import "./Footer.scss";
+import styles from "./Footer.module.scss";
 
 import visa from "./img/visa.svg";
 import masterCard from "./img/mastercard.svg";
 import paypal from "./img/payPal.svg";
 
 const Footer = ({ className }) => {
-  const classes = classNames("Footer", [`${className}`]);
+  const classes = classNames(styles.Footer, [`${className}`]);
 
   return (
     <footer className={classes}>
       <Container>
-        <div className="FooterBody">
-          <div className="FooterLeft">
-            <h3 className="FooterLogo">LIGHTBOOST</h3>
-            <List className="FooterNavList" />
+        <div className={styles.Body}>
+          <div className={styles.LeftSide}>
+            <h3 className={styles.Logo}>LIGHTBOOST</h3>
+            <NavList className={styles.NavList} />
           </div>
 
-          <div className="FooterRight">
-            <span className="FooterSubscribeSpan">Subscribe to newsletter</span>
+          <div className={styles.RightSide}>
+            <span className={styles.SubscribeSpan}>
+              Subscribe to newsletter
+            </span>
             <SubscribeForm />
           </div>
         </div>
 
-        <div className="FooterTail">
-          <span className="FooterCopyright">
+        <div className={styles.Tail}>
+          <span className={styles.Copyright}>
             WoW © 2021. All Rights Reserved
           </span>
 
-          <div className="FooterPayments">
+          <div className={styles.Payments}>
             <img src={visa} alt="" />
             <img src={masterCard} alt="" />
             <img src={paypal} alt="" />

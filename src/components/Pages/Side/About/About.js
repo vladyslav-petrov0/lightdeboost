@@ -24,7 +24,6 @@ const AboutPage = () => {
           massa vitae tortor condimentum lacinia quis vel eros donec ac odio
         </Text>
       </Container>
-
       <Advantages className={styles.Advantages} />
       <MoreInfo />
       <Achievements className={styles.Achievements} />

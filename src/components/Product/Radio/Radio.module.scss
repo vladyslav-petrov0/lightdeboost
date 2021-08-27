@@ -1,0 +1,20 @@
+@import "../../../utils/scss/vars";
+
+.RadioWrapper {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.Label {
+  font-size: 22px;
+  line-height: 102.4%;
+  color: $colorAdd1;
+
+  margin-right: 28px;
+}
+
+.Radio {
+  display: flex;
+}

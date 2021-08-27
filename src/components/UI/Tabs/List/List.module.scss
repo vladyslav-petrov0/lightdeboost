@@ -1,0 +1,9 @@
+@import "../../../../utils/scss/media";
+
+.List {
+  display: flex;
+
+  @include media(768px) {
+    flex-direction: column;
+  }
+}

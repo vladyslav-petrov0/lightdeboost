@@ -10,7 +10,7 @@
   grid-gap: 30px;
 
   @include media(1024px) {
-    display: block;
+    display: flex;
     min-height: 168px;
   }
 }

@@ -2,14 +2,6 @@
 @import "../../utils/scss/media";
 @import "../../utils/scss/mixins";
 
-.Breadcrumbs {
-  margin-bottom: 54px;
-
-  @include media(610px) {
-    margin-bottom: 34px;
-  }
-}
-
 .Body {
   display: flex;
   align-items: center;

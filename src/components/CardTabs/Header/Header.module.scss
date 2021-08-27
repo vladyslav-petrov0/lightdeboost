@@ -1,5 +1,5 @@
 .Header {
-  composes: Header from "../../Tabs/Tabs.module.scss";
+  composes: List from "../../UI/Tabs/List/List.module.scss";
 
   margin-bottom: 33px;
 }

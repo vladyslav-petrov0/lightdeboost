@@ -19,6 +19,11 @@
     width: 50px;
   }
 
+  @include media(400px) {
+    bottom: -30%;
+    width: 40px;
+  }
+
   &Next {
     right: 0;
   }
@@ -27,4 +32,8 @@
     left: 0;
     transform: rotate(180deg);
   }
+}
+
+.Card {
+  composes: Card from "../Content.module.scss";
 }

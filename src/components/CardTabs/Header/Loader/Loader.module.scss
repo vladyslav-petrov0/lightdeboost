@@ -3,6 +3,10 @@
 .Item {
   flex: 1 1 20%;
 
+  @include media(1200px) {
+    height: 70px;
+  }
+
   @include media(768px) {
     width: 100%;
     min-height: 58px;

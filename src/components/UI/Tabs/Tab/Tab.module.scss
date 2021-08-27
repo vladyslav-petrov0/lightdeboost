@@ -1,21 +1,8 @@
-@import "../../utils/scss/vars.scss";
-@import "../../utils/scss/media.scss";
-@import "../../utils/scss/mixins.scss";
+@import "../../../../utils/scss/mixins.scss";
+@import "../../../../utils/scss/media.scss";
+@import "../../../../utils/scss/vars.scss";
 
-.Tabs {
-  display: flex;
-  flex-direction: column;
-}
-
-.Header {
-  display: flex;
-
-  @include media(768px) {
-    flex-direction: column;
-  }
-}
-
-.Item {
+.Tab {
   @include flexCenter;
 
   flex: 1 1 20%;
@@ -24,7 +11,6 @@
   font: 600 22px/102.4% $font;
 
   text-align: center;
-  text-transform: uppercase;
 
   cursor: pointer;
   transition: color 0.3s ease, background-color 0.3s ease;

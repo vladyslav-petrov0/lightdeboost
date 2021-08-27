@@ -1,7 +1,8 @@
 .Item {
-  composes: Item from "../../../Tabs/Tabs.module.scss";
+  composes: Tab from "../../../UI/Tabs/Tab/Tab.module.scss";
+  text-transform: uppercase;
 }
 
 .active {
-  composes: active from "../../../Tabs/Tabs.module.scss";
+  composes: active from "../../../UI/Tabs/Tab/Tab.module.scss";
 }

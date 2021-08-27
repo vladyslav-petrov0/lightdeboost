@@ -1,6 +1,6 @@
-@import '../../utils/scss/vars.scss';
-@import '../../utils/scss/media.scss';
-@import '../../utils/scss/mixins.scss';
+@import "../../utils/scss/vars.scss";
+@import "../../utils/scss/media.scss";
+@import "../../utils/scss/mixins.scss";
 
 .ShopCard {
   position: relative;
@@ -11,10 +11,14 @@
 
   background-size: cover;
 
-  $bgFilter: linear-gradient(180deg, rgba(31, 39, 27, 0) 0%, rgba(31, 39, 27, 0.87) 100%);
+  $bgFilter: linear-gradient(
+    180deg,
+    rgba(31, 39, 27, 0) 0%,
+    rgba(31, 39, 27, 0.87) 100%
+  );
   @include bgFilter($bgFilter) {
     border-radius: $radius;
-  };
+  }
 
   @include media(1200px) {
     width: calc(220px + (279 - 220) * ((100vw - 320px) / (1240 - 320)));
@@ -31,10 +35,6 @@
 
     &:after {
       content: none;
-    }
-
-    @include media(500px) {
-      padding: 30px 15px;
     }
   }
 
@@ -165,8 +165,9 @@
       font-style: normal;
       line-height: 102.4%;
 
-      &:before, &:after {
-        content: '';
+      &:before,
+      &:after {
+        content: "";
 
         position: absolute;
         top: 100%;

@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 
+import ShopCardMini from "../../../../ShopCardMini/ShopCardMini";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 
@@ -14,7 +16,7 @@ import arrowIcon from "./arrow.svg";
 
 SwiperCore.use([Navigation]);
 
-const CardTabsSlider = ({ cards }) => {
+const CardTabsSlider = ({ items }) => {
   const classesBtnPrev = cn(styles.NavBtn, styles.NavBtnPrev);
   const classesBtnNext = cn(styles.NavBtn, styles.NavBtnNext);
 
@@ -32,10 +34,10 @@ const CardTabsSlider = ({ cards }) => {
   return (
     <>
       <Swiper {...options}>
-        {cards.map((card) => {
+        {items.map((item) => {
           return (
-            <SwiperSlide className={styles.Slide} key={card.id}>
-              {card}
+            <SwiperSlide className={styles.Slide} key={item.id}>
+              <ShopCardMini item={item} className={styles.Card} />
             </SwiperSlide>
           );
         })}
@@ -48,7 +50,7 @@ const CardTabsSlider = ({ cards }) => {
 };
 
 CardTabsSlider.propTypes = {
-  cards: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 export default CardTabsSlider;

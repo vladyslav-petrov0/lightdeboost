@@ -9,6 +9,7 @@ import { topSaleList } from "./topSaleList";
 import { shopCardList } from "./shopCardList";
 import { shopCategories } from "./shopCategories";
 import { divideArr } from "../utils/funcs/divideArr";
+import { products } from "./products";
 
 export const handlers = [
   rest.get("/introitems", (req, res, ctx) => {
@@ -23,14 +24,14 @@ export const handlers = [
     const { id } = req.params;
     if (id) {
       let item = itemsTabsContent.find((el) => el.id == id);
-      return res(ctx.status(200), ctx.json(item));
+      return res(ctx.status(200), ctx.json(item), ctx.delay(300));
     } else {
-      return res(ctx.status(200), ctx.json({}));
+      return res(ctx.status(200), ctx.json({}), ctx.delay(300));
     }
   }),
 
   rest.get("/itemstabscontent/", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({}));
+    return res(ctx.status(200), ctx.json({}), ctx.delay(300));
   }),
 
   rest.get("/limitedsaleitem", (req, res, ctx) => {
@@ -68,5 +69,11 @@ export const handlers = [
 
   rest.get("/shopcategories", (req, res, ctx) => {
     return res(ctx.delay(500), ctx.status(200), ctx.json(shopCategories));
+  }),
+
+  rest.get("/products", (req, res, ctx) => {
+    const { id } = queryString.parse(req.url.search);
+    const data = products.find((el) => el.id === +id);
+    return res(ctx.status(200), ctx.json(data));
   }),
 ];

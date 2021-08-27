@@ -1,0 +1,98 @@
+@import "../../utils/scss/vars";
+@import "../../utils/scss/media";
+@import "../../utils/scss/mixins";
+
+.Footer {
+  background-color: #202020;
+  padding: 75px 0;
+
+  @include media(768px) {
+    padding: 50px 0;
+  }
+}
+
+.Body {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 48px;
+
+  @include media(768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.Copyright {
+  font: 500 16px/20px $font;
+  color: rgba(255, 255, 255, 0.33);
+
+  @include media(768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.Payments {
+  img {
+    margin-right: 18px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.Tail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include media(768px) {
+    flex-direction: column;
+  }
+}
+
+.Logo {
+  margin-bottom: 45px;
+  font: bold 19px/23px $font;
+
+  color: $colorAdd2;
+
+  @include media(768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.LeftSide {
+  @include media(768px) {
+    margin-bottom: 40px;
+  }
+}
+
+.SubscribeSpan {
+  display: block;
+  font: 500 16px/20px $font;
+  color: $colorAdd2;
+
+  margin-bottom: 23px;
+
+  @include media(768px) {
+    text-align: center;
+  }
+}
+
+.NavList {
+  flex-direction: column;
+
+  li {
+    margin: 0 0 14px 0;
+    color: $colorAdd2;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  @include media(768px) {
+    align-items: center;
+  }
+}

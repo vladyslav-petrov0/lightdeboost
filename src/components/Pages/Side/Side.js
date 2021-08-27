@@ -5,10 +5,12 @@ import Breadcrumbs from "../../Breadcrumbs/Breadcrumbs";
 import Container from "../../UI/Container/Container";
 import Title from "../../Title/Title";
 
+import styles from "./Side.module.scss";
+
 const SidePage = ({ children, name, className }) => {
   return (
     <>
-      <Breadcrumbs />
+      <Breadcrumbs className={styles.Breadcrumbs} />
       <Container>
         <Title>{name}</Title>
       </Container>

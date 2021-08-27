@@ -38,4 +38,6 @@ export default class LightBoostService {
     const paramsUrl = `/?${queryString.stringify(filter)}`;
     return axios.get(`/shopcardlist${paramsUrl}`);
   };
+
+  getProductById = async (id) => axios.get(`/products?id=${id}`);
 }

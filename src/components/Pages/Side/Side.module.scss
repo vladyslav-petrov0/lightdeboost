@@ -1,0 +1,9 @@
+@import "../../../utils/scss/media";
+
+.Breadcrumbs {
+  margin-bottom: 54px;
+
+  @include media(610px) {
+    margin-bottom: 34px;
+  }
+}
