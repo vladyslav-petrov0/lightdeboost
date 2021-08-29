@@ -12,29 +12,28 @@ const ProductOptions = ({ register, options }) => {
   return options.map(({ type, ...props }) => {
     const { label, fieldName } = props;
 
+    const controlComponentProps = {
+      ...props,
+      ...register(fieldName),
+      key: fieldName,
+    };
+
     switch (type) {
       case "radio":
         return (
           <ProductRadio
-            key={fieldName}
-            {...props}
+            {...controlComponentProps}
             {...register(fieldName, props.options[0])}
           />
         );
       case "clue":
         return <ProductClue {...props} key={label} />;
       case "range":
-        return (
-          <ProductRange {...props} {...register(fieldName)} key={fieldName} />
-        );
+        return <ProductRange {...controlComponentProps} />;
       case "select":
-        return (
-          <ProductSelect {...props} {...register(fieldName)} key={fieldName} />
-        );
+        return <ProductSelect {...controlComponentProps} />;
       case "toggle":
-        return (
-          <ProductToggle {...props} {...register(fieldName)} key={fieldName} />
-        );
+        return <ProductToggle {...controlComponentProps} />;
       default:
         return null;
     }

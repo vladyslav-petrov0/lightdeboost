@@ -1,3 +1,5 @@
+const isMobile = window.innerWidth <= 550;
+
 const textStyle = {
   fontWeight: "500",
   fontSize: "20px",
@@ -22,6 +24,7 @@ export const styles = {
     ...textStyle,
     padding: "0",
     color: "white",
+    fontSize: isMobile ? "18px" : "20px",
   }),
   indicatorsContainer: (provided) => ({
     ...provided,
@@ -37,9 +40,7 @@ export const styles = {
     backgroundColor: "rgba(244, 176, 43, 0.42)",
   }),
   option: (provided, state) => {
-    const backgroundColor = state.isFocused
-      ? "#f4b02b"
-      : "rgba(244, 176, 43, 0.42)";
+    const backgroundColor = state.isFocused ? "#f4b02b" : "#fadea6";
 
     return {
       ...provided,
@@ -48,6 +49,7 @@ export const styles = {
       padding: "16px 21px",
       color: state.isFocused ? "white" : "black",
       cursor: "pointer",
+      fontSize: isMobile ? "18px" : "20px",
     };
   },
   dropdownIndicator: (provided) => ({

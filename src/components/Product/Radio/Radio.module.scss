@@ -1,10 +1,15 @@
 @import "../../../utils/scss/vars";
+@import "../../../utils/scss/media";
 
 .RadioWrapper {
   display: flex;
   align-items: center;
 
   margin-bottom: 24px;
+
+  @include media(550px) {
+    flex-direction: column;
+  }
 }
 
 .Label {
@@ -13,6 +18,10 @@
   color: $colorAdd1;
 
   margin-right: 28px;
+
+  @include media(550px) {
+    margin: 0 0 15px 0;
+  }
 }
 
 .Radio {

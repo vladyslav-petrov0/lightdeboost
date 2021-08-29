@@ -1,6 +1,11 @@
 @import "../../../utils/scss/vars";
 
 .Select {
+  max-width: 432px;
+  width: 100%;
+
+  margin-bottom: 24px;
+
   [class$="-option"] {
     &:active {
       background-color: $colorMain;

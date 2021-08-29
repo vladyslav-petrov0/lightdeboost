@@ -31,6 +31,7 @@ const ProductSelect = ({ options, ...props }) => {
     value: valueToSelectOption(props.value),
     styles,
     className: stylesActive.Select,
+    maxMenuHeight: 200,
   };
 
   return <Select {...selectProps} />;

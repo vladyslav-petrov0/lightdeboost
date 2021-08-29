@@ -1,4 +1,5 @@
 @import "../../../utils/scss/vars";
+@import "../../../utils/scss/media";
 
 .Clue {
   max-width: 465px;
@@ -13,4 +14,8 @@
   border-left: 4px solid $colorMain;
 
   margin-bottom: 33px;
+
+  @include media(550px) {
+    font-size: 18px;
+  }
 }

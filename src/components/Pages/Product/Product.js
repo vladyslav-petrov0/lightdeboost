@@ -21,19 +21,23 @@ const ProductPage = () => {
 
   useEffect(() => fetchData(), [id]);
 
+  if (loading || !data) {
+    return null;
+  }
+
+  const { title, information, reviews } = data;
+
   return (
     <>
       <Breadcrumbs className={styles.Breadcrumbs} />
 
-      {data?.title && (
-        <Container className={styles.TitleWrapper}>
-          <Title size="lg">{data.title}</Title>
-        </Container>
-      )}
+      <Container className={styles.TitleWrapper}>
+        <Title size="lg">{title}</Title>
+      </Container>
 
       <main>
-        {data && <Product {...data} />}
-        <ProductPageTabs />
+        <Product {...data} />
+        <ProductPageTabs information={information} reviews={reviews} />
         <OurProducts className={styles.OurProducts} />
       </main>
     </>

@@ -1,31 +1,90 @@
 @import "../../utils/scss/vars";
+@import "../../utils/scss/media";
+@import "../../utils/scss/mixins";
 
 .Product {
   margin-bottom: 60px;
 }
 
 .Details {
-  flex: 1 0 50%;
+  flex: 1 1 50%;
 
   display: flex;
   flex-direction: column;
 
   min-height: 584px;
+
+  @include media(1023px) {
+    min-height: auto;
+  }
+
+  @include media(550px) {
+    align-items: center;
+  }
 }
 
 .Container {
   display: flex;
+
+  @include media(1023px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .Img {
-  max-width: 523px;
-  width: 100%;
+  flex: 1 2 46%;
+  position: relative;
 
   margin-right: 59px;
+
+  background: url("./img/bg.jpg") center no-repeat;
+  background-size: cover;
+
+  @include bgFilter(
+    linear-gradient(
+      180deg,
+      rgba(31, 39, 27, 0) -15.75%,
+      rgba(31, 39, 27, 0.87) 84.25%
+    )
+  );
+
+  @include media(1023px) {
+    flex: 1 1 auto;
+
+    @include responsibleProp("width", 600, 465, 550, 1023);
+    @include responsibleProp("height", 600, 465, 550, 1023);
+
+    @include media(550px) {
+      padding-bottom: 100%;
+      width: 100%;
+      height: auto;
+    }
+
+    margin: 0 0 40px 0;
+  }
+
+  img {
+    position: absolute;
+    z-index: 20;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
 }
 
 .Actions {
   display: flex;
+
+  @include media(550px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .Price {
@@ -34,6 +93,11 @@
   line-height: 102.4%;
 
   color: $colorAdd1;
+
+  @include media(550px) {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
 }
 
 .Footer {
@@ -42,10 +106,23 @@
   align-items: center;
 
   margin-top: auto;
+
+  @include media(1023px) {
+    margin-top: 40px;
+  }
+
+  @include media(550px) {
+    flex-direction: column;
+    margin-top: 20px;
+  }
 }
 
 .Title {
   margin-bottom: 26px;
+
+  @include media(550px) {
+    text-align: center;
+  }
 }
 
 .Btn {
@@ -62,7 +139,16 @@
 
   border-radius: $radius;
 
+  @include media(550px) {
+    margin: 0 0 20px 0;
+    padding: 14px 18px;
+  }
+
   &:last-child {
     margin-right: 0;
+
+    @include media(550px) {
+      margin-bottom: 0;
+    }
   }
 }

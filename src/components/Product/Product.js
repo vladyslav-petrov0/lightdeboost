@@ -17,7 +17,9 @@ const Product = ({ img, title, options, price }) => {
   return (
     <div className={styles.Product}>
       <Container className={styles.Container}>
-        <img src={img} className={styles.Img} alt="" />
+        <div className={styles.Img}>
+          <img src={img} alt="" />
+        </div>
 
         <div className={styles.Details}>
           <Title size="sm" className={styles.Title}>

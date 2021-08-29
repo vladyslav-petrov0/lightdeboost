@@ -1,0 +1,38 @@
+@import "../../../../utils/scss/vars";
+@import "../../../../utils/scss/media";
+
+.Drag {
+  position: absolute;
+  top: -5.5px;
+  left: 0;
+
+  width: 22px;
+  height: 22px;
+
+  background-color: $colorMain;
+  border-radius: 50%;
+
+  cursor: grab;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07),
+    inset 0px 0px 6px rgba(31, 39, 27, 0.12);
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.Value {
+  composes: Limit from "../Range.module.scss";
+  top: -35px;
+  left: 50%;
+  color: $colorMain;
+
+  pointer-events: none;
+
+  transform: translateX(-50%);
+
+  @include media(550px) {
+    top: -30px;
+  }
+}

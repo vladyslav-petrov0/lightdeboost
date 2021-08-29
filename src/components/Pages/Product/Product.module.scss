@@ -1,11 +1,21 @@
+@import "../../../utils/scss/media";
+
 .OurProducts {
   margin-bottom: 69px;
 }
 
 .TitleWrapper {
   margin-bottom: 75px;
+
+  @include media(550px) {
+    margin-bottom: 45px;
+  }
 }
 
 .Breadcrumbs {
   margin-bottom: 65px;
+
+  @include media(610px) {
+    margin-bottom: 34px;
+  }
 }

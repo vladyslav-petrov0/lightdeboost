@@ -1,10 +1,11 @@
 import React from "react";
 
 import { TabsPanel, Tab, Tabs, TabsList } from "../../../UI/Tabs";
+import Information from "../Information/Information";
 
 import styles from "./Tabs.module.scss";
 
-const ProductPageTabs = () => {
+const ProductPageTabs = ({ information, reviews }) => {
   return (
     <Tabs className={styles.Tabs}>
       <TabsList className={styles.List}>
@@ -15,7 +16,9 @@ const ProductPageTabs = () => {
         <Tab index={4}>Other</Tab>
       </TabsList>
 
-      <TabsPanel index={0}>1</TabsPanel>
+      <TabsPanel index={0}>
+        <Information data={information} />
+      </TabsPanel>
       <TabsPanel index={1}>2</TabsPanel>
       <TabsPanel index={2}>3</TabsPanel>
       <TabsPanel index={3}>4</TabsPanel>

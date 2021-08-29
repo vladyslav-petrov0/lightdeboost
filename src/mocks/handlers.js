@@ -9,7 +9,7 @@ import { topSaleList } from "./topSaleList";
 import { shopCardList } from "./shopCardList";
 import { shopCategories } from "./shopCategories";
 import { divideArr } from "../utils/funcs/divideArr";
-import { products } from "./products";
+import { products } from "./products/products";
 
 export const handlers = [
   rest.get("/introitems", (req, res, ctx) => {

@@ -1,9 +1,11 @@
+import productImg1 from "./img/product1.png";
+
 export const products = [
   {
     id: 1,
     title: "CONQUEST POINTS CAP",
     price: 200,
-    img: "https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/cat_1280p_0.jpg?itok=6F0T3mFp",
+    img: productImg1,
     information: [
       {
         id: 1,
@@ -59,9 +61,21 @@ export const products = [
         type: "select",
         label: "CAP TYPE",
         fieldName: "capType",
-        options: ["1K POINTS CAP", "2K POINTS CAP", "3K POINTS CAP"],
+        options: [
+          "1K POINTS CAP",
+          "2K POINTS CAP",
+          "3K POINTS CAP",
+          "4K POINTS CAP",
+          "5K POINTS CAP",
+        ],
         placeholder: "1K POINTS CAP",
       },
+      // {
+      //   type: "range",
+      //   label: "pointsAmount",
+      //   fieldName: "pointsAmount",
+      //   options: { min: 0, max: 2100, minDefault: 449, minDistance: 300 },
+      // },
     ],
   },
 ];

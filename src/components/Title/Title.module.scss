@@ -17,6 +17,10 @@
   @include responsibleFont(320px, 1280px, 30px, 80px);
 }
 
+.rg {
+  @include responsibleFont(320px, 1280px, 30px, 40px);
+}
+
 .sm {
   @include responsibleFont(320px, 1280px, 25px, 36px);
 }
