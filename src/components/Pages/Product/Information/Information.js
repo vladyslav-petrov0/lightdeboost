@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { arrayOf, number, shape, string } from "prop-types";
 
 import Text from "../../../UI/Text/Text";
 import Title from "../../../Title/Title";
@@ -28,6 +28,14 @@ const ProductPageInformation = ({ data }) => {
   });
 };
 
-ProductPageInformation.propTypes = {};
+ProductPageInformation.propTypes = {
+  data: arrayOf(
+    shape({
+      id: number.isRequired,
+      title: string.isRequired,
+      text: arrayOf(string).isRequired,
+    })
+  ),
+};
 
 export default ProductPageInformation;

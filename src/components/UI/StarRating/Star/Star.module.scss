@@ -1,0 +1,48 @@
+@import "../../../../utils/scss/vars.scss";
+
+@mixin activeStar {
+  fill: $colorMain;
+  stroke: $colorMain;
+}
+
+.Star {
+  width: 40px;
+  height: 40px;
+
+  overflow: visible;
+
+  fill: transparent;
+  stroke: black;
+  stroke-width: 20px;
+
+  padding: 5px;
+
+  transition: fill 0.3s ease, stroke 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    @include activeStar;
+    transform: scale(1.2);
+
+    & ~ .Star {
+      @include activeStar;
+      transform: scale(1.2);
+    }
+  }
+
+  &:first-child {
+    margin-right: 0;
+  }
+}
+
+.active {
+  @include activeStar;
+
+  & ~ .Star {
+    @include activeStar;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+}

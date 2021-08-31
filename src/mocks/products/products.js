@@ -29,7 +29,8 @@ export const products = [
         id: 1,
         author: "Vasya Pupkin",
         userImg: "https://html5css.ru/w3css/img_avatar3.png",
-        comment: "Very good, very best :D",
+        comment:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies lorem, sed feugiat dolor. Nam hendrerit, erat eu efficitur mattis, velit turpis ultricies est, et hendrerit eros ligula sed dui. Duis at magna in ante consequat porta. Nam a lorem pretium, convallis leo ut, consequat nulla. Pellentesque eu suscipit purus, eget suscipit sapien. Maecenas dui turpis, hendrerit eget ligula non, dapibus semper enim. Sed id libero bibendum, dignissim ipsum et, condimentum diam. Nunc molestie luctus placerat. Nam imperdiet, nisl a hendrerit tincidunt, diam metus ullamcorper mi, sit amet finibus nisl odio at urna. Phasellus quis faucibus sapien. Ut ac nisl vitae arcu tincidunt posuere. Duis odio est, ornare eu pulvinar eu, dignissim non sem. Aliquam lacinia quis risus sed tincidunt.",
         rating: 5,
       },
       {

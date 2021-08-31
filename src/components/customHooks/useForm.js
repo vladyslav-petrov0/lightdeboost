@@ -5,7 +5,9 @@ export const useForm = (initialFields = {}) => {
 
   const register = (label, defaultValue = "") => {
     const onChange = (prop) => {
-      const value = prop?.target?.value || prop;
+      let value;
+
+      value = prop.target ? prop.target.value : prop;
 
       setFields((fields) => ({
         ...fields,

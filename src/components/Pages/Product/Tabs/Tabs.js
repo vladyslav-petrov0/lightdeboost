@@ -2,6 +2,7 @@ import React from "react";
 
 import { TabsPanel, Tab, Tabs, TabsList } from "../../../UI/Tabs";
 import Information from "../Information/Information";
+import Reviews from "../Reviews/Reviews";
 
 import styles from "./Tabs.module.scss";
 
@@ -19,7 +20,9 @@ const ProductPageTabs = ({ information, reviews }) => {
       <TabsPanel index={0}>
         <Information data={information} />
       </TabsPanel>
-      <TabsPanel index={1}>2</TabsPanel>
+      <TabsPanel index={1}>
+        <Reviews data={reviews} />
+      </TabsPanel>
       <TabsPanel index={2}>3</TabsPanel>
       <TabsPanel index={3}>4</TabsPanel>
       <TabsPanel index={4}>5</TabsPanel>

@@ -11,8 +11,8 @@ import ProductOptions from "./Options/Options";
 
 import styles from "./Product.module.scss";
 
-const Product = ({ img, title, options, price }) => {
-  const { fields, register } = useForm({ title, price });
+const Product = ({ img, title, options, price, id }) => {
+  const { fields, register } = useForm({ title, price, id });
 
   return (
     <div className={styles.Product}>

@@ -1,0 +1,33 @@
+@import "../../utils/scss/vars.scss";
+
+.Review {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.Rating {
+  align-self: start;
+}
+
+.UserIcon {
+  margin-right: 20px;
+}
+
+.Author {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 142.9%;
+
+  color: $colorAdd1;
+
+  margin-bottom: 5px;
+}
+
+.Details {
+  display: flex;
+  flex-direction: column;
+}
+
+.Comment {
+  margin-bottom: 10px;
+}

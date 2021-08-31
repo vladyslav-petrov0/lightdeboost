@@ -1,0 +1,43 @@
+@import "../../../../../utils/scss/vars";
+
+.Btn {
+  padding: 12px 18px;
+  border-radius: $radius;
+}
+
+.ShowBtn {
+  position: absolute;
+  top: -15px;
+  right: 0;
+}
+
+.SubmitBtn {
+  align-self: flex-end;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px;
+  margin-bottom: 30px;
+
+  background-color: rgba(244, 176, 43, 0.12);
+  border-radius: $radius;
+
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    span {
+      margin-right: 20px;
+      width: 150px;
+      text-align: right;
+    }
+  }
+}
+
+.RatingWrapper {
+  display: flex;
+}

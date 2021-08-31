@@ -1,5 +1,7 @@
+@import "../../../../utils/scss/mixins.scss";
+
 .Tabs {
-  margin-bottom: 134px;
+  @include responsibleProp("margin-bottom", 134, 75, 320, 1200);
 }
 
 .List {
